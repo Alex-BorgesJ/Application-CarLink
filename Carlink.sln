@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.34526.175
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Carlink", "Carlink\", "{F72EDEE8-3B2E-4BC3-8B9E-B734420EE160}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62994"
+		Debug.AspNetCompiler.PhysicalPath = "Carlink\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62994\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62994"
+		Release.AspNetCompiler.PhysicalPath = "Carlink\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62994\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62994"
+		SlnRelativePath = "Carlink\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F72EDEE8-3B2E-4BC3-8B9E-B734420EE160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72EDEE8-3B2E-4BC3-8B9E-B734420EE160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A2286C4-0B95-41ED-9EA1-92CC48667D40}
+	EndGlobalSection
+EndGlobal
