@@ -15,6 +15,6 @@ public partial class Pages_MasterPage : System.Web.UI.MasterPage
     protected string UrlNav(string url)
     {
          
-        return ResolveUrl("~/Pages/" + url); 
+        return ResolveUrl("~/Paginas/" + url); 
     }
 }

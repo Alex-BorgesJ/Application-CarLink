@@ -25,7 +25,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion toggled" style="background-color: #566DB3" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%= UrlNav("#") %>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%= UrlNav("CarLink_Home.aspx") %>">
                 <div class="sidebar-brand-text mx-3">CarLink</div>
             </a>
 
@@ -42,8 +42,8 @@
                 </a>
                 <div id="collapseCadastro" class="collapse" aria-labelledby="headingCadastro" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<%= UrlNav("Cadastro/Cadastrar.aspx") %>"><i class="fas fa-fw fa-pen"></i>Cadastrar</a>
-                        <a class="collapse-item" href="<%= UrlNav("Cadastro/Listar.aspx") %>"><i class="fas fa-fw fa-book"></i>Lista</a>
+                        <a class="collapse-item" href="<%= UrlNav("CarLink_Cadastro.aspx") %>"><i class="fas fa-fw fa-pen"></i>Cadastrar Carro</a>
+                        <a class="collapse-item" href="<%= UrlNav("CarLink_Cadastro.aspx") %>"><i class="fas fa-fw fa-book"></i>Cadastrar Cliente</a>
                     </div>
                 </div>
             </li>
@@ -63,7 +63,7 @@
                 </a>
                 <div id="collapseLogin" class="collapse" aria-labelledby="headingLogin" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<%= UrlNav("Login/Login.aspx") %>"><i class="fas fa-fw fa-pen"></i>Login</a>
+                        <a class="collapse-item" href="<%= UrlNav("#") %>"><i class="fas fa-fw fa-pen"></i>Login</a>
                     </div>
                 </div>
             </li>
@@ -142,7 +142,7 @@
                 <div class="container-fluid" style="background-color: #E0E8FF">
 
                     <!-- Page Heading -->
-                    <div>
+                    <div >
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
