@@ -11,4 +11,14 @@ public partial class Paginas_CarLink_Cadastro : System.Web.UI.Page
     {
 
     }
+
+    protected void btnSalvar_Click(object sender, EventArgs e)
+    {
+        // Implemente a lógica de salvar aqui
+    }
+
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        // Implemente a lógica de cancelar aqui
+    }
 }
