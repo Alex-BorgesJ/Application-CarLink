@@ -74,7 +74,9 @@
 
                 <!-- Content Tabs - Clietes -->
                 <div class="tab-pane fade" id="pills-clientes" role="tabpanel" aria-labelledby="clientes-tab">
-                    Nesciunt totam et. Consequuntur magnam aliquid eos nulla dolor iure eos quia. Accusantium distinctio omnis et atque fugiat. Itaque doloremque aliquid sint quasi quia distinctio similique. Voluptate nihil recusandae mollitia dolores. Ut laboriosam voluptatum dicta.
+                    <!-- Clientes Form -->
+                    
+                    <!-- End Clientes Form -->
                 </div>
                 <!-- End Content Tabs - Clietes -->
 
