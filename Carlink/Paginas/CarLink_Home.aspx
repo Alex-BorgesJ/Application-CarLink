@@ -6,50 +6,50 @@
     <div class=" d-flex justify-content-center align-items-center py-2">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 card-deck">
 
-            <a class="col d-flex justify-content-center my-1 p-0 " href="CarLink_Cadastro.aspx">
-                <div class="card text-decoration-none" style="width: 180px; height: 280px; background: linear-gradient(to right,  #566DB3, #9CAEE6); border-radius:50px">
+            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="CarLink_Cadastro.aspx">
+                <div class="card btn-home">
                     <div class="card-body d-flex justify-content-center align-items-center">
                         <h1 class="card-title text-white">Cadastro</h1>
                     </div>
                 </div>
             </a>
 
-            <a class="col d-flex justify-content-center my-1 p-0" href="#">
-                <div class="card text-decoration-none" style="width: 180px; height: 280px; background: linear-gradient(to right,  #566DB3, #9CAEE6); border-radius:50px">
+            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="#">
+                <div class="card btn-home">
                     <div class="card-body d-flex justify-content-center align-items-center">
                         <h1 class="card-title text-white">Ordem de Serviço</h1>
                     </div>
                 </div>
             </a>
 
-            <a class="col d-flex justify-content-center my-1 p-0" href="#">
-                <div class="card text-decoration-none" style="width: 180px; height: 280px;background: linear-gradient(to right,  #566DB3, #9CAEE6); border-radius:50px">
+            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="#">
+                <div class="card btn-home">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h1 class="card-title text-white">Card title</h1>
+                        <h1 class="card-title text-white">Catálagos</h1>
                     </div>
                 </div>
             </a>
 
-            <a class="col d-flex justify-content-center my-1 p-0" href="#">
-                <div class="card text-decoration-none" style="width: 180px; height: 280px;background: linear-gradient(to right,  #566DB3, #9CAEE6); border-radius:50px">
+            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="#">
+                <div class="card btn-home">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h1 class="card-title text-white">Card title</h1>
+                        <h1 class="card-title text-white">Registros</h1>
                     </div>
                 </div>
             </a>
 
-            <a class="col d-flex justify-content-center my-1 p-0" href="#">
-                <div class="card text-decoration-none" style="width: 180px; height: 280px;background: linear-gradient(to right,  #566DB3, #9CAEE6); border-radius:50px">
+            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="#">
+                <div class="card btn-home">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h1 class="card-title text-white">Card title</h1>
+                        <h1 class="card-title text-white">Consultas</h1>
                     </div>
                 </div>
             </a>
 
-            <a class="col d-flex justify-content-center my-1 p-0" href="#">
-                <div class="card text-decoration-none " style="width: 180px; height: 280px;background: linear-gradient(to right,  #566DB3, #9CAEE6); border-radius:50px">
+            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="#">
+                <div class="card btn-home">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h1 class="card-title text-white">Card title</h1>
+                        <h1 class="card-title text-white">Administrar</h1>
                     </div>
                 </div>
             </a>

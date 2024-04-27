@@ -1,0 +1,15 @@
+﻿.btn-home {
+    width: 180px;
+    height: 280px;
+    background: linear-gradient(to right, #566DB3, #0047ab);
+    border-radius: 50px;
+    -webkit-transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+    transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+    box-shadow: 0 0 0px #566DB3;
+}
+
+    .btn-home:hover {
+        background: linear-gradient(to right, #566DB3, #9CAEE6);
+        color: #ffff;
+        box-shadow: 5px 5px 10px #566DB3;
+    }
