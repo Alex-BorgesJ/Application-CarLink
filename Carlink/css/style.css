@@ -10,6 +10,123 @@
 
     .btn-home:hover {
         background: linear-gradient(to right, #566DB3, #9CAEE6);
-        color: #ffff;
+        color: #ffffff;
         box-shadow: 5px 5px 10px #566DB3;
     }
+
+    /*Css CarLink_Landing Custom*/
+        /* Navbar */
+        .login {
+            margin-left: 50px;
+            margin-right: 10px;
+        }
+
+        .texts {
+            font-weight: bolder;
+            color: #9CAEE6;
+        }
+
+            .texts:hover {
+                color: #9CAEE6;
+            }
+
+        .bg-menu {
+            background-color: #06184d;
+        }
+
+        .btn-tabs {
+            background-color: #06184d;
+            color: #9CAEE6;
+            margin-left: 30px;
+        }
+
+            .btn-tabs:hover {
+                background-color: #9CAEE6;
+                color: #06184d;
+                border-radius: 5px;
+                box-shadow: 3px 3px #e0e8ff;
+                margin-right: 4px;
+            }
+
+        /* End Navbar */
+
+        /* Main */
+        .bg-color {
+            background-color: #9CAEE6;
+        }
+
+        .colortxt {
+            color: #06184d;
+        }
+
+        .texth1 {
+            text-align: center;
+            font-size: 50px;
+            color: #06184d;
+            margin-top: 120px;
+            font-weight: bolder;
+        }
+
+        .texth2 {
+            text-align: center;
+            font-size: 40px;
+            color: #06184d;
+        }
+
+        .btn-page {
+            background-color: #e0e8ff;
+            color: #06184d;
+            margin-left: -28px;
+            border-radius: 18px;
+        }
+
+            .btn-page:hover {
+                background-color: #06184d;
+                color: #9CAEE6;
+            }
+
+        .text-menu {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .bg-main {
+            background-color: #566db3;
+            border-radius: 18px;
+        }
+
+        .alinhamento {
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+
+        .hr-format {
+            height: 1px;
+            background: #06184d;
+            border-radius: 5px;
+        }
+
+        .alinhamento-card {
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .color-card {
+            color: #e0e8ff;
+        }
+
+        .bg-card {
+            background-color: #06184d;
+            border-radius: 25px;
+        }
+
+        li {
+            margin-left: -25px;
+            margin-bottom: 5px;
+}
+
+    /*End - Css CarLink_Landing Custom*/
