@@ -14,6 +14,7 @@
         box-shadow: 5px 5px 10px #566DB3;
     }
 
+<<<<<<< HEAD
     /*Css CarLink_Landing Custom*/
         /* Navbar */
         .login {
@@ -130,3 +131,170 @@
 }
 
     /*End - Css CarLink_Landing Custom*/
+=======
+/*CSS Login page custom*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Define estilos padrão para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif; /* Define a fonte padrão */
+}
+
+/* Estilos para o corpo do documento */
+body {
+    display: flex; /* Usa um layout flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh;
+    background: rgb(224,232,255);
+    background: radial-gradient(circle, rgba(224,232,255,1) 0%, rgba(36,59,128,1) 100%);
+}
+/* Cor de fundo todo */
+
+
+/* Estilos para o contêiner principal */
+.container {
+    padding: 40px;
+    border-radius: 20px; /* Borda arredondada */
+    border: 8px solid #06184D; /* Borda sólida */
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1), /* Sombra clara superior */
+    5px 5px 15px rgba(0, 0, 0, 0.35), /* Sombra escura inferior */
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1), /* Sombra interna clara superior */
+    inset 5px 5px 15px rgba(0, 0, 0, 0.35); /* Sombra interna escura inferior */
+}
+
+    /* Estilos para o formulário dentro do contêiner */
+    .container .form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+        /* Esconde formulários específicos dentro do contêiner */
+        .container .form.signin,
+        .container.signinForm .form.signup {
+            display: none;
+        }
+
+    /* Mostra o formulário de login dentro do contêiner de login */
+    .container.signinForm .form.signin {
+        display: flex;
+    }
+
+    /* Estilos para cabeçalhos dentro do formulário */
+    .container .form h2 {
+        color: #06184D; /* Cor do texto */
+        font-weight: 500;
+        letter-spacing: 0.1em; /* Espaçamento entre letras */
+    }
+
+    /* Estilos para caixas de entrada de texto dentro do formulário */
+    .container .form .inputBox {
+        position: relative;
+        width: 300px;
+    }
+
+        /* Estilos para campos de entrada de texto dentro da caixa de entrada */
+        .container .form .inputBox input {
+            padding: 12px 10px 12px 48px;
+            border: none; /* Remove a borda padrão do campo */
+            width: 100%;
+            background: #E0E8FF; /* Define a cor de fundo do campo onde vai inserir as informações*/
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Define uma borda sólida com transparência */
+            color: #06184D; /* Define a cor do texto dentro do campo */
+            font-weight: 300;
+            border-radius: 25px; /* Define o raio da borda arredondada */
+            font-size: 1em;
+            box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1), /* Define uma sombra clara superior */
+            5px 5px 15px rgba(0, 0, 0, 0.35); /* Define uma sombra escura inferior */
+            transition: 0.5s;
+            outline: none;
+        }
+
+        /* Estilos para rótulos dentro da caixa de entrada */
+        .container .form .inputBox span {
+            position: absolute;
+            left: 0;
+            padding: 12px 10px 12px 48px;
+            pointer-events: none;
+            font-size: 1em;
+            font-weight: 300;
+            transition: 0.5s;
+            letter-spacing: 0.05em;
+            color: #06184D; /* Define a cor do texto do rótulo com transparência */
+        }
+
+        .container .form .inputBox input:valid ~ span,
+        .container .form .inputBox input:focus ~ span {
+            color: #06184D; /* Altera a cor do texto do rótulo quando o campo é válido ou tem foco */
+            border: 1px solid #06184D;
+            background: #E0E8FF; /* Define a cor de fundo do rótulo quando o campo é válido ou tem foco */
+            transform: translateX(25px) translateY(-7px);
+            font-size: 0.6em;
+            padding: 0 8px;
+            border-radius: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        .container .form .inputBox input:valid,
+        .container .form .inputBox input:focus {
+            border: 1px solid #06184D;
+        }
+
+        .container .form .inputBox i {
+            position: absolute;
+            top: 15px;
+            left: 16px;
+            width: 25px;
+            padding: 2px 0;
+            padding-right: 8px;
+            color: #06184D;
+            border-right: 1px solid #06184D;
+        }
+
+        /* Estilos para botões de envio dentro do formulário */
+        .container .form .inputBox input[type="button"] {
+            background: #06184D; /* Define a cor de fundo do botão de envio */
+            color: #fff; /* Define a cor do texto do botão de envio */
+            padding: 10px 0;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1), /* Adiciona uma sombra clara superior */
+            5px 5px 15px rgba(0, 0, 0, 0.35), /* Adiciona uma sombra escura inferior */
+            inset -5px -5px 15px rgba(255, 255, 255, 0.1), /* Adiciona uma sombra interna clara superior */
+            inset 5px 5px 15px rgba(0, 0, 0, 0.35); /* Adiciona uma sombra interna escura inferior */
+        }
+
+        .container .form .inputBox input[type="submit"] {
+            background: #06184D; /* Define a cor de fundo do botão de envio */
+            color: #fff; /* Define a cor do texto do botão de envio */
+            padding: 10px 0;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1), /* Adiciona uma sombra clara superior */
+            5px 5px 15px rgba(0, 0, 0, 0.35), /* Adiciona uma sombra escura inferior */
+            inset -5px -5px 15px rgba(255, 255, 255, 0.1), /* Adiciona uma sombra interna clara superior */
+            inset 5px 5px 15px rgba(0, 0, 0, 0.35); /* Adiciona uma sombra interna escura inferior */
+        }
+
+    /* Estilos para parágrafos dentro do formulário */
+    .container .form p {
+        color: #06184D;
+        font-size: 0.75em;
+        font-weight: 300;
+    }
+
+        /* Estilos para links dentro de parágrafos no formulário */
+        .container .form p a {
+            font-weight: 500;
+            color: #06184D;
+        }
+
+/* END - CSS Login page custom*/
+>>>>>>> d21e8482bbd92bf8f307c2526c318e23e8e122a4
