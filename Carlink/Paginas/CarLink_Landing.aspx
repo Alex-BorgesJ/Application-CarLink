@@ -12,7 +12,7 @@
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style_landing.css" rel="stylesheet">
 </head>
 <body>
 
