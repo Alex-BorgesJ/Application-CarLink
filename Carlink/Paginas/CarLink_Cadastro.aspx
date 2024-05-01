@@ -27,45 +27,45 @@
 
                         <div class="row form-group">
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblMarca" runat="server" AssociatedControlID="txtBoxMarca" CssClass="form-label">Marca</asp:Label>
-                                <asp:TextBox ID="txtBoxMarca" runat="server" CssClass="form-control" placeholder="Chevrolet"></asp:TextBox>
+                                <asp:label id="lblMarca" runat="server" associatedcontrolid="txtBoxMarca" cssclass="form-label">Marca</asp:label>
+                                <asp:textbox id="txtBoxMarca" runat="server" cssclass="form-control" placeholder="Chevrolet"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblModelo" runat="server" AssociatedControlID="txtBoxModelo" CssClass="form-label">Modelo</asp:Label>
-                                <asp:TextBox ID="txtBoxModelo" runat="server" CssClass="form-control" placeholder="Corsa Classic"></asp:TextBox>
+                                <asp:label id="lblModelo" runat="server" associatedcontrolid="txtBoxModelo" cssclass="form-label">Modelo</asp:label>
+                                <asp:textbox id="txtBoxModelo" runat="server" cssclass="form-control" placeholder="Corsa Classic"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblAno" runat="server" AssociatedControlID="txtBoxAno" CssClass="form-label">Ano</asp:Label>
-                                <asp:TextBox ID="txtBoxAno" runat="server" CssClass="form-control" placeholder="YYYY"></asp:TextBox>
+                                <asp:label id="lblAno" runat="server" associatedcontrolid="txtBoxAno" cssclass="form-label">Ano</asp:label>
+                                <asp:textbox id="txtBoxAno" runat="server" cssclass="form-control" placeholder="YYYY"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblPlaca" runat="server" AssociatedControlID="txtBoxPlaca" CssClass="form-label">Placa</asp:Label>
-                                <asp:TextBox ID="txtBoxPlaca" runat="server" CssClass="form-control" placeholder="ABC-1234 ou AAA1A23"></asp:TextBox>
+                                <asp:label id="lblPlaca" runat="server" associatedcontrolid="txtBoxPlaca" cssclass="form-label">Placa</asp:label>
+                                <asp:textbox id="txtBoxPlaca" runat="server" cssclass="form-control" placeholder="ABC-1234 ou AAA1A23"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblKm" runat="server" AssociatedControlID="txtBoxKm" CssClass="form-label">Quilometragem</asp:Label>
-                                <asp:TextBox ID="txtBoxKm" runat="server" CssClass="form-control" placeholder="40000 (km)"></asp:TextBox>
+                                <asp:label id="lblKm" runat="server" associatedcontrolid="txtBoxKm" cssclass="form-label">Quilometragem</asp:label>
+                                <asp:textbox id="txtBoxKm" runat="server" cssclass="form-control" placeholder="40000 (km)"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblChassi" runat="server" AssociatedControlID="txtBoxChassi" CssClass="form-label">Chassi</asp:Label>
-                                <asp:TextBox ID="txtBoxChassi" runat="server" CssClass="form-control" placeholder="ABC12345678901234"></asp:TextBox>
+                                <asp:label id="lblChassi" runat="server" associatedcontrolid="txtBoxChassi" cssclass="form-label">Chassi</asp:label>
+                                <asp:textbox id="txtBoxChassi" runat="server" cssclass="form-control" placeholder="ABC12345678901234"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblColor" runat="server" AssociatedControlID="txtBoxColor" CssClass="form-label">Cor do Veículo</asp:Label>
-                                <asp:TextBox ID="txtBoxColor" runat="server" CssClass="form-control form-control-color" Text="Vermelho"></asp:TextBox>
+                                <asp:label id="lblColor" runat="server" associatedcontrolid="txtBoxColor" cssclass="form-label">Cor do Veículo</asp:label>
+                                <asp:textbox id="txtBoxColor" runat="server" cssclass="form-control form-control-color" text="Vermelho"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblCliente" runat="server" AssociatedControlID="dropDownCliente" CssClass="form-label">Dono do Veículo</asp:Label>
-                                <asp:DropDownList ID="dropDownCliente" runat="server" CssClass="form-control" AppendDataBoundItems="true">
+                                <asp:label id="lblCliente" runat="server" associatedcontrolid="dropDownCliente" cssclass="form-label">Dono do Veículo</asp:label>
+                                <asp:dropdownlist id="dropDownCliente" runat="server" cssclass="form-control" appenddatabounditems="true">
                                     <asp:ListItem Text="Option 1"></asp:ListItem>
                                     <asp:ListItem Text="Option 2"></asp:ListItem>
                                     <asp:ListItem Text="Option 3"></asp:ListItem>
-                                </asp:DropDownList>
-                                <asp:CheckBox ID="checkClienteCadastro" runat="server" Text="Não possui dono cadastrado" CssClass="form-check m-2" />
+                                </asp:dropdownlist>
+                                <asp:checkbox id="checkClienteCadastro" runat="server" text="Não possui dono cadastrado" cssclass="form-check m-2" />
                             </div>
                             <div class="text-center col-12 mt-4">
-                                <asp:Button ID="btnSalvarCarros" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvarCarros_Click" />
-                                <asp:Button ID="btnCancelarCarros" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelarCarros_Click" />
+                                <asp:button id="btnSalvarCarros" runat="server" text="Salvar" cssclass="btn btn-primary" onclick="btnSalvarCarros_Click" />
+                                <asp:button id="btnCancelarCarros" runat="server" text="Cancelar" cssclass="btn btn-secondary" onclick="btnCancelarCarros_Click" />
                             </div>
                         </div>
                         <!-- End Carros Form -->
@@ -77,28 +77,28 @@
                         <!-- Clientes Form -->
                         <div class="row form-group">
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblNomeCliente" runat="server" AssociatedControlID="txtBoxNomeCliente" CssClass="form-label">Nome</asp:Label>
-                                <asp:TextBox ID="txtBoxNomeCliente" runat="server" CssClass="form-control" placeholder="Ex: Andresa Borges"></asp:TextBox>
+                                <asp:label id="lblNomeCliente" runat="server" associatedcontrolid="txtBoxNomeCliente" cssclass="form-label">Nome</asp:label>
+                                <asp:textbox id="txtBoxNomeCliente" runat="server" cssclass="form-control" placeholder="Ex: Andresa Borges"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblEmailCliente" runat="server" AssociatedControlID="txtBoxEmailCliente" CssClass="form-label">Email</asp:Label>
-                                <asp:TextBox ID="txtBoxEmailCliente" runat="server" CssClass="form-control" placeholder="cliente@gmail.com"></asp:TextBox>
+                                <asp:label id="lblEmailCliente" runat="server" associatedcontrolid="txtBoxEmailCliente" cssclass="form-label">Email</asp:label>
+                                <asp:textbox id="txtBoxEmailCliente" runat="server" cssclass="form-control" placeholder="cliente@gmail.com"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblCPFCliente" runat="server" AssociatedControlID="txtBoxCPF" CssClass="form-label">CPF</asp:Label>
-                                <asp:TextBox ID="txtBoxCPF" runat="server" CssClass="form-control" placeholder="12345678910"></asp:TextBox>
+                                <asp:label id="lblCPFCliente" runat="server" associatedcontrolid="txtBoxCPF" cssclass="form-label">CPF</asp:label>
+                                <asp:textbox id="txtBoxCPF" runat="server" cssclass="form-control" placeholder="12345678910"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblTelefone" runat="server" AssociatedControlID="txtBoxTelefone" CssClass="form-label">Telefone</asp:Label>
-                                <asp:TextBox ID="txtBoxTelefone" runat="server" CssClass="form-control" placeholder="(12) 5 5555-5555"></asp:TextBox>
+                                <asp:label id="lblTelefoneCliente" runat="server" associatedcontrolid="txtBoxTelefoneCLiente" cssclass="form-label">Telefone</asp:label>
+                                <asp:textbox id="txtBoxTelefoneCliente" runat="server" cssclass="form-control" placeholder="(12) 5 5555-5555"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblCEP" runat="server" AssociatedControlID="txtBoxCEP" CssClass="form-label">CEP</asp:Label>
-                                <asp:TextBox ID="txtBoxCEP" runat="server" CssClass="form-control" placeholder="12345-678"></asp:TextBox>
+                                <asp:label id="lblCEP" runat="server" associatedcontrolid="txtBoxCEP" cssclass="form-label">CEP</asp:label>
+                                <asp:textbox id="txtBoxCEP" runat="server" cssclass="form-control" placeholder="12345-678"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblEstado" runat="server" AssociatedControlID="dropDownEstado" CssClass="form-label">Estado</asp:Label>
-                                <asp:DropDownList ID="dropDownEstado" runat="server" CssClass="form-control">
+                                <asp:label id="lblEstado" runat="server" associatedcontrolid="dropDownEstado" cssclass="form-label">Estado</asp:label>
+                                <asp:dropdownlist id="dropDownEstado" runat="server" cssclass="form-control">
                                     <asp:ListItem Text="Acre"></asp:ListItem>
                                     <asp:ListItem Text="Alagoas"></asp:ListItem>
                                     <asp:ListItem Text="Amapá"></asp:ListItem>
@@ -127,36 +127,40 @@
                                     <asp:ListItem Text="Sergipe"></asp:ListItem>
                                     <asp:ListItem Text="Tocantins"></asp:ListItem>
 
-                                </asp:DropDownList>
+                                </asp:dropdownlist>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblCidade" runat="server" AssociatedControlID="txtBoxCidade" CssClass="form-label">Cidade</asp:Label>
-                                <asp:TextBox ID="txtBoxCidade" runat="server" CssClass="form-control" placeholder="Ex: São Paulo"></asp:TextBox>
+                                <asp:label id="lblCidade" runat="server" associatedcontrolid="txtBoxCidade" cssclass="form-label">Cidade</asp:label>
+                                <asp:textbox id="txtBoxCidade" runat="server" cssclass="form-control" placeholder="Ex: São Paulo"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblBairro" runat="server" AssociatedControlID="txtBoxBairro" CssClass="form-label">Bairro</asp:Label>
-                                <asp:TextBox ID="txtBoxBairro" runat="server" CssClass="form-control" placeholder="Ex: Centro"></asp:TextBox>
+                                <asp:label id="lblBairro" runat="server" associatedcontrolid="txtBoxBairro" cssclass="form-label">Bairro</asp:label>
+                                <asp:textbox id="txtBoxBairro" runat="server" cssclass="form-control" placeholder="Ex: Centro"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblRua" runat="server" AssociatedControlID="txtBoxRua" CssClass="form-label">Rua</asp:Label>
-                                <asp:TextBox ID="txtBoxRua" runat="server" CssClass="form-control" placeholder="Ex: Rua das Flores"></asp:TextBox>
+                                <asp:label id="lblRua" runat="server" associatedcontrolid="txtBoxRua" cssclass="form-label">Rua</asp:label>
+                                <asp:textbox id="txtBoxRua" runat="server" cssclass="form-control" placeholder="Ex: Rua das Flores"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblNumero" runat="server" AssociatedControlID="txtBoxNumero" CssClass="form-label">Número</asp:Label>
-                                <asp:TextBox ID="txtBoxNumero" runat="server" CssClass="form-control" placeholder="Ex: 123"></asp:TextBox>
+                                <asp:label id="lblNumero" runat="server" associatedcontrolid="txtBoxNumero" cssclass="form-label">Número</asp:label>
+                                <asp:textbox id="txtBoxNumero" runat="server" cssclass="form-control" placeholder="Ex: 123"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblCarrosAssoci" runat="server" AssociatedControlID="dropDownCarros" CssClass="form-label">Veículo Associado</asp:Label>
-                                <asp:DropDownList ID="dropDownCarros" runat="server" CssClass="form-control" AppendDataBoundItems="true">
+                                <asp:label id="lblCarrosAssoci" runat="server" associatedcontrolid="dropDownCarros" cssclass="form-label">Veículo Associado</asp:label>
+                                <asp:dropdownlist id="dropDownCarros" runat="server" cssclass="form-control" appenddatabounditems="true">
                                     <asp:ListItem Text="Option 1"></asp:ListItem>
                                     <asp:ListItem Text="Option 2"></asp:ListItem>
                                     <asp:ListItem Text="Option 3"></asp:ListItem>
-                                </asp:DropDownList>
-                                <asp:CheckBox ID="checkCarrosAssoci" runat="server" Text="Não possui carro cadastrado" CssClass="form-check m-2" />
+                                </asp:dropdownlist>
+                                <asp:checkbox id="checkCarrosAssoci" runat="server" text="Não possui carro cadastrado" cssclass="form-check m-2" />
                             </div>
                             <div class="text-center col-12 mt-4">
-                                <asp:Button ID="btnSalvarClientes" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvarClientes_Click" />
-                                <asp:Button ID="btnCancelarClientes" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelarClientes_Click" />
+                                <asp:button id="btnSalvarClientes" runat="server" text="Salvar" cssclass="btn btn-primary" onclick="btnSalvarClientes_Click" />
+                                <asp:button id="btnCancelarClientes" runat="server" text="Cancelar" cssclass="btn btn-secondary" onclick="btnCancelarClientes_Click" />
+                            </div>
+                            <br>
+                            <div class=" col-12 text-center text-success my-2" role="alert">
+                                <asp:label id="lblMensagem_Clientes" text="" runat="server"></asp:label>
                             </div>
                         </div>
                         <!-- End Clientes Form -->
@@ -168,16 +172,16 @@
                         <!-- Mecânicos Form -->
                         <div class="row form-group">
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblNomeMecanico" runat="server" AssociatedControlID="txtBoxNomeMecanico" CssClass="form-label">Nome</asp:Label>
-                                <asp:TextBox ID="txtBoxNomeMecanico" runat="server" CssClass="form-control" placeholder="Ex: João Silva"></asp:TextBox>
+                                <asp:label id="lblNomeMecanico" runat="server" associatedcontrolid="txtBoxNomeMecanico" cssclass="form-label">Nome</asp:label>
+                                <asp:textbox id="txtBoxNomeMecanico" runat="server" cssclass="form-control" placeholder="Ex: João Silva"></asp:textbox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblNumeroCracha" runat="server" AssociatedControlID="txtBoxNumeroCracha" CssClass="form-label">Número de Crachá</asp:Label>
-                                <asp:TextBox ID="txtBoxNumeroCracha" runat="server" CssClass="form-control" placeholder="Ex: 123456"></asp:TextBox>
+                                <asp:label id="lblNumeroCracha" runat="server" associatedcontrolid="txtBoxNumeroCracha" cssclass="form-label">Número de Crachá</asp:label>
+                                <asp:textbox id="txtBoxNumeroCracha" runat="server" cssclass="form-control" placeholder="Ex: 123456"></asp:textbox>
                             </div>
                             <div class="text-center col-12 mt-4">
-                                <asp:Button ID="btnSalvarMecanicos" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvarMecanicos_Click" />
-                                <asp:Button ID="btnCancelarMecanicos" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelarMecanicos_Click" />
+                                <asp:button id="btnSalvarMecanicos" runat="server" text="Salvar" cssclass="btn btn-primary" onclick="btnSalvarMecanicos_Click" />
+                                <asp:button id="btnCancelarMecanicos" runat="server" text="Cancelar" cssclass="btn btn-secondary" onclick="btnCancelarMecanicos_Click" />
                             </div>
                         </div>
                         <!--End Mecânicos Form-->
