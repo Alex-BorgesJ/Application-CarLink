@@ -50,11 +50,9 @@
                                 <asp:Label ID="lblChassi" runat="server" AssociatedControlID="txtBoxChassi" CssClass="form-label">Chassi</asp:Label>
                                 <asp:TextBox ID="txtBoxChassi" runat="server" CssClass="form-control" placeholder="ABC12345678901234"></asp:TextBox>
                             </div>
-                            <div class="row col-6 my-3">
-                                <asp:Label ID="lblColor" runat="server" AssociatedControlID="txtBoxColor" CssClass="col-sm-2">Cor do Veículo</asp:Label>
-                                <div class="col-sm-4">
-                                    <asp:TextBox ID="txtBoxColor" runat="server" CssClass="form-control form-control-color" Text="Vermelho"></asp:TextBox>
-                                </div>
+                            <div class="col-6 my-2">
+                                <asp:Label ID="lblColor" runat="server" AssociatedControlID="txtBoxColor" CssClass="form-label">Cor do Veículo</asp:Label>
+                                <asp:TextBox ID="txtBoxColor" runat="server" CssClass="form-control form-control-color" Text="Vermelho"></asp:TextBox>
                             </div>
                             <div class="col-6 my-2">
                                 <asp:Label ID="lblCliente" runat="server" AssociatedControlID="dropDownCliente" CssClass="form-label">Dono do Veículo</asp:Label>
@@ -91,22 +89,8 @@
                                 <asp:TextBox ID="txtBoxCPF" runat="server" CssClass="form-control" placeholder="12345678910"></asp:TextBox>
                             </div>
                             <div class="col-6 my-2">
-                                <asp:Label ID="lblContato1" runat="server" AssociatedControlID="txtBoxContato1" CssClass="form-label">Contato Principal</asp:Label>
-                                <asp:TextBox ID="txtBoxContato1" runat="server" CssClass="form-control" placeholder="(12) 5 5555-5555"></asp:TextBox>
-                            </div>
-                            <div class="col-6 my-2">
-                                <asp:Label ID="lblContato2" runat="server" AssociatedControlID="txtBoxContato2" CssClass="form-label">Contato Secundário</asp:Label>
-                                <asp:TextBox ID="txtBoxContato2" runat="server" CssClass="form-control" placeholder="(12) 5 5555-5555"></asp:TextBox>
-                                <asp:CheckBox ID="checkContato2" runat="server" Text="Não quero informar um contato secudário" CssClass="form-check m-1" />
-                            </div>
-                            <div class="col-6 my-2">
-                                <asp:Label ID="lblTelefone1" runat="server" AssociatedControlID="txtBoxTelefone1" CssClass="form-label">Telefone Principal</asp:Label>
-                                <asp:TextBox ID="txtBoxTelefone1" runat="server" CssClass="form-control" placeholder="(12) 5555-5555"></asp:TextBox>
-                            </div>
-                            <div class="col-6 my-2">
-                                <asp:Label ID="lblTelefone2" runat="server" AssociatedControlID="txtBoxTelefone2" CssClass="form-label">Telefone Secundário</asp:Label>
-                                <asp:TextBox ID="txtBoxTelefone2" runat="server" CssClass="form-control" placeholder="(12) 5555-5555"></asp:TextBox>
-                                <asp:CheckBox ID="checkBoxTelefone2" runat="server" Text="Não quero informar um telefone secudário" CssClass="form-check m-1" />
+                                <asp:Label ID="lblTelefone" runat="server" AssociatedControlID="txtBoxTelefone" CssClass="form-label">Telefone</asp:Label>
+                                <asp:TextBox ID="txtBoxTelefone" runat="server" CssClass="form-control" placeholder="(12) 5 5555-5555"></asp:TextBox>
                             </div>
                             <div class="col-6 my-2">
                                 <asp:Label ID="lblCEP" runat="server" AssociatedControlID="txtBoxCEP" CssClass="form-label">CEP</asp:Label>
