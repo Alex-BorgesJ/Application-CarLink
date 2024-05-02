@@ -46,11 +46,9 @@ namespace CarLink.Classes.Equipe
             get { return telefone; }
             set
             {
-                // Brazilian phone number pattern
-                var pattern = @"^\d{10,11}$";
-                var regex = new Regex(pattern);
+                
 
-                if (!regex.IsMatch(value))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException("Telefone precisa estar no formato brasileiro: (XX) XXXX-XXXX ou (XX) XXXXX-XXXX.");
                 }
