@@ -26,7 +26,7 @@ namespace CarLink.Classes.Local
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Nao pode estar em branco.");
+                    throw new ArgumentException("Estado nao pode estar em branco.");
                 }
                 estado = value;
             }
@@ -39,7 +39,7 @@ namespace CarLink.Classes.Local
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Nao pode estar em branco.");
+                    throw new ArgumentException("Cidade nao pode estar em branco.");
                 }
                 cidade = value;
             }
@@ -52,7 +52,7 @@ namespace CarLink.Classes.Local
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Nao pode estar em branco.");
+                    throw new ArgumentException("Bairro nao pode estar em branco.");
                 }
                 bairro = value;
             }
@@ -65,7 +65,7 @@ namespace CarLink.Classes.Local
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Nao pode estar em branco.");
+                    throw new ArgumentException("Rua nao pode estar em branco.");
                 }
                 rua = value;
             }
@@ -78,7 +78,7 @@ namespace CarLink.Classes.Local
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Nao pode estar em branco.");
+                    throw new ArgumentException("Numero nao pode estar em branco.");
                 }
                 numero = value;
             }

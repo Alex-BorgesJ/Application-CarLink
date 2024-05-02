@@ -50,7 +50,7 @@ namespace CarLink.Classes.Equipe
 
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Telefone precisa estar no formato brasileiro: (XX) XXXX-XXXX ou (XX) XXXXX-XXXX.");
+                    throw new ArgumentException("Telefone precisa ser informado.");
                 }
                 telefone = value;
             }
