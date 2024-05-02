@@ -19,7 +19,7 @@ namespace CarLink.Persistencia.Local
             {
                 IDbConnection objConexao;
                 IDbCommand objCommand;
-                string sql = "INSERT INTO END_ENDERECO(END_ESTADO, END_CIDADE, END_BAIRRO, END_RUA, END_NUMERO, CLI_ID) VALUES(?estado, ?cidade, ?bairro, ?rua, ?numero, ?cli_cliente)";
+                string sql = "INSERT INTO END_ENDERECO(END_ESTADO, END_CIDADE, END_BAIRRO, END_RUA, END_NUMERO,END_CEP, CLI_ID) VALUES(?estado, ?cidade, ?bairro, ?rua, ?numero, ?cpf, ?cli_cliente)";
                 objConexao = Mapped.Connection();
                 objCommand = Mapped.Command(sql, objConexao);
                 objCommand.Parameters.Add(Mapped.Parameter("?estado", endereco.Estado));
@@ -27,6 +27,7 @@ namespace CarLink.Persistencia.Local
                 objCommand.Parameters.Add(Mapped.Parameter("?bairro", endereco.Bairro));
                 objCommand.Parameters.Add(Mapped.Parameter("?rua", endereco.Rua));
                 objCommand.Parameters.Add(Mapped.Parameter("?numero", endereco.Numero));
+                objCommand.Parameters.Add(Mapped.Parameter("?cpf", endereco.Cep));
                 objCommand.Parameters.Add(Mapped.Parameter("?cli_cliente", endereco.CLI_codigo));
                 objCommand.ExecuteNonQuery();
                 objConexao.Close();
