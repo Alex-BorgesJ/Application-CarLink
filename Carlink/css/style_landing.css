@@ -890,12 +890,13 @@ section {
 
 .blue-bullet-list .bullet {
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: darkblue;
+    width: 10px;
+    height: 10px;
+    background-color: blue;
     border-radius: 50%; /* Torna a forma do elemento redonda */
     margin-right: 8px; /* Adiciona espaço entre a bolinha e o texto */
 }
+
 
 
 .details .content p:last-child {

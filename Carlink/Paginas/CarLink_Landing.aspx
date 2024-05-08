@@ -134,10 +134,8 @@
                 <li><span class="bullet"></span>Agendar e controlar serviços de forma eficiente.</li>
                 <li><span class="bullet"></span>Controlar o fluxo de caixa e financeiro.</li>
                 <li><span class="bullet"></span>Acompanhar o histórico de serviços por cliente e veículo.</li>
-                <li><span class="bullet"></span>Obter relatórios e indicadores de desempenho e muito mais.</li>
+                 <li><span class="bullet"></span>Obter relatórios e indicadores de desempenho e muito mais.</li>
             </ul>
-
-
             <p>
               Trazendo assim um ambiente de trabalho mais organizado e com um ótimo desempenho profissional dentro das
               oficinas.
@@ -252,7 +250,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+          <div class="col-lg-4 col-md-6  mt-lg-0">
             <div class="box" data-aos="zoom-in" data-aos-delay="300">
               <h3>Plano Silver</h3>
               <h4><sup>$</sup>69.99</h4>
@@ -261,8 +259,6 @@
                 <li>Registro de manutenção</li>
                 <li>Histórico de serviços</li>
                 <li>Regitro de notas fiscais</li>
-                <li>Suporte online</li>
-                <li>Api para preenchimento</li>
                 <li>Gerar relatorios impressos</li>
 
               </ul>
@@ -282,8 +278,6 @@
                 <li>Registro de manutenção</li>
                 <li>Histórico de serviços</li>
                 <li>Regitro de notas fiscais</li>
-                <li>Suporte online</li>
-                <li>Api para preenchimento</li>
                 <li>Banco compartilhado</li>
                 <li>Personalizar interface</li>
                 <li>Sistema de backup</li>
@@ -309,39 +303,30 @@
           <p>Nosso contato</p>
         </div>
 
-        <div class="row">
 
-          <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-delay="100">
+        <div>
 
-            <div class="info justify-content-end align-items-end d-flex">
+          <div data-aos="fade-right" data-aos-delay="100">
 
-              <div class="email ">
+            <div class="info justify-content-center align-items-center d-flex ">
+
+              <div class="email">
                 <i class="bi bi-envelope "></i>
                 <h4>Email:</h4>
                 <p>info@exemplo.com</p>
               </div>
-
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-delay="100">
-
-            <div class="info ">
 
               <div class="phone">
                 <i class="bi bi-phone "></i>
                 <h4>Telefone:</h4>
                 <p>(12) 5589 55488</p>
               </div>
-
-            </div>
-
+               
           </div>
-
+                           
         </div>
 
+        </div>
       </div>
     </section>
 
