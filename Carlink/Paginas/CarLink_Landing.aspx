@@ -16,9 +16,7 @@
   <link href="../img_landpage/img_CarLink-removebg-preview-C.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../vendor_landpage/aos/aos.css" rel="stylesheet">
@@ -105,16 +103,16 @@
           <div class="col-md-4 justify-content-center align-items-center d-flex" data-aos="fade-right">
             <img src="../img_landpage/pexels-pixabay-162553.jpg" class="img-fluid" alt="">
           </div>
-          <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
+          <div class="col-md-8 order-2 order-md-1" data-aos="fade-up">
             <h3>Temos uma solução para os seus problemas dentro da sua oficina.</h3>
             <p class="fst-italic">
               Parece que sua oficina está uma bagunça?
             </p>
             <ul>
-              <li><i class="bi bi-x"></i>Dificuldade em agendar e controlar os serviços de forma eficiente.</li>
-              <li><i class="bi bi-x"></i>Perda de tempo com tarefas manuais e repetitivas.</li>
-              <li><i class="bi bi-x"></i>Dificuldade em acompanhar o histórico de serviços por cliente e veículo.</li>
-              <li><i class="bi bi-x"></i>Dificuldade em acompanhar o andamento dos serviços e muitos outros.</li>
+              <li><i class="bi bi-x custom-red"></i>Dificuldade em agendar e controlar os serviços de forma eficiente.</li>
+              <li><i class="bi bi-x custom-red"></i>Perda de tempo com tarefas manuais e repetitivas.</li>
+              <li><i class="bi bi-x custom-red"></i>Dificuldade em acompanhar o histórico de serviços por cliente e veículo.</li>
+              <li><i class="bi bi-x custom-red"></i>Dificuldade em acompanhar o andamento dos serviços e muitos outros.</li>
             </ul>
             <p>
               Nós da CarLink estamos comprometidos em ajudar sua oficina a alcançar resultados extraordinários.
@@ -127,16 +125,16 @@
             data-aos="fade-left">
             <img src="../img_landpage/pexels-maxchen2k-18090279.jpg" class="img-fluid" alt="">
           </div>
-          <div class="col-md-8 pt-4" data-aos="fade-up">
-            <h3>Quais são nossos objetivos</h3>
+          <div class="col-md-8 " data-aos="fade-up">
+            <h3>Quais são os nossos objetivos</h3>
             <p class="fst-italic">
               Para melhorar as suas oficinas cada vez mais.
             </p>
-            <ul>
-              <li><i class="bi bi-check"></i>Agendar e controlar serviços de forma eficiente.</li>
-              <li><i class="bi bi-check"></i>Controlar o fluxo de caixa e financeiro.</li>
-              <li><i class="bi bi-check"></i>Acompanhar o histórico de serviços por cliente e veículo.</li>
-              <li><i class="bi bi-check"></i>Obter relatórios e indicadores de desempenho e muito mais.</li>
+            <ul class="blue-bullet-list">
+                <li><span class="bullet"></span>Agendar e controlar serviços de forma eficiente.</li>
+                <li><span class="bullet"></span>Controlar o fluxo de caixa e financeiro.</li>
+                <li><span class="bullet"></span>Acompanhar o histórico de serviços por cliente e veículo.</li>
+                 <li><span class="bullet"></span>Obter relatórios e indicadores de desempenho e muito mais.</li>
             </ul>
             <p>
               Trazendo assim um ambiente de trabalho mais organizado e com um ótimo desempenho profissional dentro das
@@ -151,7 +149,7 @@
             <img src="../img_landpage/img_mecanico.jpeg" class="img-fluid w-100" alt="">
           </div>
 
-          <div class="col-md-8 pt-5" data-aos="fade-up">
+          <div class="col-md-8 " data-aos="fade-up">
             <h3>Venha fazer parte da CarLink e junte-se ao futuro das oficinas</h3>
             <p>Na CarLink, estamos comprometidos em fornecer as ferramentas e soluções necessárias para
                transformar sua oficina em um ambiente altamente eficiente e inovador.
@@ -252,7 +250,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+          <div class="col-lg-4 col-md-6  mt-lg-0">
             <div class="box" data-aos="zoom-in" data-aos-delay="300">
               <h3>Plano Silver</h3>
               <h4><sup>$</sup>69.99</h4>
@@ -261,8 +259,6 @@
                 <li>Registro de manutenção</li>
                 <li>Histórico de serviços</li>
                 <li>Regitro de notas fiscais</li>
-                <li>Suporte online</li>
-                <li>Api para preenchimento</li>
                 <li>Gerar relatorios impressos</li>
 
               </ul>
@@ -282,8 +278,6 @@
                 <li>Registro de manutenção</li>
                 <li>Histórico de serviços</li>
                 <li>Regitro de notas fiscais</li>
-                <li>Suporte online</li>
-                <li>Api para preenchimento</li>
                 <li>Banco compartilhado</li>
                 <li>Personalizar interface</li>
                 <li>Sistema de backup</li>
@@ -309,39 +303,30 @@
           <p>Nosso contato</p>
         </div>
 
-        <div class="row">
 
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+        <div>
 
-            <div class="info justify-content-end align-items-end d-flex">
+          <div data-aos="fade-right" data-aos-delay="100">
 
-              <div class="email ">
+            <div class="info justify-content-center align-items-center d-flex ">
+
+              <div class="email">
                 <i class="bi bi-envelope "></i>
                 <h4>Email:</h4>
                 <p>info@exemplo.com</p>
               </div>
-
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-
-            <div class="info ">
 
               <div class="phone">
                 <i class="bi bi-phone "></i>
                 <h4>Telefone:</h4>
                 <p>(12) 5589 55488</p>
               </div>
-
-            </div>
-
+               
           </div>
-
+                           
         </div>
 
+        </div>
       </div>
     </section>
 
