@@ -11,13 +11,13 @@
                 <!-- Pills Tabs -->
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="pills-carros-tab" data-toggle="pill" href="#pills-carros" role="tab" aria-controls="pills-carros" aria-selected="true">Carros</a>
+                        <a class="nav-link active" id="pills-carros-tab" data-toggle="pill" href="#pills-carros" role="tab" aria-controls="pills-carros" aria-selected="true" onclick="persistActiveTab('pills-carros-tab')">Carros</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="pills-clientes-tab" data-toggle="pill" href="#pills-clientes" role="tab" aria-controls="pills-clientes" aria-selected="false">Clientes</a>
+                        <a class="nav-link" id="pills-clientes-tab" data-toggle="pill" href="#pills-clientes" role="tab" aria-controls="pills-clientes" aria-selected="false" onclick="persistActiveTab('pills-clientes-tab')">Clientes</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="pills-mecanicos-tab" data-toggle="pill" href="#pills-mecanicos" role="tab" aria-controls="pills-mecanicos" aria-selected="false">Mecânicos</a>
+                        <a class="nav-link" id="pills-mecanicos-tab" data-toggle="pill" href="#pills-mecanicos" role="tab" aria-controls="pills-mecanicos" aria-selected="false" onclick="persistActiveTab('pills-mecanicos-tab')">Mecânicos</a>
                     </li>
                 </ul>
                 <div class="tab-content pt-2" id="myTabContent">
@@ -94,7 +94,7 @@
                             </div>
                             <div class="col-6 my-2">
                                 <asp:Label ID="lblCEP" runat="server" AssociatedControlID="txtBoxCEP" CssClass="form-label">CEP</asp:Label>
-                                <asp:TextBox ID="txtBoxCEP" runat="server" CssClass="form-control" placeholder="12345-678" ></asp:TextBox>
+                                <asp:TextBox ID="txtBoxCEP" runat="server" CssClass="form-control" placeholder="12345-678"></asp:TextBox>
                             </div>
                             <div class="col-6 my-2">
                                 <asp:Label ID="lblEstado" runat="server" AssociatedControlID="dropDownEstado" CssClass="form-label">Estado</asp:Label>
@@ -200,7 +200,27 @@
             }
             document.getElementById('<%= txtBoxCEP.ClientID %>').onchange = (event) => {
                 handleCep(event);
-            } 
+            }
+            function persistActiveTab(tabId) {
+                sessionStorage.setItem('activeTab', tabId);
+            }
+
+            // Função para carregar a tab ativa armazenada
+            function loadActiveTab() {
+                var activeTabId = sessionStorage.getItem('activeTab');
+                if (activeTabId) {
+                    var activeTabLink = document.getElementById(activeTabId);
+                    if (activeTabLink) {
+                        activeTabLink.click();
+                    }
+                }
+            }
+
+            // Adicione um evento onload ao body para carregar a tab ativa quando a página é carregada
+            window.onload = function () {
+                loadActiveTab();
+            };
+
         </script>
     </form>
 </asp:Content>

@@ -13,9 +13,9 @@ public partial class Paginas_CarLink_Cadastro : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
-
+    
     private void LimparCampos_Clientes()
     {
         txtBoxNomeCliente.Text = "";
@@ -75,7 +75,7 @@ public partial class Paginas_CarLink_Cadastro : System.Web.UI.Page
                 endereco.Cep = Convert.ToInt32(txtBoxCEP.Text);
                 endereco.CLI_codigo = bdCliente.Select(txtBoxEmailCliente.Text).Codigo;
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
                 lblMensagem_Clientes.Text = "ERRO! " + ex.Message;
                 return;
