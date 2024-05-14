@@ -146,7 +146,7 @@
 
         <div class="row content">
           <div class="col-md-4 mb-20px justify-content-center align-items-center d-flex" data-aos="fade-right">
-            <img src="../img_landpage/img_mecanico.jpeg" class="img-fluid w-100" alt="">
+            <img src="../img_landpage/mecanico.jpg" class="img-fluid w-100" style="border-radius: 15px" alt="">
           </div>
 
           <div class="col-md-8 " data-aos="fade-up">
@@ -202,7 +202,7 @@
               <i class="bi bi-headset"></i>
               <span data-purecounter-start="0" data-purecounter-end="1500" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p>Horas de suporte</p>
+              <p>Atendimentos realizados</p>
             </div>
           </div>
 
@@ -228,7 +228,7 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Preço</h2>
-          <p>Check nossos Preços</p>
+          <p>Verifique nossos Preços</p>
         </div>
 
         <div class="row" data-aos="fade-left">
@@ -275,9 +275,9 @@
               <h4><sup>$</sup>99.99+</h4>
               <ul>
                 <li>Usuários ilimitado</li>
-                <li>Registro de manutenção</li>
+                
                 <li>Histórico de serviços</li>
-                <li>Regitro de notas fiscais</li>
+                
                 <li>Banco compartilhado</li>
                 <li>Personalizar interface</li>
                 <li>Sistema de backup</li>
