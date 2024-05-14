@@ -101,7 +101,7 @@
 
         <div class="row content">
           <div class="col-md-4 justify-content-center align-items-center d-flex" data-aos="fade-right">
-            <img src="../img_landpage/pexels-pixabay-162553.jpg" class="img-fluid" alt="">
+            <img src="../img_landpage/pexels-pixabay-162553.jpg" class="img-fluid" style="border-radius: 15px" alt="">
           </div>
           <div class="col-md-8 order-2 order-md-1" data-aos="fade-up">
             <h3>Temos uma solução para os seus problemas dentro da sua oficina.</h3>
