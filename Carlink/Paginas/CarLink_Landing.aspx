@@ -123,7 +123,7 @@
         <div class="row content">
           <div class="col-md-4 order-1 order-md-2 justify-content-center align-items-center d-flex"
             data-aos="fade-left">
-            <img src="../img_landpage/pexels-maxchen2k-18090279.jpg" class="img-fluid" alt="">
+            <img src="../img_landpage/pexels-maxchen2k-18090279.jpg" class="img-fluid" style="border-radius: 15px" alt="">
           </div>
           <div class="col-md-8 " data-aos="fade-up">
             <h3>Quais são os nossos objetivos</h3>
