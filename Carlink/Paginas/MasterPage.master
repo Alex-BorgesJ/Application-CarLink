@@ -25,7 +25,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #566DB3" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #243b8c" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%= UrlNav("CarLink_Home.aspx") %>">
@@ -41,7 +41,10 @@
             <!-- Nav Item Cadastro begin -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCadastro"
+                <a class="nav-link collapsed" 
+                    onmouseover="this.style.backgroundColor='#06184d';"
+                    onmouseout="this.style.backgroundColor='#243b8c';"
+                    href="#" data-toggle="collapse" data-target="#collapseCadastro"
                     aria-expanded="true" aria-controls="collapseCadastro">
                         <i class="fas fa-fw fa-bars"></i>
                     <span>Cadastro</span>
@@ -62,7 +65,10 @@
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOS"
+                <a class="nav-link collapsed"
+                    onmouseover="this.style.backgroundColor='#06184d';"
+                    onmouseout="this.style.backgroundColor='#243b8c';" 
+                    href="#" data-toggle="collapse" data-target="#collapseOS"
                     aria-expanded="true" aria-controls="collapseOS">
                     <i class="fas fa-fw fa-bars"></i>
                     <span>Ordem de Serviço</span>
@@ -78,7 +84,10 @@
             <hr class="sidebar-divider my-0">
             
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCatalogo"
+                <a class="nav-link collapsed"
+                    onmouseover="this.style.backgroundColor='#06184d';"
+                    onmouseout="this.style.backgroundColor='#243b8c';"
+                    href="#" data-toggle="collapse" data-target="#collapseCatalogo"
                     aria-expanded="true" aria-controls="collapseCatalogo">
                     <i class="fas fa-fw fa-bars"></i>
                     <span>Catálogo</span>
@@ -94,7 +103,10 @@
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRegistros"
+                <a class="nav-link collapsed"
+                    onmouseover="this.style.backgroundColor='#06184d';"
+                    onmouseout="this.style.backgroundColor='#243b8c';"
+                    href="#" data-toggle="collapse" data-target="#collapseRegistros"
                     aria-expanded="true" aria-controls="collapseRegistros">
                     <i class="fas fa-fw fa-bars"></i>
                     <span>Registros</span>
@@ -110,7 +122,10 @@
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConsultas"
+                <a class="nav-link collapsed"
+                    onmouseover="this.style.backgroundColor='#06184d';"
+                    onmouseout="this.style.backgroundColor='#243b8c';"
+                    href="#" data-toggle="collapse" data-target="#collapseConsultas"
                     aria-expanded="true" aria-controls="collapseConsultas">
                     <i class="fas fa-fw fa-bars"></i>
                     <span>Consultas</span>
@@ -126,7 +141,10 @@
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdm"
+                <a class="nav-link collapsed"
+                    onmouseover="this.style.backgroundColor='#06184d';"
+                    onmouseout="this.style.backgroundColor='#243b8c';"
+                    href="#" data-toggle="collapse" data-target="#collapseAdm"
                     aria-expanded="true" aria-controls="collapseAdm">
                     <i class="fas fa-fw fa-bars"></i>
                     <span>Administrar</span>
