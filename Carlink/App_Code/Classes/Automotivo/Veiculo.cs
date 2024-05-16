@@ -7,13 +7,10 @@ using System.Text.RegularExpressions;
 
 namespace CarLink.Classes.Automotivo
 {
-    /// <summary>
     /// Summary description for Veiculo
-    /// </summary>
     public class Veiculo
     {
         private int codigo;
-        private string nome;
         private int ano;
         private string marca;
         private string modelo;
@@ -23,27 +20,14 @@ namespace CarLink.Classes.Automotivo
 
         public int Codigo { get; set; }
 
-        public string Nome
-        {
-            get { return nome; }
-            set
-            {
-                if (string.IsNullOrEmpty(value) || value.Length < 2)
-                {
-                    throw new ArgumentException("Nome tem que possuir no mínimo 2 caracteres");
-                }
-                nome = value;
-            }
-        }
-
         public int Ano
         {
             get { return ano; }
             set
             {
-                if (value < 1886)
+                if (value < 1886 || value > DateTime.Now.Year)
                 {
-                    throw new ArgumentException("Ano tem que ser valido.");
+                    throw new ArgumentException("Ano inválido. Informe um ano válido entre 1886 e o ano atual.");
                 }
                 ano = value;
             }
@@ -71,7 +55,7 @@ namespace CarLink.Classes.Automotivo
                 {
                     throw new ArgumentException("Modelo tem que possuir no mínimo 2 caracteres");
                 }
-                nome = value;
+                modelo = value;
             }
         }
 
@@ -112,7 +96,7 @@ namespace CarLink.Classes.Automotivo
             {
                 if (string.IsNullOrEmpty(value) || value.Length < 1)
                 {
-                    throw new ArgumentException("Tem que possuir um valor valido.");
+                    throw new ArgumentException("Quilometraem tem que possuir um valor valido.");
                 }
                 quilometragem = value;
             }

@@ -8,6 +8,8 @@ using CarLink.Classes.Equipe;
 using CarLink.Persistencia.Equipe;
 using CarLink.Classes.Local;
 using CarLink.Persistencia.Local;
+using CarLink.Classes.Automotivo;
+using CarLink.Persistencia.Automotivo;
 
 public partial class Paginas_CarLink_Cadastro : System.Web.UI.Page
 {
@@ -30,17 +32,61 @@ public partial class Paginas_CarLink_Cadastro : System.Web.UI.Page
         txtBoxCEP.Text = "";
     }
 
+        /// Limpa os campos do formulário de veículo.
+        private void LimparCampos_Veiculo()
+        {
+            txtBoxAno.Text = "";
+            txtBoxModelo.Text = "";
+            txtBoxMarca.Text = "";
+            txtBoxPlaca.Text = "";
+            txtBoxChassi.Text = "";
+            txtBoxKm.Text = "";
+        }
 
-    protected void btnSalvarCarros_Click(object sender, EventArgs e)
-    {
-        // Implemente a lógica de salvar aqui
-    }
+        // botão salvar carros
+        protected void btnSalvarCarros_Click(object sender, EventArgs e)
+        {
+            Veiculo veiculo = new Veiculo();
 
-    protected void btnCancelarCarros_Click(object sender, EventArgs e)
-    {
-        // Implemente a lógica de cancelar aqui
-    }
-    protected void btnSalvarClientes_Click(object sender, EventArgs e)
+            try // Bloco try para capturar erros
+            {
+                // Atribui os valores dos campos do formulário ao objeto Veiculo
+                veiculo.Ano = Convert.ToInt32(txtBoxAno.Text);
+                veiculo.Modelo = txtBoxModelo.Text;
+                veiculo.Marca = txtBoxMarca.Text;
+                veiculo.Placa = txtBoxPlaca.Text;
+                veiculo.Chassi = txtBoxChassi.Text;
+                veiculo.Quilometragem = txtBoxKm.Text;
+            }
+            catch (Exception ex) // Captura qualquer exceção
+            {
+                lblMensagem_Veiculo.Text = "ERRO! " + ex.Message; 
+                return; 
+            }
+
+            VeiculoBD bdVeiculo = new VeiculoBD(); // Cria uma instância da classe VeiculoBD
+            int retornoVeiculo = bdVeiculo.Insert(veiculo); // Insere o veículo no banco de dados
+
+            // Verifica o retorno da inserção
+            if (retornoVeiculo == 0)
+            {
+                LimparCampos_Veiculo(); // Limpa os campos do formulário
+                lblMensagem_Veiculo.Text = "Cadastro realizado com sucesso.";
+            }
+            else
+            {
+                lblMensagem_Veiculo.Text = "Erro ao cadastrar o veículo."; 
+            }
+        }
+
+        /// botão Cancelar Carros.
+        protected void btnCancelarCarros_Click(object sender, EventArgs e)
+        {
+            // Implemente a lógica de cancelar aqui (opcional)
+            LimparCampos_Veiculo(); // Limpa os campos do formulário
+        }
+
+protected void btnSalvarClientes_Click(object sender, EventArgs e)
     {
         Cliente cliente = new Cliente();
 
