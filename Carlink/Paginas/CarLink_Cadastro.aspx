@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-6 my-2">
                                 <asp:Label ID="lblPlaca" runat="server" AssociatedControlID="txtBoxPlaca" CssClass="form-label">Placa</asp:Label>
-                                <asp:TextBox ID="txtBoxPlaca" runat="server" CssClass="form-control" placeholder="ABC-1234 ou AAA1A23"></asp:TextBox>
+                                <asp:TextBox ID="txtBoxPlaca" runat="server" CssClass="form-control" placeholder="ABC1234 ou AAA1A23"></asp:TextBox>
                             </div>
                             <div class="col-6 my-2">
                                 <asp:Label ID="lblKm" runat="server" AssociatedControlID="txtBoxKm" CssClass="form-label">Quilometragem</asp:Label>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-6 my-2">
                                 <asp:Label ID="lblColor" runat="server" AssociatedControlID="txtBoxColor" CssClass="form-label">Cor do Veículo</asp:Label>
-                                <asp:TextBox ID="txtBoxColor" runat="server" CssClass="form-control form-control-color" Text="Vermelho"></asp:TextBox>
+                                <asp:TextBox ID="txtBoxColor" runat="server" CssClass="form-control form-control-color" placeholder="Vermelho"></asp:TextBox>
                             </div>
                             <div class="col-6 my-2">
                                 <asp:Label ID="lblCliente" runat="server" AssociatedControlID="dropDownCliente" CssClass="form-label">Dono do Veículo</asp:Label>
@@ -66,6 +66,10 @@
                             <div class="text-center col-12 mt-4">
                                 <asp:Button ID="btnSalvarCarros" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvarCarros_Click" />
                                 <asp:Button ID="btnCancelarCarros" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelarCarros_Click" />
+                            </div>
+                            <br>
+                            <div class=" col-12 text-center text-success my-2" role="alert">
+                                 <asp:Label ID="lblMensagem_Veiculo" Text="" runat="server"></asp:Label>
                             </div>
                         </div>
                         <!-- End Carros Form -->
