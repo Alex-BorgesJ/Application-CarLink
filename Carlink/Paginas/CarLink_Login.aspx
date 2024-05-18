@@ -1,106 +1,109 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CarLink_Login.aspx.cs" Inherits="Paginas_CarLink_Login" %>
+﻿<!DOCTYPE html>
+<html lang="en">
 
-<!DOCTYPE html>
+<head>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CarLink</title>
+
+    
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+   
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../css/style_login.css" rel="stylesheet">
+
+    <link href="../img_landpage/img_CarLink-removebg-preview-C.png" rel="icon">
+    <link href="../img_landpage/img_CarLink-removebg-preview-C.png" rel="apple-touch-icon">
+
 </head>
-<body>
-    <form id="form1" runat="server">
 
-        <div class="container">
+<body >
 
+    <div class="container " >
 
-            <div class="form signin">
-                <h2>Sign In</h2>
-                <div class="inputBox">
-                    <input type="text" required="required">
-                    <i class="fa fas fa-user"></i>
-                    <span>username</span>
-                </div>
-                <div class="inputBox">
-                    <input type="password" required="required">
-                    <i class="fa fas fa-lock"></i>
-                    <span>password</span>
-                </div>
-                <div class="inputBox">
-                    <input type="button" value="Login" onclick="redirectToHome()">
-                </div>
-                <p>Not Registered ? <a href="#" class="create">Create an account</a></p>
-            </div>
+      
+        <div class="row justify-content-center" >
 
-            <div class="form signup">
-                <h2>Sign Up</h2>
-                <div class="inputBox">
-                    <input type="text" required="required">
-                    <i class="fa fas fa-user"></i>
-                    <span>username</span>
+                <div class="card o-hidden border-0 shadow-lg shadow-md my-5">
+
+                    <div class="card-body p-0">
+                       
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Bem vindo de volta ao CarLink</h1>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Insira o E-Mail..."/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Senha..."/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck"/>
+                                                <label class="custom-control-label pt-1" for="customCheck">Mantenha-me conectado.</label>
+                                            </div>
+                                        </div>
+                                        <a href="<%= ("CarLink_Home.aspx") %>" class="btn btn-primary btn-user btn-block">
+                                            Login
+                                        </a>
+                                        
+                                   </form>
+
+                                    <hr/>
+                                                                        
+                                    <div class="text-center mt-3">
+                                       <a  href="<%= ("CarLink_Landing.aspx") %>" class="fs-4">Retornar a página principal</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <!-- Foto animada -->
+                            <div class="col-lg-6  fundocolor" >
+                                <div class="imagem-container">
+                                    <img src="../img_landpage/img_CarLink-removebg-preview-C.png" alt="Imagem animada" class="imagem-animada "/>
+                                </div>
+                            </div>
+                            
+
+                            
+                        </div>
+                    </div>
                 </div>
-                <div class="inputBox">
-                    <input type="text" required="required">
-                    <i class="fa fas fa-envelope"></i>
-                    <span>email address</span>
-                </div>
-                <div class="inputBox">
-                    <input type="password" required="required">
-                    <i class="fa fas fa-lock"></i>
-                    <span>create password</span>
-                </div>
-                <div class="inputBox">
-                    <input type="password" required="required">
-                    <i class="fa fas fa-lock"></i>
-                    <span>confirm password</span>
-                </div>
-                <div class="inputBox">
-                    <input type="submit" value="Create Account">
-                </div>
-                <p>Already a member ? <a href="#" class="login">Log in</a></p>
-            </div>
+
+            
 
         </div>
-    </form>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </div>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+    
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="../../js/sb-admin-2.min.js"></script>
+    
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-
-    <script>
-        let login = document.querySelector('.login');
-        let create = document.querySelector('.create');
-        let container = document.querySelector('.container');
-
-        container.classList.add('signinForm');
-
-        login.onclick = function () {
-            container.classList.add('signinForm');
-        }
-
-        create.onclick = function () {
-            container.classList.remove('signinForm');
-        }
-
-        function redirectToHome() {
-            window.location.href = "/Paginas/CarLink_Home.aspx";
-        }
-
-    </script>
+   
+    <script src="../js/sb-admin-2.min.js"></script>
 
 </body>
+
 </html>
