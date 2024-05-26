@@ -75,7 +75,7 @@
                 </a>
                 <div id="collapseOS" class="collapse" aria-labelledby="headingOS" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<%= UrlNav("#") %>"><i class="fas fa-fw fa-pen"></i>lorem day</a>
+                        <a class="collapse-item" href="<%= UrlNav("CarLink_Ordem.aspx") %>"><i class="fas fa-fw fa-pen"></i>lorem day</a>
                     </div>
                 </div>
             </li>
@@ -165,9 +165,7 @@
             </div>
 
             <!-- Logout -->
-            <div class="text-center d-none d-md-inline mt-1">
-                <a href="<%= UrlNav("CarLink_login.aspx") %>"" class="log-out"> <i class='bx bx-log-out mt-5' style="font-size: 24px"></i></a>
-            </div>
+            
         </ul>
         <!-- End of Sidebar -->
 
@@ -280,7 +278,7 @@
                 <div class="modal-body">Selecione "Sair" para encerrar sua sessão</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="#">Sair</a>
+                    <a class="btn btn-primary" href="<%= UrlNav("CarLink_Login.aspx") %>">Sair</a>
                 </div>
             </div>
         </div>
