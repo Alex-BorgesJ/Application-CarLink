@@ -42,7 +42,7 @@ namespace CarLink.Persistencia.Gestão
 
             return retorno;
         }
-        
+
         VeiculoBD bdVeiculo = new VeiculoBD();
         private string veicMarca;
 
@@ -65,12 +65,12 @@ namespace CarLink.Persistencia.Gestão
             return ds;
         }
 
-        public DataSet SelectAllVeic()
+        public DataSet SelectAllVeic(string marcaFiltro)
         {
             DataSet ds = new DataSet();
-            System.Data.IDbConnection objConexao;
-            System.Data.IDbCommand objCommand;
-            System.Data.IDataAdapter objDataAdapter;
+            IDbConnection objConexao;
+            IDbCommand objCommand;
+            IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
             string query = "SELECT * FROM VEI_VEICULO WHERE VEI_MARCA LIKE @veicMarca OR VEI_MODELO LIKE @veicModel ORDER BY VEI_MARCA, VEI_MODELO";
 
@@ -78,12 +78,12 @@ namespace CarLink.Persistencia.Gestão
 
             var paramMarca = objCommand.CreateParameter();
             paramMarca.ParameterName = "@veicMarca";
-            paramMarca.Value = "%" + veicMarca + "%";
+            paramMarca.Value = "%" + marcaFiltro + "%";
             objCommand.Parameters.Add(paramMarca);
 
             var paramModelo = objCommand.CreateParameter();
             paramModelo.ParameterName = "@veicModel";
-            paramModelo.Value = "%" + VeicModel + "%";
+            paramModelo.Value = "%" + marcaFiltro + "%";
             objCommand.Parameters.Add(paramModelo);
 
             objDataAdapter = Mapped.Adapter(objCommand);
@@ -93,6 +93,7 @@ namespace CarLink.Persistencia.Gestão
             objConexao.Dispose();
             return ds;
         }
+
         //select
         public Ordemsv Select(int OdsID)
         {

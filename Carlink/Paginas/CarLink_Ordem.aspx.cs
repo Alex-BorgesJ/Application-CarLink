@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using System.Configuration;
 using CarLink.Classes.Gestao;
 using CarLink.Persistencia.Gestão;
+using System.Data;
 
 public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
 {
@@ -63,23 +64,32 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
 
     protected void btnProcurarVeic_Click(object sender, EventArgs e)
     {
-        Ordemsv osvVeic = new Ordemsv();
+        string marcaFiltro = txtBoxVeiculo.Text.Trim();
 
-        if (String.IsNullOrEmpty(txtBoxVeiculo.Text))
+        if (String.IsNullOrEmpty(marcaFiltro))
         {
-            lblMensagem.Text = "O campo não pode estar em branco. Insira alguma informação sobre a marca do veiculo";
+            lblMensagem.Text = "O campo não pode estar em branco. Insira alguma informação sobre a marca do veículo.";
+            lblMensagem.Visible = true;
             return;
         }
 
-        osvVeic.VeicMarca = txtBoxVeiculo.Text;
+        OrdemsvBD bdOsv = new OrdemsvBD();
+        DataSet ds = bdOsv.SelectAllVeic(marcaFiltro);
 
-        if (String.IsNullOrEmpty(dropDownModelo.Text))
+        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
         {
-            lblMensagem.Text = "O campo não pode estar em branco. Insira alguma informação sobre o modelo de veiculo";
-            return;
-        }
+            dropDownModelo.DataSource = ds;
+            dropDownModelo.DataTextField = "VEI_MODELO"; // Ou a coluna que você deseja exibir
+            dropDownModelo.DataValueField = "VEI_ID"; // Ou outra coluna que você deseja usar como valor
+            dropDownModelo.DataBind();
 
-        osvVeic.VeicModel = dropDownModelo.Text;
+            // Adiciona um item padrão
+            dropDownModelo.Items.Insert(0, new ListItem("-- Selecione um Modelo --", "0"));
+        }
+        else
+        {
+            lblMensagem.Text = "Nenhum veículo encontrado com a marca especificada.";
+        }
 
     }
 
