@@ -76,22 +76,36 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         OrdemsvBD bdOsv = new OrdemsvBD();
         DataSet ds = bdOsv.SelectAllVeic(marcaFiltro);
 
+        dropDownModelo.Items.Clear(); // Limpa as opções anteriores
+
         if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
         {
-            dropDownModelo.DataSource = ds;
-            dropDownModelo.DataTextField = "VEI_MODELO"; // Ou a coluna que você deseja exibir
-            dropDownModelo.DataValueField = "VEI_ID"; // Ou outra coluna que você deseja usar como valor
-            dropDownModelo.DataBind();
+            lblMensagem.Text = "";
 
-            // Adiciona um item padrão
-            dropDownModelo.Items.Insert(0, new ListItem("-- Selecione um Modelo --", "0"));
+            // Adiciona a opção padrão
+            dropDownModelo.Items.Add(new ListItem("---- Selecione o veiculo ----", "0"));
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                string marca = row["VEI_MARCA"].ToString();
+                string modelo = row["VEI_MODELO"].ToString();
+                string clienteNome = row["CLI_NOME"].ToString();
+                string displayText = string.Format("{0} {1} - {2}", marca, modelo, clienteNome);
+
+                dropDownModelo.Items.Add(new ListItem(displayText, row["VEI_ID"].ToString()));
+            }
+
+            dropDownModelo.SelectedIndex = 0;
         }
         else
         {
             lblMensagem.Text = "Nenhum veículo encontrado com a marca especificada.";
+            dropDownModelo.Items.Add(new ListItem("---- Selecione o veiculo ----", "0")); // Adiciona a opção padrão mesmo quando não há resultados
         }
 
+        lblMensagem.Visible = !String.IsNullOrEmpty(lblMensagem.Text); // Define a visibilidade da mensagem com base no seu conteúdo
     }
+
 
     protected void btnCancelarOS_Click(object sender, EventArgs e)
     {

@@ -72,19 +72,12 @@ namespace CarLink.Persistencia.Gestão
             IDbCommand objCommand;
             IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            string query = "SELECT * FROM VEI_VEICULO WHERE VEI_MARCA LIKE @veicMarca OR VEI_MODELO LIKE @veicModel ORDER BY VEI_MARCA, VEI_MODELO";
+            string query = "SELECT VEI_VEICULO.*, CLI_CLIENTE.CLI_NOME FROM VEI_VEICULO LEFT JOIN CLI_CLIENTE ON VEI_VEICULO.CLI_ID = CLI_CLIENTE.CLI_ID WHERE VEI_MARCA LIKE ?veicMarca OR VEI_MODELO LIKE ?veicModel ORDER BY VEI_MARCA, VEI_MODELO";
 
             objCommand = Mapped.Command(query, objConexao);
 
-            var paramMarca = objCommand.CreateParameter();
-            paramMarca.ParameterName = "@veicMarca";
-            paramMarca.Value = "%" + marcaFiltro + "%";
-            objCommand.Parameters.Add(paramMarca);
-
-            var paramModelo = objCommand.CreateParameter();
-            paramModelo.ParameterName = "@veicModel";
-            paramModelo.Value = "%" + marcaFiltro + "%";
-            objCommand.Parameters.Add(paramModelo);
+            objCommand.Parameters.Add(Mapped.Parameter("?veicMarca", "%" + marcaFiltro + "%"));
+            objCommand.Parameters.Add(Mapped.Parameter("?veicModel", "%" + marcaFiltro + "%"));
 
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
