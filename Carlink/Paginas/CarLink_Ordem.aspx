@@ -20,10 +20,10 @@
                         <div class="input-group my-2">
                             <asp:TextBox ID="txtBoxVeiculo" runat="server" CssClass="form-control" placeholder="Marca" AutoPostBack="True"></asp:TextBox>
                             <div class="input-group-append">
-                               <button id="btnProcurarVeic" class="btn btn-primary btn-outline-secondary" type="button" onclick="document.getElementById('<%= btnProcurarVeicHidden.ClientID %>').click();">
+                                <button id="btnProcurarVeic" class="btn btn-primary btn-outline-secondary" type="button" onclick="document.getElementById('<%= btnProcurarVeicHidden.ClientID %>').click();">
                                     <i class="fas fa-search"></i>
                                 </button>
-                                <asp:Button ID="btnProcurarVeicHidden" runat="server" OnClick="btnProcurarVeic_Click" Style="display:none;" />
+                                <asp:Button ID="btnProcurarVeicHidden" runat="server" OnClick="btnProcurarVeic_Click" Style="display: none;" />
                             </div>
                         </div>
                     </div>
@@ -31,19 +31,16 @@
 
                     <div class="col-6 my-2">
                         <asp:Label ID="lblModelo" runat="server" AssociatedControlID="dropDownModelo" CssClass="form-label">Modelo</asp:Label>
-                        <asp:DropDownList ID="dropDownModelo" runat="server" CssClass="form-control" AppendDataBoundItems="true">
-                            <asp:ListItem Text="-- Selecione --" Value=""></asp:ListItem>
+                        <asp:DropDownList ID="dropDownModelo" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="dropDownModelo_SelectedIndexChanged">
+                            <asp:ListItem Text="--- Selecione o veículo ---" Value="0"></asp:ListItem>
                         </asp:DropDownList>
+
                     </div>
 
                     <div class="col-12 my-2">
                         <h5 class="card-title">Dados do Veículo</h5>
                         <hr />
                         <div class="row">
-                            <div class="col-4 my-2">
-                                <asp:Label ID="lblNomeVeic" runat="server" CssClass="form-label">Nome</asp:Label>
-                                <asp:Label ID="lblmsgNomeVeic" runat="server" CssClass="form-control" Style="border: 1px solid grey; margin-top: 10px"></asp:Label>
-                            </div>
 
                             <div class="col-4 my-2">
                                 <asp:Label ID="lblMarca" runat="server" CssClass="form-label">Marca</asp:Label>
