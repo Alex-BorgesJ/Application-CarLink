@@ -20,14 +20,15 @@ namespace CarLink.Persistencia.Gestão
             {
                 IDbConnection objConexao;
                 IDbCommand objCommand;
-                string sql = "INSERT INTO ODS_ORDEM_SERVICO(ODS_DATACRIACAO, ODS_DATAFINALIZAR, ODS_OBSERVACAO) VALUES(?DataE, ?DataF, ?Obs)";
+                string sql = "INSERT INTO ODS_ORDEM_SERVICO(ODS_DATACRIACAO, ODS_DATAFINALIZAR, ODS_OBSERVACAO, VEI_ID) VALUES(?DataE, ?DataF, ?Obs, ?Id)";
                 objConexao = Mapped.Connection();
                 objCommand = Mapped.Command(sql, objConexao);
                 objCommand.Parameters.Add(Mapped.Parameter("?DataE", os.DataEntrada));
                 objCommand.Parameters.Add(Mapped.Parameter("?DataF", os.DataFinalizacao));
                 objCommand.Parameters.Add(Mapped.Parameter("?Obs", os.Observacao));
-                objCommand.ExecuteNonQuery();
+                objCommand.Parameters.Add(Mapped.Parameter("?Id", os.VeicId));
                 objConexao.Close();
+                objCommand.ExecuteNonQuery();
                 objCommand.Dispose();
                 objConexao.Dispose();
             }

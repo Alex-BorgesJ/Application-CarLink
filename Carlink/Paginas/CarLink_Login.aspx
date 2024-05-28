@@ -76,7 +76,7 @@
                             </div>
 
                             <!-- Foto animada -->
-                            <div class="col-lg-6 d-none d-lg-block fundocolor" >
+                            <div class="col-lg-6 fundocolor" >
                                 <div class="imagem-container">
                                     <img src="../img_landpage/img_CarLink-removebg-preview-C.png" alt="Imagem animada" class="imagem-animada "/>
                                 </div>

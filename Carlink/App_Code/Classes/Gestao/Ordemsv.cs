@@ -12,7 +12,7 @@ namespace CarLink.Classes.Gestao
         private String observacao,
                        veicModel,
                        veicMarca;
-
+        private int veicId;
         public DateTime DataEntrada
         {
             get
@@ -92,6 +92,7 @@ namespace CarLink.Classes.Gestao
                 if (String.IsNullOrEmpty(observacao)) {
                     throw new ArgumentException("O campo não pode estar em branco. Insira alguma informação sobre o estado do veículo");
                 }
+                observacao = value;
             }
         }
 
@@ -126,6 +127,18 @@ namespace CarLink.Classes.Gestao
             }
         }
 
+        public int VeicId
+        {
+            get
+            {
+                return veicId;
+            }
+            set
+            {
+                veicId = value;
+            }
+
+        }
         public Ordemsv()
         {
             //

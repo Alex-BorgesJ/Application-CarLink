@@ -19,9 +19,26 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         }
     }
 
+    private void LimparCampos_Osv()
+    {
+        // Limpar todos os campos
+        txtBoxVeiculo.Text = "";
+        lblmsgMarca.Text = "";
+        lblmsgModelo.Text = "";
+        lblmsgChassi.Text = "";
+        lblmsgAno.Text = "";
+        lblmsgKm.Text = "";
+        txtBoxDataEntra.Text = "";
+        txtBoxDataFinalizar.Text = "";
+        txtBoxObservacao.Text = "";
+
+        lblMensagem.Text = "";
+    }
+    Ordemsv osv = new Ordemsv();
+
     protected void btnSalvarOS_Click(object sender, EventArgs e)
     {
-        Ordemsv osv = new Ordemsv();
+        //Ordemsv osv = new Ordemsv();
 
         try
         {
@@ -53,7 +70,22 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
                 lblMensagem.Text = "O campo não pode estar em branco. Insira alguma informação sobre o estado do veículo";
                 return;
             }
+            osv.Observacao = txtBoxObservacao.Text;
 
+            //Insere valores no banco
+            OrdemsvBD bdOsv = new OrdemsvBD();
+            int retornoOsv = bdOsv.Insert(osv);
+
+            // Verifica o retorno da inserção
+            if (retornoOsv == 0)
+            {
+                LimparCampos_Osv(); // Limpa os campos do formulário
+                lblMensagem.Text = "Cadastro realizado com sucesso.";
+            }
+            else
+            {
+                lblMensagem.Text = "Erro ao cadastrar o veículo.";
+            }
 
         }
         catch (ArgumentException ex)
@@ -110,19 +142,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
 
     protected void btnCancelarOS_Click(object sender, EventArgs e)
     {
-        // Limpar todos os campos
-        txtBoxVeiculo.Text = "";
-        lblmsgMarca.Text = "";
-        lblmsgModelo.Text = "";
-        lblmsgChassi.Text = "";
-        lblmsgAno.Text = "";
-        lblmsgKm.Text = "";
-        txtBoxDataEntra.Text = "";
-        txtBoxDataFinalizar.Text = "";
-        txtBoxObservacao.Text = "";
-
-
-        lblMensagem.Text = "";
+        LimparCampos_Osv();
     }
 
     protected void dropDownModelo_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,6 +161,9 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
                 lblmsgChassi.Text = vehicleDetails["VEI_CHASSI"].ToString();
                 lblmsgAno.Text = vehicleDetails["VEI_ANO"].ToString();
                 lblmsgKm.Text = vehicleDetails["VEI_KM"].ToString();
+
+                //Coletando o Id
+                osv.VeicId = Convert.ToInt32(veiculoId); ;
             }
             else
             {
