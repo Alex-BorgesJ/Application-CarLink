@@ -27,8 +27,8 @@ namespace CarLink.Persistencia.Gestão
                 objCommand.Parameters.Add(Mapped.Parameter("?DataF", os.DataFinalizacao));
                 objCommand.Parameters.Add(Mapped.Parameter("?Obs", os.Observacao));
                 objCommand.Parameters.Add(Mapped.Parameter("?Id", os.VeicId));
-                objConexao.Close();
                 objCommand.ExecuteNonQuery();
+                objConexao.Close();
                 objCommand.Dispose();
                 objConexao.Dispose();
             }
