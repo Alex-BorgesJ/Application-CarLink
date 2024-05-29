@@ -39,7 +39,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
     protected void btnSalvarOS_Click(object sender, EventArgs e)
     {
         //Ordemsv osv = new Ordemsv();
-
+        lblMensagem.Visible = true;
         try
         {
             DateTime dataEntrada;
@@ -51,7 +51,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             }
 
             // Agora você pode usar dataFinalizacao para fazer a atribuição desejada
-            osv.DataEntrada = dataEntrada;
+            osv.DataEntrada = Convert.ToDateTime(txtBoxDataEntra.Text);
 
             DateTime dataFinalizacao;
             if (!DateTime.TryParse(txtBoxDataFinalizar.Text, out dataFinalizacao))
@@ -72,10 +72,9 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             }
             osv.Observacao = txtBoxObservacao.Text;
 
-            //Insere valores no banco
+            //Insere valores no banco   
             OrdemsvBD bdOsv = new OrdemsvBD();
             int retornoOsv = bdOsv.Insert(osv);
-
             // Verifica o retorno da inserção
             if (retornoOsv == 0)
             {
@@ -84,13 +83,13 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             }
             else
             {
-                lblMensagem.Text = "Erro ao cadastrar o veículo.";
+                lblMensagem.Text = "Erro ao cadastrar o veículo." + retornoOsv + osv.DataEntrada + " " + osv.DataFinalizacao;
             }
 
         }
         catch (ArgumentException ex)
         {
-            lblMensagem.Text = "ERRO! Verifique os campos digitados " + ex.Message;
+            lblMensagem.Text = "ERRO! Verifique os campos digitados. " + ex.Message;
             return;
         }
 
@@ -163,7 +162,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
                 lblmsgKm.Text = vehicleDetails["VEI_KM"].ToString();
 
                 //Coletando o Id
-                osv.VeicId = Convert.ToInt32(veiculoId); ;
+                osv.VeicId = Convert.ToInt32(veiculoId);
             }
             else
             {

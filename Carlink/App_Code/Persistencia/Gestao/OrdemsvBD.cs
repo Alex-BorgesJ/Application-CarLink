@@ -20,7 +20,7 @@ namespace CarLink.Persistencia.Gestão
             {
                 IDbConnection objConexao;
                 IDbCommand objCommand;
-                string sql = "INSERT INTO ODS_ORDEM_SERVICO(ODS_DATACRIACAO, ODS_DATAFINALIZAR, ODS_OBSERVACAO, VEI_ID) VALUES(?DataE, ?DataF, ?Obs, ?Id)";
+                string sql = "INSERT INTO ODS_ORDEM_SERVICO (ODS_DATACRIACAO, ODS_DATAFINALIZAR, ODS_DESCRICAO, VEI_ID) VALUES(?DataE, ?DataF, ?Obs, ?Id)";
                 objConexao = Mapped.Connection();
                 objCommand = Mapped.Command(sql, objConexao);
                 objCommand.Parameters.Add(Mapped.Parameter("?DataE", os.DataEntrada));
@@ -43,11 +43,6 @@ namespace CarLink.Persistencia.Gestão
 
             return retorno;
         }
-
-        VeiculoBD bdVeiculo = new VeiculoBD();
-        private string veicMarca;
-
-        public string VeicModel { get; private set; }
 
         //selectAll
         public DataSet SelectAll()

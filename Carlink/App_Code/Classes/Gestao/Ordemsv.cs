@@ -9,9 +9,7 @@ namespace CarLink.Classes.Gestao
     {
         private DateTime dataEntrada,
                         dataFinalizacao;
-        private String observacao,
-                       veicModel,
-                       veicMarca;
+        private String observacao;
         private int veicId;
         public DateTime DataEntrada
         {
@@ -89,41 +87,10 @@ namespace CarLink.Classes.Gestao
                 return observacao;
             }set {
 
-                if (String.IsNullOrEmpty(observacao)) {
+                if (String.IsNullOrEmpty(value)) {
                     throw new ArgumentException("O campo não pode estar em branco. Insira alguma informação sobre o estado do veículo");
                 }
                 observacao = value;
-            }
-        }
-
-        public String VeicModel{
-            get
-            {
-                return veicModel;
-            }
-            set
-            {
-
-                if (String.IsNullOrEmpty(veicModel))
-                {
-                    throw new ArgumentException("O campo não pode estar em branco. Insira alguma informação sobre o modelo do veículo");
-                }
-            }
-        }
-
-        public String VeicMarca
-        {
-            get
-            {
-                return veicMarca;
-            }
-            set
-            {
-
-                if (String.IsNullOrEmpty(veicMarca))
-                {
-                    throw new ArgumentException("O campo não pode estar em branco. Insira alguma informação sobre a marca do veículo");
-                }
             }
         }
 
