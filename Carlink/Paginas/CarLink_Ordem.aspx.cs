@@ -28,8 +28,6 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         lblmsgChassi.Text = "";
         lblmsgAno.Text = "";
         lblmsgKm.Text = "";
-        txtBoxDataEntra.Text = "";
-        txtBoxDataFinalizar.Text = "";
         txtBoxObservacao.Text = "";
 
         lblMensagem.Text = "";
@@ -42,35 +40,14 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         lblMensagem.Visible = true;
         try
         {
-            DateTime dataEntrada;
-            if (!DateTime.TryParse(txtBoxDataEntra.Text, out dataEntrada))
-            {
-                // Tratar caso a conversão falhe
-                lblMensagem.Text = "Erro ao converter a data de entrada.";
-                return;
-            }
 
-            // Agora você pode usar dataFinalizacao para fazer a atribuição desejada
-            osv.DataEntrada = Convert.ToDateTime(txtBoxDataEntra.Text);
-
-            DateTime dataFinalizacao;
-            if (!DateTime.TryParse(txtBoxDataFinalizar.Text, out dataFinalizacao))
-            {
-                // Tratar caso a conversão falhe
-                lblMensagem.Text = "Erro ao converter a data de finalização.";
-                return;
-            }
-
-            // Agora você pode usar dataFinalizacao para fazer a atribuição desejada
-            osv.DataEntrada = dataFinalizacao;
-
-
-            if (String.IsNullOrEmpty(txtBoxObservacao.Text))
-            {
-                lblMensagem.Text = "O campo não pode estar em branco. Insira alguma informação sobre o estado do veículo";
-                return;
-            }
+            osv.Ano = Convert.ToInt32(lblmsgAno.Text);
+            osv.Modelo = lblmsgModelo.Text;
+            osv.Marca = lblmsgMarca.Text;
             osv.Observacao = txtBoxObservacao.Text;
+            osv.Chassi = lblmsgChassi.Text;
+            osv.Quilometragem = lblmsgKm.Text;
+            osv.Codigo = Convert.ToInt32(lblmsgId.Text);
 
             //Insere valores no banco   
             OrdemsvBD bdOsv = new OrdemsvBD();
@@ -83,7 +60,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             }
             else
             {
-                lblMensagem.Text = "Erro ao cadastrar o veículo." + retornoOsv + osv.DataEntrada + " " + osv.DataFinalizacao;
+                lblMensagem.Text = "Erro ao cadastrar o veículo." + retornoOsv + osv.Ano + osv.Marca + osv.Modelo + osv.Observacao + osv.Quilometragem + osv.Chassi;
             }
 
         }
@@ -153,6 +130,9 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             // Buscar informações detalhadas do veículo usando veiculoId
             DataRow vehicleDetails = GetVehicleDetailsById(veiculoId);
 
+            //Coletando o Id
+            //osv.VeicId = Convert.ToInt32(vehicleDetails["VEI_ID"]);
+
             if (vehicleDetails != null)
             {
                 lblmsgMarca.Text = vehicleDetails["VEI_MARCA"].ToString();
@@ -160,9 +140,8 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
                 lblmsgChassi.Text = vehicleDetails["VEI_CHASSI"].ToString();
                 lblmsgAno.Text = vehicleDetails["VEI_ANO"].ToString();
                 lblmsgKm.Text = vehicleDetails["VEI_KM"].ToString();
+                lblmsgId.Text = veiculoId;
 
-                //Coletando o Id
-                osv.VeicId = Convert.ToInt32(veiculoId);
             }
             else
             {
@@ -194,6 +173,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             dt.Columns.Add("VEI_CHASSI", typeof(string));
             dt.Columns.Add("VEI_ANO", typeof(int));
             dt.Columns.Add("VEI_KM", typeof(int));
+            dt.Columns.Add("VEI_ID", typeof(int));
 
             DataRow dr = dt.NewRow();
             dr["VEI_MARCA"] = carro.Marca;
@@ -201,6 +181,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             dr["VEI_CHASSI"] = carro.Chassi;
             dr["VEI_ANO"] = carro.Ano;
             dr["VEI_KM"] = carro.Quilometragem;
+            dr["VEI_ID"] = carro.Codigo;
 
             return dr;
         }

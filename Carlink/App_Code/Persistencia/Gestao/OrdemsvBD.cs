@@ -20,13 +20,16 @@ namespace CarLink.Persistencia.Gestão
             {
                 IDbConnection objConexao;
                 IDbCommand objCommand;
-                string sql = "INSERT INTO ODS_ORDEM_SERVICO (ODS_DATACRIACAO, ODS_DATAFINALIZAR, ODS_DESCRICAO, VEI_ID) VALUES(?DataE, ?DataF, ?Obs, ?Id)";
+                string sql = "INSERT INTO ODS_ORDEM_SERVICO (ODS_DESCRICAO, ODS_ANO, ODS_MODELO, ODS_MARCA, ODS_CHASSI, ODS_QUILOMETRAGEM, VEI_ID) VALUES(?Obs, ?ano, ?modelo, ?marca, ?chassi, ?quilometragem, ?Id)";
                 objConexao = Mapped.Connection();
                 objCommand = Mapped.Command(sql, objConexao);
-                objCommand.Parameters.Add(Mapped.Parameter("?DataE", os.DataEntrada));
-                objCommand.Parameters.Add(Mapped.Parameter("?DataF", os.DataFinalizacao));
                 objCommand.Parameters.Add(Mapped.Parameter("?Obs", os.Observacao));
-                objCommand.Parameters.Add(Mapped.Parameter("?Id", os.VeicId));
+                objCommand.Parameters.Add(Mapped.Parameter("?ano", os.Ano)); // Adiciona um parâmetro para o ano
+                objCommand.Parameters.Add(Mapped.Parameter("?modelo", os.Modelo)); // Adiciona um parâmetro para o modelo
+                objCommand.Parameters.Add(Mapped.Parameter("?marca", os.Marca));
+                objCommand.Parameters.Add(Mapped.Parameter("?chassi", os.Chassi));
+                objCommand.Parameters.Add(Mapped.Parameter("?quilometragem", os.Quilometragem));
+                objCommand.Parameters.Add(Mapped.Parameter("?Id", os.Codigo));
                 objCommand.ExecuteNonQuery();
                 objConexao.Close();
                 objCommand.Dispose();
@@ -97,8 +100,6 @@ namespace CarLink.Persistencia.Gestão
             while (objDataReader.Read())
             {
                 obj = new Ordemsv();
-                obj.DataEntrada = Convert.ToDateTime(objDataReader["ODS_DATACRIACAO"]);
-                obj.DataFinalizacao = Convert.ToDateTime(objDataReader["ODS_DATAFINALIZACAO"]);
                 obj.Observacao = Convert.ToString(objDataReader["ODS_OBSERVACAO"]);
             }
             objDataReader.Close();
@@ -113,11 +114,9 @@ namespace CarLink.Persistencia.Gestão
         {
             IDbConnection objConexao;
             IDbCommand objCommand;
-            string sql = "UPDATE ODS_ORDEM_SERVICO SET ODS_DATACRIACAO=?DataE, ODS_DATAFINALIZACAO=?DataF, ODS_OBSERVACAO=?OBS WHERE ODS_ID=?OdsID";
+            string sql = "UPDATE ODS_ORDEM_SERVICO SET ODS_OBSERVACAO=?OBS WHERE ODS_ID=?OdsID";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
-            objCommand.Parameters.Add(Mapped.Parameter("?DataE", sv.DataEntrada));
-            objCommand.Parameters.Add(Mapped.Parameter("?DataF", sv.DataFinalizacao));
             objCommand.Parameters.Add(Mapped.Parameter("?Obs", sv.Observacao));
             //objCommand.Parameters.Add(Mapped.Parameter("?OdsID", sv.Codigo));
             objCommand.ExecuteNonQuery();

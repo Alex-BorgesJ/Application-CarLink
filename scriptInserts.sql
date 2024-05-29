@@ -47,13 +47,21 @@ CREATE TABLE VEI_VEICULO (
 -- Table ODS_ORDEM_SERVICO
 CREATE TABLE ODS_ORDEM_SERVICO (
   ODS_ID INT PRIMARY KEY AUTO_INCREMENT,
-  ODS_DATACRIACAO DATE NOT NULL,
-  ODS_DATAFINALIZAR DATE NOT NULL,
   ODS_DESCRICAO VARCHAR(200) NOT NULL,
+  ODS_ANO INT NOT NULL,
+  ODS_MODELO VARCHAR(45) NOT NULL,
+  ODS_MARCA VARCHAR(45) NOT NULL,
+  ODS_CHASSI VARCHAR(45) NOT NULL,
+  ODS_QUILOMETRAGEM INT NOT NULL,
   VEI_ID INT NOT NULL,
-    FOREIGN KEY (VEI_ID)
-    REFERENCES VEI_VEICULO (VEI_ID)
+  FOREIGN KEY (VEI_ID)
+  REFERENCES VEI_VEICULO (VEI_ID)
     );
+  
+  select * from ODS_ORDEM_SERVICO;
+  select * from VEI_VEICULO;
+  drop table ODS_ORDEM_SERVICO;
+  
   
 -- Table END_ENDERECO
 CREATE TABLE END_ENDERECO (
@@ -165,27 +173,28 @@ INSERT INTO VEI_VEICULO (VEI_ANO, VEI_MODELO, VEI_MARCA, VEI_PLACA, VEI_CHASSI, 
 (2017, 'Tucson', 'Hyundai', 'FGH2345', 'CHS0123456', 34000, 20, 20);
 
 -- Insert para Ordem de Serviço
-INSERT INTO ODS_ORDEM_SERVICO (ODS_DATACRIACAO, ODS_DATAFINALIZAR, ODS_DESCRICAO, VEI_ID) VALUES
-('2023-01-01', '2023-01-10', 'Troca de óleo', 1),
-('2023-01-05', '2023-01-12', 'Revisão geral', 2),
-('2023-01-10', '2023-01-20', 'Troca de pneus', 3),
-('2023-01-15', '2023-01-25', 'Alinhamento e balanceamento', 4),
-('2023-01-20', '2023-01-30', 'Troca de correia dentada', 5),
-('2023-01-25', '2023-02-05', 'Troca de amortecedores', 6),
-('2023-02-01', '2023-02-10', 'Troca de filtros', 7),
-('2023-02-05', '2023-02-15', 'Revisão dos freios', 8),
-('2023-02-10', '2023-02-20', 'Troca de bateria', 9),
-('2023-02-15', '2023-02-25', 'Revisão elétrica', 10),
-('2023-02-20', '2023-03-01', 'Troca de óleo', 11),
-('2023-02-25', '2023-03-05', 'Revisão geral', 12),
-('2023-03-01', '2023-03-10', 'Troca de pneus', 13),
-('2023-03-05', '2023-03-15', 'Alinhamento e balanceamento', 14),
-('2023-03-10', '2023-03-20', 'Troca de correia dentada', 15),
-('2023-03-15', '2023-03-25', 'Troca de amortecedores', 16),
-('2023-03-20', '2023-03-30', 'Troca de filtros', 17),
-('2023-03-25', '2023-04-05', 'Revisão dos freios', 18),
-('2023-04-01', '2023-04-10', 'Troca de bateria', 19),
-('2023-04-05', '2023-04-15', 'Revisão elétrica', 20);
+INSERT INTO ODS_ORDEM_SERVICO (ODS_DESCRICAO, ODS_ANO, ODS_MODELO, ODS_MARCA, ODS_CHASSI, ODS_QUILOMETRAGEM, VEI_ID) VALUES 
+('Descrição 1', 2019, 'Modelo 1', 'Marca 1', 'Chassi 1', 50000, 1),
+('Descrição 2', 2018, 'Modelo 2', 'Marca 2', 'Chassi 2', 60000, 2),
+('Descrição 3', 2020, 'Modelo 3', 'Marca 3', 'Chassi 3', 70000, 3),
+('Descrição 4', 2017, 'Modelo 4', 'Marca 4', 'Chassi 4', 80000, 4),
+('Descrição 5', 2021, 'Modelo 5', 'Marca 5', 'Chassi 5', 90000, 5),
+('Descrição 6', 2016, 'Modelo 6', 'Marca 6', 'Chassi 6', 100000, 6),
+('Descrição 7', 2022, 'Modelo 7', 'Marca 7', 'Chassi 7', 110000, 7),
+('Descrição 8', 2015, 'Modelo 8', 'Marca 8', 'Chassi 8', 120000, 8),
+('Descrição 9', 2023, 'Modelo 9', 'Marca 9', 'Chassi 9', 130000, 9),
+('Descrição 10', 2014, 'Modelo 10', 'Marca 10', 'Chassi 10', 140000, 10),
+('Descrição 11', 2024, 'Modelo 11', 'Marca 11', 'Chassi 11', 150000, 11),
+('Descrição 12', 2013, 'Modelo 12', 'Marca 12', 'Chassi 12', 160000, 12),
+('Descrição 13', 2025, 'Modelo 13', 'Marca 13', 'Chassi 13', 170000, 13),
+('Descrição 14', 2012, 'Modelo 14', 'Marca 14', 'Chassi 14', 180000, 14),
+('Descrição 15', 2026, 'Modelo 15', 'Marca 15', 'Chassi 15', 190000, 15),
+('Descrição 16', 2011, 'Modelo 16', 'Marca 16', 'Chassi 16', 200000, 16),
+('Descrição 17', 2027, 'Modelo 17', 'Marca 17', 'Chassi 17', 210000, 17),
+('Descrição 18', 2010, 'Modelo 18', 'Marca 18', 'Chassi 18', 220000, 18),
+('Descrição 19', 2028, 'Modelo 19', 'Marca 19', 'Chassi 19', 230000, 19),
+('Descrição 20', 2009, 'Modelo 20', 'Marca 20', 'Chassi 20', 240000, 20);
+
 
 -- Insert para Endereços
 INSERT INTO END_ENDERECO (END_CIDADE, END_ESTADO, END_BAIRRO, END_RUA, END_NUMERO, END_CEP, CLI_ID) VALUES

@@ -66,18 +66,13 @@
                                 <asp:Label ID="lblKm" runat="server" CssClass="form-label">Quilometragem</asp:Label>
                                 <asp:Label ID="lblmsgKm" runat="server" CssClass="form-control" Style="border: 1px solid grey; margin-top: 10px"></asp:Label>
                             </div>
+
+                             <div class="col-4 my-2">
+                                <asp:Label ID="lblId" runat="server" CssClass="form-label">Identificador</asp:Label>
+                                <asp:Label ID="lblmsgId" runat="server" CssClass="form-control" Style="border: 1px solid grey; margin-top: 10px"></asp:Label>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-6 my-4">
-                        <asp:Label ID="lblDataEntra" runat="server" AssociatedControlID="txtBoxDataEntra" CssClass="form-label">Data de Entrada</asp:Label>
-                        <asp:TextBox ID="txtBoxDataEntra" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                    </div>
-
-                    <div class="col-6 my-4">
-                        <asp:Label ID="lblDataFinalizar" runat="server" AssociatedControlID="txtBoxDataFinalizar" CssClass="form-label">Data de Finalização</asp:Label>
-                        <asp:TextBox ID="txtBoxDataFinalizar" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                    </div>
+                    </div>           
 
                     <div class="col-12 my-2">
                         <asp:Label ID="lblObservacao" runat="server" AssociatedControlID="txtBoxObservacao" CssClass="form-label">Observação</asp:Label>

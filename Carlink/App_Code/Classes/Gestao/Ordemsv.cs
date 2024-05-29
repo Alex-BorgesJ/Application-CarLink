@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Activities.Expressions;
+using System.Numerics;
+using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace CarLink.Classes.Gestao
 {
@@ -7,80 +11,14 @@ namespace CarLink.Classes.Gestao
     /// </summary>
     public class Ordemsv
     {
-        private DateTime dataEntrada,
-                        dataFinalizacao;
         private String observacao;
-        private int veicId;
-        public DateTime DataEntrada
-        {
-            get
-            {
-                return dataEntrada;
-            }
-            set
-            {
-                string entrada = value.ToString();
-                string formato = "dd/MM/yyyy";
-                var opcoes = System.Globalization.DateTimeStyles.None;
-                DateTime data;
-                if (String.IsNullOrEmpty(entrada)) {
-                    throw new ArgumentException("O campo não pode estar em branco. Formato de entrada dd/MM/yyyy");
-                }
-
-
-                if (DateTime.TryParseExact(entrada, formato, System.Globalization.CultureInfo.InvariantCulture, opcoes, out data))
-                {             
-                    if (data.Year < 2023 && data.Year > DateTime.Now.Year)
-                    {
-                        throw new ArgumentException("Ano inválido, valores devem estar entre 2023 e " + DateTime.Now.Year);
-                    }
-                    if (data.Month < 1 && data.Month > 12)
-                    {
-                        throw new ArgumentException("Mês inválido, valores devem estar entre 1 e 12");
-                    }
-                    if (data.Day < 1 && data.Day > 31)
-                    {
-                        throw new ArgumentException("Dia inválido, valores devem estar entre 1 e 31");
-                    }
-
-                    dataEntrada = data;
-                }
-            }
-        }
-
-        public DateTime DataFinalizacao
-        {
-            get
-            {
-                return dataFinalizacao;
-            }
-            set
-            {
-                string finalizacao = value.ToString();
-                string formato = "dd/MM/yyyy";
-                var opcoes = System.Globalization.DateTimeStyles.None;
-                DateTime data;
-                
-
-                if (DateTime.TryParseExact(finalizacao, formato, System.Globalization.CultureInfo.InvariantCulture, opcoes, out data))
-                {
-                    if (data.Year < 2023 && data.Year > DateTime.Now.Year)
-                    {
-                        throw new ArgumentException("Ano inválido, valores devem estar entre 2023 e " + DateTime.Now.Year);
-                    }
-                    if (data.Month < 1 && data.Month > 12)
-                    {
-                        throw new ArgumentException("Mês inválido, valores devem estar entre 1 e 12");
-                    }
-                    if (data.Day < 1 && data.Day > 31)
-                    {
-                        throw new ArgumentException("Dia inválido, valores devem estar entre 1 e 31");
-                    }
-
-                    dataFinalizacao = data;
-                }
-            }
-        }
+        private int codigo;
+        private int ano;
+        private string marca;
+        private string modelo;
+        private string placa;
+        private string chassi;
+        private string quilometragem;
 
         public String Observacao{
             get { 
@@ -93,18 +31,89 @@ namespace CarLink.Classes.Gestao
                 observacao = value;
             }
         }
+        
+        public int Codigo { get; set; }
 
-        public int VeicId
+        public int Ano
         {
-            get
-            {
-                return veicId;
-            }
+            get { return ano; }
             set
             {
-                veicId = value;
+                if (value < 1886 || value > DateTime.Now.Year)
+                {
+                    throw new ArgumentException("Ano inválido. Informe um ano válido entre 1886 e o ano atual.");
+                }
+                ano = value;
             }
+        }
 
+        public string Marca
+        {
+            get { return marca; }
+            set
+            {
+                if (string.IsNullOrEmpty(value) || value.Length < 2)
+                {
+                    throw new ArgumentException("Marca tem que possuir no mínimo 2 caracteres");
+                }
+                marca = value;
+            }
+        }
+
+        public string Modelo
+        {
+            get { return modelo; }
+            set
+            {
+                if (string.IsNullOrEmpty(value) || value.Length < 2)
+                {
+                    throw new ArgumentException("Modelo tem que possuir no mínimo 2 caracteres");
+                }
+                modelo = value;
+            }
+        }
+
+        public string Placa
+        {
+            get { return placa; }
+            set
+            {
+                // Brazilian license plate pattern (Mercosur standard)
+                var pattern = @"^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$";
+                var regex = new Regex(pattern);
+
+                if (!regex.IsMatch(value))
+                {
+                    throw new ArgumentException("Placa tem que ser valida.");
+                }
+                placa = value;
+            }
+        }
+
+        public string Chassi
+        {
+            get { return chassi; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Chassi nao pode estar em branco.");
+                }
+                chassi = value;
+            }
+        }
+
+        public string Quilometragem
+        {
+            get { return quilometragem; }
+            set
+            {
+                if (string.IsNullOrEmpty(value) || value.Length < 1)
+                {
+                    throw new ArgumentException("Quilometraem tem que possuir um valor valido.");
+                }
+                quilometragem = value;
+            }
         }
         public Ordemsv()
         {
