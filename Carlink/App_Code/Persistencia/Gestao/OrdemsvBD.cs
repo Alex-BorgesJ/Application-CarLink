@@ -20,16 +20,13 @@ namespace CarLink.Persistencia.Gestão
             {
                 IDbConnection objConexao;
                 IDbCommand objCommand;
-                string sql = "INSERT INTO ODS_ORDEM_SERVICO (ODS_DESCRICAO, ODS_ANO, ODS_MODELO, ODS_MARCA, ODS_CHASSI, ODS_QUILOMETRAGEM, VEI_ID) VALUES(?Obs, ?ano, ?modelo, ?marca, ?chassi, ?quilometragem, ?Id)";
+                string sql = "INSERT INTO ODS_ORDEM_SERVICO (ODS_DESCRICAO, ODS_STATUS, ODS_DATAEMISSAO, VEI_ID) VALUES(?Obs, ?status, ?data, ?Id)";
                 objConexao = Mapped.Connection();
                 objCommand = Mapped.Command(sql, objConexao);
                 objCommand.Parameters.Add(Mapped.Parameter("?Obs", os.Observacao));
-                objCommand.Parameters.Add(Mapped.Parameter("?ano", os.Ano)); // Adiciona um parâmetro para o ano
-                objCommand.Parameters.Add(Mapped.Parameter("?modelo", os.Modelo)); // Adiciona um parâmetro para o modelo
-                objCommand.Parameters.Add(Mapped.Parameter("?marca", os.Marca));
-                objCommand.Parameters.Add(Mapped.Parameter("?chassi", os.Chassi));
-                objCommand.Parameters.Add(Mapped.Parameter("?quilometragem", os.Quilometragem));
                 objCommand.Parameters.Add(Mapped.Parameter("?Id", os.Codigo));
+                objCommand.Parameters.Add(Mapped.Parameter("?data", os.Data));
+                objCommand.Parameters.Add(Mapped.Parameter("?status", os.Status));
                 objCommand.ExecuteNonQuery();
                 objConexao.Close();
                 objCommand.Dispose();

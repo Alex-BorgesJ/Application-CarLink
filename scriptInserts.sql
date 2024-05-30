@@ -48,20 +48,12 @@ CREATE TABLE VEI_VEICULO (
 CREATE TABLE ODS_ORDEM_SERVICO (
   ODS_ID INT PRIMARY KEY AUTO_INCREMENT,
   ODS_DESCRICAO VARCHAR(200) NOT NULL,
-  ODS_ANO INT NOT NULL,
-  ODS_MODELO VARCHAR(45) NOT NULL,
-  ODS_MARCA VARCHAR(45) NOT NULL,
-  ODS_CHASSI VARCHAR(45) NOT NULL,
-  ODS_QUILOMETRAGEM INT NOT NULL,
+  ODS_STATUS ENUM('EM ESPERA','EM ANALISE' ,'PRONTO', 'EM PROCESSO'),
+  ODS_DATAEMISSAO DATE,
   VEI_ID INT NOT NULL,
   FOREIGN KEY (VEI_ID)
   REFERENCES VEI_VEICULO (VEI_ID)
     );
-  
-  select * from ODS_ORDEM_SERVICO;
-  select * from VEI_VEICULO;
-  drop table ODS_ORDEM_SERVICO;
-  
   
 -- Table END_ENDERECO
 CREATE TABLE END_ENDERECO (
@@ -173,27 +165,28 @@ INSERT INTO VEI_VEICULO (VEI_ANO, VEI_MODELO, VEI_MARCA, VEI_PLACA, VEI_CHASSI, 
 (2017, 'Tucson', 'Hyundai', 'FGH2345', 'CHS0123456', 34000, 20, 20);
 
 -- Insert para Ordem de Serviço
-INSERT INTO ODS_ORDEM_SERVICO (ODS_DESCRICAO, ODS_ANO, ODS_MODELO, ODS_MARCA, ODS_CHASSI, ODS_QUILOMETRAGEM, VEI_ID) VALUES 
-('Descrição 1', 2019, 'Modelo 1', 'Marca 1', 'Chassi 1', 50000, 1),
-('Descrição 2', 2018, 'Modelo 2', 'Marca 2', 'Chassi 2', 60000, 2),
-('Descrição 3', 2020, 'Modelo 3', 'Marca 3', 'Chassi 3', 70000, 3),
-('Descrição 4', 2017, 'Modelo 4', 'Marca 4', 'Chassi 4', 80000, 4),
-('Descrição 5', 2021, 'Modelo 5', 'Marca 5', 'Chassi 5', 90000, 5),
-('Descrição 6', 2016, 'Modelo 6', 'Marca 6', 'Chassi 6', 100000, 6),
-('Descrição 7', 2022, 'Modelo 7', 'Marca 7', 'Chassi 7', 110000, 7),
-('Descrição 8', 2015, 'Modelo 8', 'Marca 8', 'Chassi 8', 120000, 8),
-('Descrição 9', 2023, 'Modelo 9', 'Marca 9', 'Chassi 9', 130000, 9),
-('Descrição 10', 2014, 'Modelo 10', 'Marca 10', 'Chassi 10', 140000, 10),
-('Descrição 11', 2024, 'Modelo 11', 'Marca 11', 'Chassi 11', 150000, 11),
-('Descrição 12', 2013, 'Modelo 12', 'Marca 12', 'Chassi 12', 160000, 12),
-('Descrição 13', 2025, 'Modelo 13', 'Marca 13', 'Chassi 13', 170000, 13),
-('Descrição 14', 2012, 'Modelo 14', 'Marca 14', 'Chassi 14', 180000, 14),
-('Descrição 15', 2026, 'Modelo 15', 'Marca 15', 'Chassi 15', 190000, 15),
-('Descrição 16', 2011, 'Modelo 16', 'Marca 16', 'Chassi 16', 200000, 16),
-('Descrição 17', 2027, 'Modelo 17', 'Marca 17', 'Chassi 17', 210000, 17),
-('Descrição 18', 2010, 'Modelo 18', 'Marca 18', 'Chassi 18', 220000, 18),
-('Descrição 19', 2028, 'Modelo 19', 'Marca 19', 'Chassi 19', 230000, 19),
-('Descrição 20', 2009, 'Modelo 20', 'Marca 20', 'Chassi 20', 240000, 20);
+INSERT INTO ODS_ORDEM_SERVICO (ODS_DESCRICAO, ODS_STATUS, ODS_DATAEMISSAO, VEI_ID) 
+VALUES 
+    ('Troca de óleo 1', 'EM ESPERA', '2024-05-29', 1),
+    ('Reparo no motor 1', 'EM ANALISE', '2024-05-28', 2),
+    ('Troca de pneus 1', 'PRONTO', '2024-05-27', 3),
+    ('Reparo na transmissão 1', 'EM PROCESSO', '2024-05-26', 4),
+    ('Alinhamento e balanceamento 1', 'EM ESPERA', '2024-05-25', 5),
+    ('Limpeza interna 1', 'EM ANALISE', '2024-05-24', 6),
+    ('Pintura 1', 'PRONTO', '2024-05-23', 7),
+    ('Reparo na suspensão 1', 'EM PROCESSO', '2024-05-22', 8),
+    ('Troca de filtros 1', 'EM ESPERA', '2024-05-21', 9),
+    ('Troca de óleo 2', 'EM ESPERA', '2024-05-29', 1),
+    ('Reparo no motor 2', 'EM ANALISE', '2024-05-28', 2),
+    ('Troca de pneus 2', 'PRONTO', '2024-05-27', 3),
+    ('Reparo na transmissão 2', 'EM PROCESSO', '2024-05-26', 4),
+    ('Alinhamento e balanceamento 2', 'EM ESPERA', '2024-05-25', 5),
+    ('Limpeza interna 2', 'EM ANALISE', '2024-05-24', 6),
+    ('Pintura 2', 'PRONTO', '2024-05-23', 7),
+    ('Reparo na suspensão 2', 'EM PROCESSO', '2024-05-22', 8),
+    ('Troca de filtros 2', 'EM ESPERA', '2024-05-21', 9),
+    ('Troca de óleo 3', 'EM ESPERA', '2024-05-29', 1),
+    ('Reparo no motor 3', 'EM ANALISE', '2024-05-28', 2);
 
 
 -- Insert para Endereços

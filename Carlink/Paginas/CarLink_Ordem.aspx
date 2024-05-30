@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/MasterPage.master" AutoEventWireup="true" CodeFile="CarLink_Ordem.aspx.cs" Inherits="Paginas_CarLink_Ordem" %>
 
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -68,8 +70,8 @@
                             </div>
 
                              <div class="col-4 my-2">
-                                <asp:Label ID="lblId" runat="server" CssClass="form-label">Identificador</asp:Label>
-                                <asp:Label ID="lblmsgId" runat="server" CssClass="form-control" Style="border: 1px solid grey; margin-top: 10px"></asp:Label>
+                                <asp:Label ID="lblPlaca" runat="server" CssClass="form-label">Placa</asp:Label>
+                                <asp:Label ID="lblmsgPlaca" runat="server" CssClass="form-control" Style="border: 1px solid grey; margin-top: 10px"></asp:Label>
                             </div>
                         </div>
                     </div>           
@@ -77,6 +79,11 @@
                     <div class="col-12 my-2">
                         <asp:Label ID="lblObservacao" runat="server" AssociatedControlID="txtBoxObservacao" CssClass="form-label">Observação</asp:Label>
                         <asp:TextBox ID="txtBoxObservacao" runat="server" CssClass="form-control" Style="height: 120px"></asp:TextBox>
+                    </div>
+
+                    <div class="col-6 my-2">
+                         <asp:Label ID="lblDataEmissao" runat="server" AssociatedControlID="txtBoxDataEmissao" CssClass="form-label">Data de Emissão</asp:Label>
+                         <asp:TextBox ID="txtBoxDataEmissao" runat="server" CssClass="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
                     </div>
 
                     <div class="text-center col-12 mt-4">

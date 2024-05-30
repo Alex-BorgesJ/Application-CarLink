@@ -29,6 +29,8 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         lblmsgAno.Text = "";
         lblmsgKm.Text = "";
         txtBoxObservacao.Text = "";
+        txtBoxDataEmissao.Text = " ";
+        lblmsgPlaca.Text = "";
 
         lblMensagem.Text = "";
     }
@@ -37,37 +39,39 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
     protected void btnSalvarOS_Click(object sender, EventArgs e)
     {
         //Ordemsv osv = new Ordemsv();
-        lblMensagem.Visible = true;
-        try
+        if (dropDownModelo.SelectedItem.Value != "0")
         {
 
-            osv.Ano = Convert.ToInt32(lblmsgAno.Text);
-            osv.Modelo = lblmsgModelo.Text;
-            osv.Marca = lblmsgMarca.Text;
-            osv.Observacao = txtBoxObservacao.Text;
-            osv.Chassi = lblmsgChassi.Text;
-            osv.Quilometragem = lblmsgKm.Text;
-            osv.Codigo = Convert.ToInt32(lblmsgId.Text);
-
-            //Insere valores no banco   
-            OrdemsvBD bdOsv = new OrdemsvBD();
-            int retornoOsv = bdOsv.Insert(osv);
-            // Verifica o retorno da inserção
-            if (retornoOsv == 0)
+            lblMensagem.Visible = true;
+            try
             {
-                LimparCampos_Osv(); // Limpa os campos do formulário
-                lblMensagem.Text = "Cadastro realizado com sucesso.";
-            }
-            else
-            {
-                lblMensagem.Text = "Erro ao cadastrar o veículo." + retornoOsv + osv.Ano + osv.Marca + osv.Modelo + osv.Observacao + osv.Quilometragem + osv.Chassi;
-            }
+                DateTime dataFormatada = DateTime.Parse(txtBoxDataEmissao.Text);
+                osv.Data = dataFormatada;
+                osv.Status = "EM ESPERA";
+                osv.Observacao = txtBoxObservacao.Text;
+                osv.Codigo = Convert.ToInt32(dropDownModelo.SelectedItem.Value);
 
-        }
-        catch (ArgumentException ex)
-        {
-            lblMensagem.Text = "ERRO! Verifique os campos digitados. " + ex.Message;
-            return;
+
+                //Insere valores no banco   
+                OrdemsvBD bdOsv = new OrdemsvBD();
+                int retornoOsv = bdOsv.Insert(osv);
+                // Verifica o retorno da inserção
+                if (retornoOsv == 0)
+                {
+                    LimparCampos_Osv(); // Limpa os campos do formulário
+                    lblMensagem.Text = "Cadastro realizado com sucesso.";
+                }
+                else
+                {
+                    lblMensagem.Text = "Erro ao cadastrar o veículo." + retornoOsv;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblMensagem.Text = "ERRO! Verifique os campos digitados. " + ex.Message;
+                return;
+            }
         }
 
     }
@@ -140,7 +144,8 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
                 lblmsgChassi.Text = vehicleDetails["VEI_CHASSI"].ToString();
                 lblmsgAno.Text = vehicleDetails["VEI_ANO"].ToString();
                 lblmsgKm.Text = vehicleDetails["VEI_KM"].ToString();
-                lblmsgId.Text = veiculoId;
+                lblmsgPlaca.Text = vehicleDetails["VEI_PLACA"].ToString() ;
+                
 
             }
             else
@@ -156,6 +161,8 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             lblmsgChassi.Text = "";
             lblmsgAno.Text = "";
             lblmsgKm.Text = "";
+            lblmsgPlaca.Text = " ";
+            
         }
     }
 
@@ -170,6 +177,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             dt.Columns.Add("CLI_NOME", typeof(string));
             dt.Columns.Add("VEI_MARCA", typeof(string));
             dt.Columns.Add("VEI_MODELO", typeof(string));
+            dt.Columns.Add("VEI_PLACA", typeof(string));
             dt.Columns.Add("VEI_CHASSI", typeof(string));
             dt.Columns.Add("VEI_ANO", typeof(int));
             dt.Columns.Add("VEI_KM", typeof(int));
@@ -182,6 +190,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             dr["VEI_ANO"] = carro.Ano;
             dr["VEI_KM"] = carro.Quilometragem;
             dr["VEI_ID"] = carro.Codigo;
+            dr["VEI_PLACA"] = carro.Placa;
 
             return dr;
         }
