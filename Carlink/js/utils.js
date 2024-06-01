@@ -11,6 +11,20 @@ const phoneMask = (value) => {
     return value
 }
 
+const handleDate = (event) => {
+    let input = event.target;
+    input.value = dateMask(input.value);
+}
+
+const dateMask = (value) => {
+    if (!value) return "";
+    value = value.replace(/\D/g, ""); // Remove qualquer caractere não numérico
+    value = value.replace(/(\d{2})(\d)/, "$1/$2"); // Adiciona a primeira barra após o dia
+    value = value.replace(/(\d{2})(\d)/, "$1/$2"); // Adiciona a segunda barra após o mês
+    value = value.replace(/(\d{4})(\d)/, "$1"); // Limita o ano a 4 dígitos
+    return value;
+}
+
 const handleCep = async (event) => {
     try {
         const result = await fetch(`https://viacep.com.br/ws/${event.target.value}/json/`);
@@ -21,3 +35,4 @@ const handleCep = async (event) => {
         console.log(error);
     }
 }
+
