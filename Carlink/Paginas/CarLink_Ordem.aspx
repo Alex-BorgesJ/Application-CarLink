@@ -5,8 +5,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 
     <style>
-        
-
         .color-black {
             color: black;
         }
@@ -24,6 +22,8 @@
             padding: 0.375rem 0.75rem;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -52,13 +52,7 @@
                                 <asp:Button ID="btnProcurarVeicHidden" runat="server" OnClick="btnProcurarVeic_Click" Style="display: none" />
                             </div>
                         </div>
-
-                         <div>
-                            <asp:Label ID="lblMensagemProcurar" runat="server" CssClass="form-label text-danger"></asp:Label>
-                        </div>
-
                     </div>
-
 
                     <div class="col-5 my-2 color-black">
                         <asp:Label ID="lblEscolha" runat="server" AssociatedControlID="dropDownModelo" CssClass="form-label">Veículo Associado</asp:Label>
@@ -68,7 +62,9 @@
 
                     </div>
 
-
+                    <div class="col-10 my-2 color-black text-start">
+                        <asp:Label ID="lblMensagemProcurar" runat="server" CssClass="form-label text-danger "></asp:Label>
+                    </div>
 
                     <div class="card col-10 mt-2 ">
 
@@ -137,6 +133,8 @@
 
                 </div>
 
+                <asp:HiddenField ID="AcionaModal" runat="server" />
+
                 <div class="text-center col-12 mt-4 color-black">
                     <asp:Button ID="btnSalvarOS" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvarOS_Click" />
                     <asp:Button ID="btnCancelarOS" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelarOS_Click" />
@@ -148,6 +146,49 @@
 
             </div>
 
+            <!-- Modal Confirmar Cadastro -->
+            <div id="ModalConfirm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalDeConfirm"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Cadastro realizado com sucesso</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <asp:Image ID="imgCar" runat="server" CssClass="img-fluid" />
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <h6 class="col-12">Resumo da Ordem de serviço</h6>
+                                    <p>
+                                        Marca e modelo do veículo:
+                                        <asp:Label ID="lblMarcaModelo" runat="server"></asp:Label>
+                                    </p>
+                                    <p>
+                                        Nome do dono:
+                                        <asp:Label ID="lblNomeDono" runat="server"></asp:Label>
+                                    </p>
+                                    <p>
+                                        Data de Emissão:
+                                        <asp:Label ID="lblDataModal" runat="server"></asp:Label>
+                                    </p>
+                                    <p class="text-truncate d-inline-block">
+                                        <asp:Label ID="lblObservacaoModal" CssClass="text-truncate d-inline-block w-100" Style="max-width: 200px;" runat="server"></asp:Label>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-secondary" Text="Editar" />
+                            <asp:Button ID="btnFechar" runat="server" CssClass="btn btn-primary" Text="Fechar" data-dismiss="modal" OnClick="btnFecharModal_Click"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Modal Confirmar Cadastro -->
+
         </div>
         <!-- End Content Ordem serviços -->
 
@@ -156,6 +197,14 @@
             document.getElementById('<%= txtBoxDataEmissao.ClientID %>').onkeyup = (event) => {
                 handleDate(event);
             };
+
+            $(document).ready(function () {
+                var showModal = document.getElementById('<%= AcionaModal.ClientID %>').value;
+                if (showModal === 'True') {
+                    $("#ModalConfirm").modal('show');
+                    showModal = "False";
+                }
+            });
 
         </script>
     </form>

@@ -24,6 +24,10 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             lblPlaca.Visible = false;
         }
     }
+    protected void btnFecharModal_Click(object sender, EventArgs e)
+    {
+        AcionaModal.Value = "False";
+    }
 
     private void LimparCampos_Osv()
     {
@@ -66,6 +70,20 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
                 {
                     LimparCampos_Osv(); // Limpa os campos do formulário
                     lblMensagem.Text = "Cadastro realizado com sucesso";
+
+                    imgCar.ImageUrl = "../img/genericCarModal-removebg-preview.png";
+                    string veiculoTexto = dropDownModelo.SelectedItem.Text;
+                    string[] partes = veiculoTexto.Split(new string[] { " - " }, StringSplitOptions.RemoveEmptyEntries);
+                    if (partes.Length == 2)
+                    {
+                        string marcaModelo = partes[0]; // Obtém a parte da marca e modelo
+                        string nomeCliente = partes[1]; // Obtém a parte do nome do cliente
+                        lblMarcaModelo.Text = marcaModelo;
+                        lblNomeDono.Text = nomeCliente;
+                    }
+                    lblDataModal.Text = osv.Data.ToString("dd/MM/yyyy");
+                    lblObservacaoModal.Text = "Observação: " + osv.Observacao.ToString();
+                                AcionaModal.Value = "True";
                 }
                 else
                 {
@@ -85,6 +103,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
     protected void btnProcurarVeic_Click(object sender, EventArgs e)
     {
         string marcaFiltro = txtBoxVeiculo.Text.Trim();
+        AcionaModal.Value = "False";
 
         if (String.IsNullOrEmpty(marcaFiltro))
         {
@@ -119,7 +138,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         }
         else
         {
-            lblMensagem.Text = "Nenhum veículo encontrado com a marca especificada.";
+            lblMensagemProcurar.Text = "Nenhum veículo encontrado com a marca especificada.";
             dropDownModelo.Items.Add(new ListItem("---- Selecione o veiculo ----", "0")); // Adiciona a opção padrão mesmo quando não há resultados
         }
 
@@ -136,11 +155,13 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         lblAno.Visible = false;
         lblKm.Visible = false;
         lblPlaca.Visible = false;
+        AcionaModal.Value = "False";
     }
 
     protected void dropDownModelo_SelectedIndexChanged(object sender, EventArgs e)
     {
         string veiculoId = dropDownModelo.SelectedValue;
+        AcionaModal.Value = "False";
 
         if (!string.IsNullOrEmpty(veiculoId) && veiculoId != "0")
         {
