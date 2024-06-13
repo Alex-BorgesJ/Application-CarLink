@@ -19,196 +19,232 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <style>
+        body {
+            font-family: 'nunito', sans-serif;
+        }
+
+        .sidebar {
+            background-color: #243b8c;
+            min-height: 100vh;
+        }
+
+            .sidebar a {
+                color: white;
+            }
+
+                .sidebar a:hover {
+                    background-color: #06184d;
+                    color: white;
+                }
+
+            .sidebar hr {
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .sidebar .sidebar-brand {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+            }
+
+                .sidebar .sidebar-brand img {
+                    width: 4.5rem;
+                }
+
+            .sidebar .sidebar-brand-text {
+                margin-left: 1rem;
+            }
+
+        .bg_img {
+            background: linear-gradient(rgba(2, 5, 161, 0.91), rgba(2, 5, 161, 0.91)), url('../img_landpage/img.bg.png');
+        }
+
+        .sidebar ul,
+        .sidebar ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none; /* Remover marcadores de lista */
+        }
+
+            .sidebar ul li a {
+                display: block; /* Garantir que os links ocupem toda a largura */
+                padding: 10px; /* Adicionar preenchimento aos links */
+                text-decoration: none; /* Remover sublinhado padrão dos links */
+                color: white; /* Definir cor do texto dos links */
+            }
+    </style>
+
 </head>
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #243b8c" id="accordionSidebar">
+        <nav class="navbar-nav sidebar sidebar-dark accordion bg_img" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%= UrlNav("CarLink_Home.aspx") %>">
-                <div class="sidebar-brand-icon">
-                    <img src="../img_landpage/img_CarLink-removebg-preview-C.png" style="width: 4.5rem;" alt="">
-                </div>
-                <div class="sidebar-brand-text mx-3">CarLink</div>
-            </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item Cadastro begin -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" 
-                    onmouseover="this.style.backgroundColor='#06184d';"
-                    onmouseout="this.style.backgroundColor='#243b8c';"
-                    href="#" data-toggle="collapse" data-target="#collapseCadastro"
-                    aria-expanded="true" aria-controls="collapseCadastro">
-                        <i class='bx bx-plus-medical'></i>
-                    <span>Cadastro</span>
-                </a>
-                <div id="collapseCadastro" class="collapse" aria-labelledby="headingCadastro" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<%= UrlNav("CarLink_Cadastro.aspx") %>"><i class="fas fa-fw fa-pen"></i>Cadastrar Carro</a>
-                        <a class="collapse-item" href="<%= UrlNav("CarLink_Cadastro.aspx") %>"><i class="fas fa-fw fa-book"></i>Cadastrar Cliente</a>
+                <!-- Sidebar - Brand -->
+                <li class="sidebar-brand d-flex align-items-center justify-content-center">
+
+                    <div class="sidebar-brand-icon">
+                        <img src="../img_landpage/img_CarLink-removebg-preview-C.png">
                     </div>
-                </div>
-            </li>
-            <!--Nav Item Cadastro end-->
+                    <div class="sidebar-brand-text mx-2 user-select-none">CarLink</div>
+
+                </li>
+
+           
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider my-0 ">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+           
 
-            <li class="nav-item">
-                <a class="nav-link collapsed"
-                    onmouseover="this.style.backgroundColor='#06184d';"
-                    onmouseout="this.style.backgroundColor='#243b8c';" 
-                    href="#" data-toggle="collapse" data-target="#collapseOS"
-                    aria-expanded="true" aria-controls="collapseOS">
-                    <i class='bx bxs-message-square-detail'></i>
-                    <span>Ordem de Serviço</span>
-                </a>
-                <div id="collapseOS" class="collapse" aria-labelledby="headingOS" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<%= UrlNav("CarLink_Ordem.aspx") %>"><i class="fas fa-fw fa-pen"></i>lorem day</a>
-                    </div>
-                </div>
-            </li>
+                <li class="nav-item">
+                    <a class=" nav-link" href="CarLink_Home.aspx">
+                        <i class='fas fa-home'></i>
+                        <span>Dashboard</span>
+                    </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+                </li>
+
             
-            <li class="nav-item">
-                <a class="nav-link collapsed"
-                    onmouseover="this.style.backgroundColor='#06184d';"
-                    onmouseout="this.style.backgroundColor='#243b8c';"
-                    href="#" data-toggle="collapse" data-target="#collapseCatalogo"
-                    aria-expanded="true" aria-controls="collapseCatalogo">
-                    <i class='bx bxs-car'></i>
-                    <span>Catálogo</span>
-                </a>
-                <div id="collapseCatalogo" class="collapse" aria-labelledby="headingCatalogo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<%= UrlNav("#") %>"><i class="fas fa-fw fa-pen"></i>lorem sfdy</a>
-                    </div>
-                </div>
-            </li>
 
-             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0 ">
 
-            <li class="nav-item">
-                <a class="nav-link collapsed"
-                    onmouseover="this.style.backgroundColor='#06184d';"
-                    onmouseout="this.style.backgroundColor='#243b8c';"
-                    href="#" data-toggle="collapse" data-target="#collapseRegistros"
-                    aria-expanded="true" aria-controls="collapseRegistros">
-                    <i class='bx bxs-briefcase'></i>
-                    <span>Registros</span>
-                </a>
-                <div id="collapseRegistros" class="collapse" aria-labelledby="headingRegistros" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<%= UrlNav("#") %>"><i class="fas fa-fw fa-pen"></i>lorem sasdfy</a>
-                    </div>
-                </div>
-            </li>
+
+                <!-- Nav Item - Cadastro -->
+
+                <li class="nav-item">
+                    <a class="nav-link" href="CarLink_Cadastro.aspx">
+                        <i class='far fa-address-card'></i>
+                        <span>Cadastros</span>
+                    </a>
+                </li>
+
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <li class="nav-item">
-                <a class="nav-link collapsed"
-                    onmouseover="this.style.backgroundColor='#06184d';"
-                    onmouseout="this.style.backgroundColor='#243b8c';"
-                    href="#" data-toggle="collapse" data-target="#collapseConsultas"
-                    aria-expanded="true" aria-controls="collapseConsultas">
-                    <i class='bx bxs-folder'></i>
-                    <span>Consultas</span>
-                </a>
-                <div id="collapseConsultas" class="collapse" aria-labelledby="headingConsultas" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<%= UrlNav("#") %>"><i class="fas fa-fw fa-pen"></i>lorem saaty</a>
-                    </div>
-                </div>
-            </li>
+           
 
-             <!-- Divider -->
+                <!-- Nav Item - Ordem de Serviço -->
+
+                <li class="nav-item">
+                    <a class="nav-link" href="CarLink_Ordem.aspx">
+                        <i class='fas fa-edit'></i>
+                        <span>Ordem de Serviço</span>
+                    </a>
+                </li>
+            
+
+
+            <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <li class="nav-item">
-                <a class="nav-link collapsed"
-                    onmouseover="this.style.backgroundColor='#06184d';"
-                    onmouseout="this.style.backgroundColor='#243b8c';"
-                    href="#" data-toggle="collapse" data-target="#collapseAdm"
-                    aria-expanded="true" aria-controls="collapseAdm">
-                    <i class='bx bxs-edit-alt'></i>
-                    <span>Administrar</span>
-                </a>
-                <div id="collapseAdm" class="collapse" aria-labelledby="headingAdm" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<%= UrlNav("#") %>"><i class="fas fa-fw fa-pen"></i>lorem ggrsg</a>
-                    </div>
-                </div>
-            </li>
+           
+                <!-- Nav Item - Catálogo -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class='fas fa-chart-line'></i>
+                        <span>Desempenho</span>
+                    </a>
+                </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+           
+                <!-- Nav Item - Catálogo -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class='fas fa-file-alt'></i>
+                        <span>Registros</span>
+                    </a>
+                </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+           
+                <!-- Nav Item - Catálogo -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class='fas fa-folder-open'></i>
+                        <span>Consultas</span>
+                    </a>
+                </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+           
+                <!-- Nav Item - Catálogo -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class='bx bxs-edit-alt'></i>
+                        <span>Administrar</span>
+                    </a>
+                </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline mt-1">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Logout -->
-            
-        </ul>
+
+
+        </nav>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
-
-
             <!-- Main Content -->
-            <div id="content" background-color: #E0E8FF>
+            <div id="content" style="background-color: #E0E8FF">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar  static-top shadow">
-
-                    <!-- Page Heading -->
-                    
-                    <!-- End Page Heading -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
                     <!-- Topbar Navbar -->
-
                     <ul class="navbar-nav ml-auto">
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <li class="topbar-divider d-none d-sm-block "></li>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Oficina Mecânica</span>
-                                <img class="img-profile rounded-circle"
-                                    src="../img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="../img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="perfil.html">
+                                <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
                                 </a>
-                                <a class="dropdown-item" href="configuracao.html">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Configurações
-                                </a>
+                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -216,30 +252,19 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
-
-                    <!-- End of Topbar -->
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="background-color: #E0E8FF">
-
                     <!-- Page Heading -->
-                    <div >
+                    <div>
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 
@@ -252,10 +277,8 @@
                 </div>
             </footer>
             <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
 
@@ -295,4 +318,6 @@
     <script src="../../js/sb-admin-2.min.js"></script>
 
 </body>
+
+
 </html>

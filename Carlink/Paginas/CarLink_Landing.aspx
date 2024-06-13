@@ -245,7 +245,7 @@
                 <li>Suporte online</li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Saiba mais</a>
+                <a  class="btn-buy">Entre em contato</a>
               </div>
             </div>
           </div>
@@ -263,7 +263,7 @@
 
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Saiba mais</a>
+                <a  class="btn-buy">Entre em contato</a>
               </div>
             </div>
           </div>
@@ -283,7 +283,7 @@
                 <li>Sistema de backup</li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Saiba mais</a>
+                <a class="btn-buy">Entre em contato</a>
               </div>
             </div>
           </div>

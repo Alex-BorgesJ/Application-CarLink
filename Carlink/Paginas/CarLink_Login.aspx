@@ -49,21 +49,21 @@
 
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user required"
-                                            placeholder="Insira o nome..." />
+                                            placeholder="Insira seu nome..." />
                                     </div>
 
 
 
                                     <div class="form-group position-relative password-container">
                                         <input type="password" class="form-control form-control-user required"
-                                            placeholder="Insira uma senha..." id="passwordInput">
+                                            placeholder="Insira sua senha..." id="passwordInput">
                                         <i class="bi bi-eye-slash password-toggle" id="togglePassword"></i>
                                     </div>
 
                                      <div class="form-group">
                                         <div class="position-relative">
                                             <select class="form-control form-control-user required" id="funcao" name="funcao">
-                                                <option value="" selected disabled>Selecione a função</option>
+                                                <option value="" selected disabled>Selecione sua função</option>
                                                 <option value="mecanico">Mecânico</option>
                                                 <option value="adm">Administrador</option>
                                             </select>
