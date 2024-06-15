@@ -9,8 +9,11 @@
 }
 
     .btn-home:hover {
-        background: linear-gradient(to right, #566DB3, #9CAEE6);
+        background: linear-gradient(to right,rgba(2, 5, 161, 0.91), #3335df);
         color: #ffffff;
         box-shadow: 5px 5px 10px #566DB3;
     }
 
+.bg_img {
+    background: linear-gradient(rgba(2, 5, 161, 0.91), rgba(2, 5, 161, 0.91)), url('../img_landpage/');
+}
