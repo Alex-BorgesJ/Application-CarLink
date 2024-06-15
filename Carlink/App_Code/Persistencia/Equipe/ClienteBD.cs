@@ -17,11 +17,11 @@ namespace CarLink.Persistencia.Equipe
             int retorno = 0;
             try
             {
-                IDbConnection objConexao;
-                IDbCommand objCommand;
+                IDbConnection objConexao;//recebe a conexão com o mapped
+                IDbCommand objCommand;//recebe o comando 
                 string sql = "INSERT INTO CLI_CLIENTE(CLI_NOME, CLI_EMAIL, CLI_TELEFONE, CLI_CPF) VALUES(?nome, ?email, ?telefone, ?cpf)";
-                objConexao = Mapped.Connection();
-                objCommand = Mapped.Command(sql, objConexao);
+                objConexao = Mapped.Connection();// manda a conexeção para o mapped
+                objCommand = Mapped.Command(sql, objConexao);// manda o comando 
                 objCommand.Parameters.Add(Mapped.Parameter("?nome", cliente.Nome));
                 objCommand.Parameters.Add(Mapped.Parameter("?email", cliente.Email));
                 objCommand.Parameters.Add(Mapped.Parameter("?telefone", cliente.Telefone));

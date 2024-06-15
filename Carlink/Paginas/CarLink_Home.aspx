@@ -22,10 +22,10 @@
                 </div>
             </a>
 
-            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="#">
+            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="Carlink_Dashboard.aspx">
                 <div class="card btn-home">
                     <div class="card-body d-flex justify-content-center align-items-center">
-                        <h1 class="card-title text-white">Catálagos</h1>
+                        <h1 class="card-title text-white">Desempenho</h1>
                     </div>
                 </div>
             </a>
@@ -56,5 +56,7 @@
 
         </div>
     </div>
+
+
 </asp:Content>
 

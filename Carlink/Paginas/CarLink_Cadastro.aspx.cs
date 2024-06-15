@@ -17,7 +17,7 @@ public partial class Paginas_CarLink_Cadastro : System.Web.UI.Page
     {
         
     }
-    
+    // Essas informações são mandadas para o objeto de criação para passar pelo tratamento de dados. 
     private void LimparCampos_Clientes()
     {
         txtBoxNomeCliente.Text = "";

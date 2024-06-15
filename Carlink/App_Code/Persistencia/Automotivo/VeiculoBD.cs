@@ -5,6 +5,7 @@ using CarLink.Classes.Automotivo; //para acesso a classe de modelagem
 using System.Data; // para acesso ao DataSet
 namespace CarLink.Persistencia.Automotivo
 {
+    //manipulação de dados com o banco 
     /// Classe responsável por gerenciar as operações de banco de dados relacionadas a veículos.
     public class VeiculoBD
     {

@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 
 namespace CarLink.Classes.Automotivo
-{
+{   //Tratamento de erros e emitindo as exception 
     /// Summary description for Veiculo
     public class Veiculo
     {

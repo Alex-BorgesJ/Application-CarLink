@@ -83,6 +83,27 @@ namespace CarLink.Persistencia.Gestão
             return ds;
         }
 
+        public DataSet SelectAllDataOrdens()
+        {
+            DataSet ds = new DataSet();
+            IDbConnection objConexao;
+            IDbCommand objCommand;
+            IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            string query = "select date_format(o.ods_dataemissao, '%Y-%m') as mes, o.ods_status as status, count(o.ods_id) as total from ods_ordem_servico o group by date_format(o.ods_dataemissao, '%Y-%m'), status order by mes, status";
+
+            objCommand = Mapped.Command(query, objConexao);
+
+            
+
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+
         //select
         public Ordemsv Select(int OdsID)
         {

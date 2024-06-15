@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -53,8 +53,6 @@ namespace FATEC
             return new MySqlParameter(nome, valor);
         
         }
-
-
 
         public Mapped()
         {
