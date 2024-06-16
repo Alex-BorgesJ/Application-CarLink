@@ -245,7 +245,7 @@
                 <li>Suporte online</li>
               </ul>
               <div class="btn-wrap">
-                <a  class="btn-buy">Entre em contato</a>
+                <a  class="btn-buy" href="<%=("CarLink_Registro.aspx") %>">Cadastre-se</a>
               </div>
             </div>
           </div>
@@ -263,7 +263,7 @@
 
               </ul>
               <div class="btn-wrap">
-                <a  class="btn-buy">Entre em contato</a>
+                <a  class="btn-buy" href="<%=("CarLink_Registro.aspx") %>">Cadastre-se</a>
               </div>
             </div>
           </div>
@@ -283,7 +283,7 @@
                 <li>Sistema de backup</li>
               </ul>
               <div class="btn-wrap">
-                <a class="btn-buy">Entre em contato</a>
+                <a class="btn-buy" href="<%=("CarLink_Registro.aspx") %>">Cadastre-se</a>
               </div>
             </div>
           </div>

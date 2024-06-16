@@ -55,7 +55,7 @@
 
                             <div class="col-12 my-2">
                                 <asp:Label ID="lblEmailCorp" runat="server" AssociatedControlID="txtBoxEmailCorp" CssClass="form-label">Email Corporativo</asp:Label>
-                                <asp:TextBox ID="txtBoxEmailCorp" runat="server" CssClass="form-control" placeholder="email@gmail.com"></asp:TextBox>
+                                <asp:TextBox ID="txtBoxEmailCorp" runat="server" CssClass="form-control" type="email" placeholder="email@gmail.com"></asp:TextBox>
                                 <asp:Label ID="lblEmailError"  runat="server" CssClass="form-label text-danger "></asp:Label>
                             </div>
 
@@ -68,14 +68,14 @@
 
                             <div class="col-12 my-2">
                                 <asp:Label ID="lblSenha" runat="server" AssociatedControlID="txtBoxSenha" CssClass="form-label">Senha</asp:Label>
-                                <asp:TextBox ID="txtBoxSenha" runat="server" CssClass="form-control" placeholder="********"></asp:TextBox>
+                                <asp:TextBox ID="txtBoxSenha" runat="server" CssClass="form-control" type="password" placeholder="********"></asp:TextBox>
                                 <asp:Label ID="lblSenhaError"  runat="server" CssClass="form-label text-danger "></asp:Label>
                             </div>
                            
 
                             <div class="col-12 my-2">
                                 <asp:Label ID="lblConfSenha" runat="server" AssociatedControlID="txtBoxConfSenha" CssClass="form-label">Confirmar Senha</asp:Label>
-                                <asp:TextBox ID="txtBoxConfSenha" runat="server" CssClass="form-control" placeholder="********"></asp:TextBox>
+                                <asp:TextBox ID="txtBoxConfSenha" runat="server" CssClass="form-control" type="password" placeholder="********"></asp:TextBox>
                                 <asp:Label ID="lblConfError"  runat="server" CssClass="form-label text-danger "></asp:Label>
                             </div>
 

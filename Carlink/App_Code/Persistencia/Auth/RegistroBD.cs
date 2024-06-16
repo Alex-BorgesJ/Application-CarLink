@@ -63,7 +63,23 @@ namespace CarLink.Persistencia.Auth
             return dsReg;
         }
 
-        
+        public DataSet VerifyLogin(string email)
+        {
+            DataSet ds = new DataSet();
+            IDbConnection objConexao;
+            IDbCommand objCommand;
+            IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            string query = "SELECT USU_USUARIO.USU_EMAIL, USU_USUARIO.USU_SENHA FROM USU_USUARIO WHERE USU_EMAIL LIKE ?usuEmail";
+            objCommand = Mapped.Command(query, objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?usuEmail", "%" + email + "%"));
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
 
         //select
         public Registro Select(int UsuID)

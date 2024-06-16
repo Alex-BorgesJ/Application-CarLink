@@ -80,6 +80,7 @@ public partial class Paginas_CarLink_Cadastrar : System.Web.UI.Page
 
             if(retorno == 0)
             {
+                lblError.Text = "";
                 lblSucess.Text = "Cadastro bem sucedido!";
             }
             else
@@ -90,7 +91,7 @@ public partial class Paginas_CarLink_Cadastrar : System.Web.UI.Page
 
         }
         catch(Exception ex) {
-            lblError.Text = "ERRO! Verifique os campos digitados" + ex.Message;
+            lblError.Text = "ERRO! Verifique os campos digitados <br/>" + ex.Message;
             return;
         }
 
