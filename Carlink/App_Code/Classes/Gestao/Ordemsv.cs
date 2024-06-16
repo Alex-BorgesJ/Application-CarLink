@@ -30,11 +30,11 @@ namespace CarLink.Classes.Gestao
                 observacao = value;
             }
         }
-        public int Codigo { get; set; }
+        public int Codigo { get { return codigo; } set { codigo = value; } }
 
         public DateTime Data { get; set; }
 
-        public String Status { get; set; }
+        public String Status { get { return status; } set { status = value; } }
         public Ordemsv()
         {
             //

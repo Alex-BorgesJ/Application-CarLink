@@ -83,6 +83,54 @@ namespace CarLink.Persistencia.Gestão
             return ds;
         }
 
+        //Select osv
+        public DataSet SelectAllOsv(string marcaFiltro)
+        {
+            DataSet ds = new DataSet();
+            IDbConnection objConexao;
+            IDbCommand objCommand;
+            IDataAdapter objDataAdapter;
+            objConexao = Mapped.Connection();
+            string query = "SELECT ODS_ORDEM_SERVICO.ODS_ID, ODS_ORDEM_SERVICO.ODS_DESCRICAO, ODS_ORDEM_SERVICO.ODS_DATAEMISSAO, ODS_ORDEM_SERVICO.ODS_STATUS,ODS_ORDEM_SERVICO.VEI_ID, VEI_VEICULO.VEI_MARCA, VEI_VEICULO.VEI_MODELO, CLI_CLIENTE.CLI_NOME FROM ODS_ORDEM_SERVICO LEFT JOIN VEI_VEICULO ON ODS_ORDEM_SERVICO.VEI_ID = VEI_VEICULO.VEI_ID INNER JOIN CLI_CLIENTE ON VEI_VEICULO.CLI_ID = CLI_CLIENTE.CLI_ID WHERE VEI_MARCA LIKE ?veicMarca OR VEI_MODELO LIKE ?veicModel ORDER BY VEI_MARCA, VEI_MODELO";
+
+            objCommand = Mapped.Command(query, objConexao);
+
+            objCommand.Parameters.Add(Mapped.Parameter("?veicMarca", "%" + marcaFiltro + "%"));
+            objCommand.Parameters.Add(Mapped.Parameter("?veicModel", "%" + marcaFiltro + "%"));
+
+            objDataAdapter = Mapped.Adapter(objCommand);
+            objDataAdapter.Fill(ds);
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            return ds;
+        }
+
+        //select descricao
+        public Ordemsv SelectVei(int veiID)
+        {
+            Ordemsv obj = null;
+            IDbConnection objConexao;
+            IDbCommand objCommand;
+            IDataReader objDataReader;
+            objConexao = Mapped.Connection();
+            objCommand = Mapped.Command("SELECT * FROM ODS_ORDEM_SERVICO WHERE VEI_ID = ?veiID", objConexao);
+            objCommand.Parameters.Add(Mapped.Parameter("?veiID", veiID));
+            objDataReader = objCommand.ExecuteReader();
+            while (objDataReader.Read())
+            {
+                obj = new Ordemsv();
+                obj.Observacao = Convert.ToString(objDataReader["ODS_DESCRICAO"]);
+                obj.Status = Convert.ToString(objDataReader["ODS_STATUS"]);
+            }
+            objDataReader.Close();
+            objConexao.Close();
+            objCommand.Dispose();
+            objConexao.Dispose();
+            objDataReader.Dispose();
+            return obj;
+        }
+        //Select data
         public DataSet SelectAllDataOrdens()
         {
             DataSet ds = new DataSet();
@@ -94,7 +142,7 @@ namespace CarLink.Persistencia.Gestão
 
             objCommand = Mapped.Command(query, objConexao);
 
-            
+
 
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
@@ -128,20 +176,35 @@ namespace CarLink.Persistencia.Gestão
             return obj;
         }
         //update
-        public bool Update(Ordemsv sv)
+        public int Update(Ordemsv sv)
         {
-            IDbConnection objConexao;
-            IDbCommand objCommand;
-            string sql = "UPDATE ODS_ORDEM_SERVICO SET ODS_OBSERVACAO=?OBS WHERE ODS_ID=?OdsID";
-            objConexao = Mapped.Connection();
-            objCommand = Mapped.Command(sql, objConexao);
-            objCommand.Parameters.Add(Mapped.Parameter("?Obs", sv.Observacao));
-            //objCommand.Parameters.Add(Mapped.Parameter("?OdsID", sv.Codigo));
-            objCommand.ExecuteNonQuery();
-            objConexao.Close();
-            objCommand.Dispose();
-            objConexao.Dispose();
-            return true;
+            int retorno = 0;
+            try { 
+                IDbConnection objConexao;
+                IDbCommand objCommand;
+                string sql = "UPDATE ODS_ORDEM_SERVICO SET ODS_DESCRICAO = ?obs, ODS_STATUS = ?status WHERE ODS_ID=?OdsID";
+                objConexao = Mapped.Connection();
+                objCommand = Mapped.Command(sql, objConexao);
+                objCommand.Parameters.Add(Mapped.Parameter("?OdsID", sv.Codigo));
+                objCommand.Parameters.Add(Mapped.Parameter("?Obs", sv.Observacao));
+                objCommand.Parameters.Add(Mapped.Parameter("?status", sv.Status));
+                objCommand.ExecuteNonQuery();
+                objConexao.Close();
+                objCommand.Dispose();
+                objConexao.Dispose();
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException)
+            {
+              retorno = 1;
+            }
+            catch (Exception)
+            {
+              retorno = 2;
+            }
+
+        return retorno;
+
         }
         //delete
         public bool Delete(int id)

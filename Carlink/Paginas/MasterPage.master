@@ -155,7 +155,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="CarLink_Dashboard.aspx">
                         <i class='fas fa-chart-line'></i>
-                        <span>Desempenho</span>
+                        <span>Dashboard</span>
                     </a>
                 </li>
 
@@ -165,7 +165,7 @@
            
                 <!-- Nav Item - Catálogo -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="CarLink_Editor.aspx">
                         <i class='fas fa-file-alt'></i>
                         <span>Registros</span>
                     </a>
