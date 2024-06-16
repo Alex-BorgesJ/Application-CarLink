@@ -165,7 +165,7 @@
            
                 <!-- Nav Item - Catálogo -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="Carlink_Registros.aspx">
                         <i class='fas fa-file-alt'></i>
                         <span>Registros</span>
                     </a>
@@ -177,7 +177,7 @@
            
                 <!-- Nav Item - Catálogo -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="Carlink_Consultas.aspx">
                         <i class='fas fa-folder-open'></i>
                         <span>Consultas</span>
                     </a>
@@ -190,7 +190,7 @@
            
                 <!-- Nav Item - Catálogo -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="Carlink_Administrar.aspx">
                         <i class='bx bxs-edit-alt'></i>
                         <span>Administrar</span>
                     </a>
@@ -238,7 +238,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="CarLink_Perfil.aspx">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
                                 </a>
