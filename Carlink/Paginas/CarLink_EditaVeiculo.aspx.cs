@@ -6,78 +6,84 @@ using System.Configuration;
 using CarLink.Classes.Gestao;
 using CarLink.Persistencia.Gestão;
 using CarLink.Persistencia.Automotivo;
+using CarLink.Persistencia.Local;
 using System.Data;
 using CarLink.Classes.Automotivo;
+using CarLink.Classes.Equipe;
+using CarLink.Persistencia.Equipe;
+using CarLink.Classes.Local;
 
-public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
+public partial class Paginas_CarLink_EditaVeiculo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             // Ocultar os rótulos ao carregar a página pela primeira vez
-            lblmsgMarca.Visible = false;
-            lblmsgModelo.Visible = false;
-            lblmsgChassi.Visible = false;
-            lblmsgAno.Visible = false;
-            lblmsgKm.Visible = false;
-            lblmsgPlaca.Visible = false;
-            txtBoxObservacao.Visible = false;
+            txtBoxMarca.Visible = false;
+            txtBoxModelo.Visible = false;
+            txtBoxChassi.Visible = false;
+            txtBoxAno.Visible = false;
+            txtBoxKm.Visible = false;
+            txtBoxPlaca.Visible = false;
+     
         }
     }
-    protected void btnFecharModal_Click(object sender, EventArgs e)
-    {
-        
-    }
+    
 
-    private void LimparCampos_Osv()
+    private void LimparCampos_Veic()
     {
         // Limpar todos os campos
         txtBoxVeiculo.Text = "";
-        lblmsgMarca.Text = "";
-        lblmsgModelo.Text = "";
-        lblmsgChassi.Text = "";
-        lblmsgAno.Text = "";
-        lblmsgKm.Text = "";
-        txtBoxObservacao.Text = "";
-        lblmsgPlaca.Text = "";
+        txtBoxMarca.Text = "";
+        txtBoxModelo.Text = "";
+        txtBoxChassi.Text = "";
+        txtBoxAno.Text = "";
+        txtBoxKm.Text = "";
 
-        lblMensagem.Text = "";
+        txtBoxPlaca.Text = "";
+
+        lblMensagem_veic.Text = "";
     }
-    Ordemsv osv = new Ordemsv();
+    Veiculo veic = new Veiculo();
 
-    protected void btnSalvarOS_Click(object sender, EventArgs e)
+    protected void btnSalvarVeic_Click(object sender, EventArgs e)
     {
-        //Ordemsv osv = new Ordemsv();
+        
         if (dropDownModelo.SelectedItem.Value != "0")
         {
 
-            lblMensagem.Visible = true;
+            lblMensagem_veic.Visible = true;
             try
-            {
-                osv.Status = txtBoxStatus.Text;
-                osv.Observacao = txtBoxObservacao.Text;
+            {               
                 
+                veic.Codigo = Convert.ToInt32(dropDownModelo.SelectedItem.Value);
+                veic.Ano = Convert.ToInt32(txtBoxAno.Text);
+                veic.Marca = txtBoxMarca.Text;
+                veic.Modelo = txtBoxModelo.Text;
+                veic.Placa = txtBoxPlaca.Text;
+                veic.Chassi = txtBoxChassi.Text;
+                veic.Quilometragem = txtBoxKm.Text;
 
 
                 //Insere valores no banco   
-                OrdemsvBD bdOsv = new OrdemsvBD();
-                int retornoOsv = bdOsv.Update(osv);
+                VeiculoBD veiculoBD = new VeiculoBD();
+                int retornoVeic = veiculoBD.Update(veic);
                 // Verifica o retorno da inserção
-                if (retornoOsv == 0)
+                if (retornoVeic == 0)
                 {
-                    LimparCampos_Osv(); // Limpa os campos do formulário
-                    lblMensagem.Text = "Cadastro atualizado com sucesso" + retornoOsv + osv.Status + osv.Observacao + osv.Codigo;      
+                    LimparCampos_Veic(); // Limpa os campos do formulário
+                    lblMensagem_veic.Text = "Cadastro atualizado com sucesso";
                 }
                 else
                 {
-                    lblMensagem.Text = "Erro ao atualizar a ordem de serviço" + retornoOsv + osv.Codigo + osv.Status + osv.Observacao;
+                    lblMensagem_veic.Text = "Erro ao atualizar o veículo" + retornoVeic;
                 }
 
             }
             catch (Exception ex)
             {
-                lblMensagem.Text = "ERRO! Verifique os campos digitados" + ex.Message;
+                lblMensagem_veic.Text = "ERRO! Verifique os campos digitados" + ex.Message;
                 return;
             }
         }
@@ -87,6 +93,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
     protected void btnProcurarVeic_Click(object sender, EventArgs e)
     {
         string marcaFiltro = txtBoxVeiculo.Text.Trim();
+        
 
         if (String.IsNullOrEmpty(marcaFiltro))
         {
@@ -96,7 +103,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         }
 
         OrdemsvBD bdOsv = new OrdemsvBD();
-        DataSet ds = bdOsv.SelectAllOsv(marcaFiltro);
+        DataSet ds = bdOsv.SelectAllVeic(marcaFiltro);
 
         dropDownModelo.Items.Clear(); // Limpa as opções anteriores
 
@@ -112,7 +119,6 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
                 string marca = row["VEI_MARCA"].ToString();
                 string modelo = row["VEI_MODELO"].ToString();
                 string clienteNome = row["CLI_NOME"].ToString();
-                //string data = Convert.ToDateTime(row["ODS_DATAEMISSAO"]).ToString("dd/MM/yyyy");
                 string displayText = string.Format("{0} {1} - {2}", marca, modelo, clienteNome);
 
                 dropDownModelo.Items.Add(new ListItem(displayText, row["VEI_ID"].ToString()));
@@ -126,26 +132,27 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             dropDownModelo.Items.Add(new ListItem("---- Selecione o veiculo ----", "0")); // Adiciona a opção padrão mesmo quando não há resultados
         }
 
-        lblMensagem.Visible = !String.IsNullOrEmpty(lblMensagem.Text); // Define a visibilidade da mensagem com base no seu conteúdo
+        lblMensagem_veic.Visible = !String.IsNullOrEmpty(lblMensagem_veic.Text); // Define a visibilidade da mensagem com base no seu conteúdo
     }
 
-    protected void btnCancelarOS_Click(object sender, EventArgs e)
+    protected void btnCancelarVeic_Click(object sender, EventArgs e)
     {
-        LimparCampos_Osv();
+        LimparCampos_Veic();
         // Ocultar os rótulos ao carregar a página pela primeira vez
-        lblmsgMarca.Visible = false;
-        lblmsgModelo.Visible = false;
-        lblmsgChassi.Visible = false;
-        lblmsgAno.Visible = false;
-        lblmsgKm.Visible = false;
-        lblmsgPlaca.Visible = false;
-        txtBoxObservacao.Visible = false;
+        txtBoxMarca.Visible = false;
+        txtBoxModelo.Visible = false;
+        txtBoxChassi.Visible = false;
+        txtBoxAno.Visible = false;
+        txtBoxKm.Visible = false;
+        txtBoxPlaca.Visible = false;
+        
     }
 
     protected void dropDownModelo_SelectedIndexChanged(object sender, EventArgs e)
     {
         string veiculoId = dropDownModelo.SelectedValue;
         
+
         if (!string.IsNullOrEmpty(veiculoId) && veiculoId != "0")
         {
             // Buscar informações detalhadas do veículo usando veiculoId
@@ -156,51 +163,47 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
 
             if (vehicleDetails != null)
             {
-                lblmsgMarca.Text = vehicleDetails["VEI_MARCA"].ToString();
-                lblmsgModelo.Text = vehicleDetails["VEI_MODELO"].ToString();
-                lblmsgChassi.Text = vehicleDetails["VEI_CHASSI"].ToString();
-                lblmsgAno.Text = vehicleDetails["VEI_ANO"].ToString();
-                lblmsgKm.Text = vehicleDetails["VEI_KM"].ToString();
-                lblmsgPlaca.Text = vehicleDetails["VEI_PLACA"].ToString();
-                txtBoxObservacao.Text = vehicleDetails["ODS_DESCRICAO"].ToString();
-                txtBoxStatus.Text = vehicleDetails["ODS_STATUS"].ToString();
-                //osv.Codigo = osv.Codigo = Convert.ToInt32(vehicleDetails["ODS_ID"]);
+                txtBoxMarca.Text = vehicleDetails["VEI_MARCA"].ToString();
+                txtBoxModelo.Text = vehicleDetails["VEI_MODELO"].ToString();
+                txtBoxChassi.Text = vehicleDetails["VEI_CHASSI"].ToString();
+                txtBoxAno.Text = vehicleDetails["VEI_ANO"].ToString();
+                txtBoxKm.Text = vehicleDetails["VEI_KM"].ToString();
+                txtBoxPlaca.Text = vehicleDetails["VEI_PLACA"].ToString();
 
                 // tornando visivel 
-                lblmsgMarca.Visible = true;
-                lblmsgModelo.Visible = true;
-                lblmsgChassi.Visible = true;
-                lblmsgAno.Visible = true;
-                lblmsgKm.Visible = true;
-                lblmsgPlaca.Visible = true;
-                txtBoxObservacao.Visible= true;
+                txtBoxMarca.Visible = true;
+                txtBoxModelo.Visible = true;
+                txtBoxChassi.Visible = true;
+                txtBoxAno.Visible = true;
+                txtBoxKm.Visible = true;
+                txtBoxPlaca.Visible = true;
             }
             else
             {
-                lblMensagem.Text = "Erro ao buscar os detalhes do veículo.";
+                lblMensagem_veic.Text = "Erro ao buscar os detalhes do veículo.";
             }
 
         }
         else
         {
             // Limpar os campos se a opção padrão for selecionada
-            lblmsgMarca.Text = "";
-            lblmsgModelo.Text = "";
-            lblmsgChassi.Text = "";
-            lblmsgAno.Text = "";
-            lblmsgKm.Text = "";
-            lblmsgPlaca.Text = " ";
+            txtBoxMarca.Text = "";
+            txtBoxModelo.Text = "";
+            txtBoxChassi.Text = "";
+            txtBoxAno.Text = "";
+            txtBoxKm.Text = "";
+            txtBoxPlaca.Text = " ";
 
 
 
             // tornando invisivel 
-            lblmsgMarca.Visible = false;
-            lblmsgModelo.Visible = false;
-            lblmsgChassi.Visible = false;
-            lblmsgAno.Visible = false;
-            lblmsgKm.Visible = false;
-            lblmsgPlaca.Visible = false;
-            txtBoxObservacao.Visible = false;
+            txtBoxMarca.Visible = false;
+            txtBoxModelo.Visible = false;
+            txtBoxChassi.Visible = false;
+            txtBoxAno.Visible = false;
+            txtBoxKm.Visible = false;
+            txtBoxPlaca.Visible = false;
+
         }
     }
 
@@ -208,9 +211,6 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
     {
         VeiculoBD vei = new VeiculoBD();
         Veiculo carro = vei.Select(Convert.ToInt32(veiculoId));
-
-        OrdemsvBD odv = new OrdemsvBD();
-        Ordemsv ordem = odv.SelectVei(Convert.ToInt32(veiculoId));
 
         if (carro != null)
         {
@@ -223,9 +223,6 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             dt.Columns.Add("VEI_ANO", typeof(int));
             dt.Columns.Add("VEI_KM", typeof(int));
             dt.Columns.Add("VEI_ID", typeof(int));
-            dt.Columns.Add("ODS_DESCRICAO", typeof(string));
-            dt.Columns.Add("ODS_STATUS", typeof(string));
-            //dt.Columns.Add("ODS_ID", typeof(int));
 
             DataRow dr = dt.NewRow();
             dr["VEI_MARCA"] = carro.Marca;
@@ -235,15 +232,11 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             dr["VEI_KM"] = carro.Quilometragem;
             dr["VEI_ID"] = carro.Codigo;
             dr["VEI_PLACA"] = carro.Placa;
-            dr["ODS_DESCRICAO"] = ordem.Observacao;
-            dr["ODS_STATUS"] = ordem.Status;
-            osv.Codigo = ordem.Codigo;
 
             return dr;
         }
 
         return null;
     }
-
 
 }

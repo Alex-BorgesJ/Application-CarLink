@@ -100,24 +100,38 @@ namespace CarLink.Persistencia.Automotivo
         /// Atualiza as informações de um veículo no banco de dados.
         /// <param> O objeto Veiculo com as informações atualizadas.</param>
         /// <returns>True se a atualização foi bem-sucedida, ou False em caso de erro.</returns>
-        public bool Update(Veiculo veiculo)
+        public int Update(Veiculo veiculo)
         {
-            IDbConnection objConexao;
-            IDbCommand objCommand;
-            string sql = "UPDATE VEI_VEICULO SET VEI_ANO=?ano, VEI_MODELO=?modelo, VEI_MARCA=?marca, VEI_PLACA=?placa, VEI_CHASSI=?chassi, VEI_QUILOMETRAGEM=?quilometragem WHERE VEI_ID=?codigo";
-            objConexao = Mapped.Connection(); // Cria uma conexão com o banco de dados usando a classe Mapped
-            objCommand = Mapped.Command(sql, objConexao); // Cria um comando SQL usando a classe Mapped
-            objCommand.Parameters.Add(Mapped.Parameter("?ano", veiculo.Ano)); // Adiciona um parâmetro para o ano
-            objCommand.Parameters.Add(Mapped.Parameter("?modelo", veiculo.Modelo)); // Adiciona um parâmetro para o modelo
-            objCommand.Parameters.Add(Mapped.Parameter("?marca", veiculo.Marca)); // Adiciona um parâmetro para a marca
-            objCommand.Parameters.Add(Mapped.Parameter("?placa", veiculo.Placa)); // Adiciona um parâmetro para a placa
-            objCommand.Parameters.Add(Mapped.Parameter("?chassi", veiculo.Chassi)); // Adiciona um parâmetro para o chassi
-            objCommand.Parameters.Add(Mapped.Parameter("?quilometragem", veiculo.Quilometragem)); // Adiciona um parâmetro para a quilometragem
-            objCommand.ExecuteNonQuery(); // Executa o comando SQL
-            objConexao.Close(); // Fecha a conexão com o banco de dados
-            objCommand.Dispose(); // Libera os recursos do comando SQL
-            objConexao.Dispose(); // Libera os recursos da conexão
-            return true; // Retorna true, indicando que a atualização foi bem-sucedida
+            int retorno = 0;
+            try { 
+                IDbConnection objConexao;
+                IDbCommand objCommand;
+                string sql = "UPDATE VEI_VEICULO SET VEI_ANO=?ano, VEI_MODELO=?modelo, VEI_MARCA=?marca, VEI_PLACA=?placa, VEI_CHASSI=?chassi, VEI_QUILOMETRAGEM=?quilometragem WHERE VEI_ID=?codigo";
+                objConexao = Mapped.Connection(); // Cria uma conexão com o banco de dados usando a classe Mapped
+                objCommand = Mapped.Command(sql, objConexao); // Cria um comando SQL usando a classe Mapped
+                objCommand.Parameters.Add(Mapped.Parameter("?ano", veiculo.Ano)); // Adiciona um parâmetro para o ano
+                objCommand.Parameters.Add(Mapped.Parameter("?modelo", veiculo.Modelo)); // Adiciona um parâmetro para o modelo
+                objCommand.Parameters.Add(Mapped.Parameter("?marca", veiculo.Marca)); // Adiciona um parâmetro para a marca
+                objCommand.Parameters.Add(Mapped.Parameter("?placa", veiculo.Placa)); // Adiciona um parâmetro para a placa
+                objCommand.Parameters.Add(Mapped.Parameter("?chassi", veiculo.Chassi)); // Adiciona um parâmetro para o chassi
+                objCommand.Parameters.Add(Mapped.Parameter("?quilometragem", veiculo.Quilometragem)); // Adiciona um parâmetro para a quilometragem
+                objCommand.Parameters.Add(Mapped.Parameter("?codigo", veiculo.Codigo));
+                objCommand.ExecuteNonQuery(); // Executa o comando SQL
+                objConexao.Close(); // Fecha a conexão com o banco de dados
+                objCommand.Dispose(); // Libera os recursos do comando SQL
+                objConexao.Dispose(); // Libera os recursos da conexão
+                return retorno; // Retorna true, indicando que a atualização foi bem-sucedida
+            }
+            catch (MySql.Data.MySqlClient.MySqlException)
+            {
+                retorno = 1;
+            }
+            catch (Exception)
+            {
+                retorno = 2;
+            }
+
+            return retorno;
         }
         //delete
         /// Exclui um veículo do banco de dados pelo seu ID.
