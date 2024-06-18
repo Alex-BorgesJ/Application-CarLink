@@ -30,6 +30,7 @@ public partial class Paginas_CarLink_Dashboard : System.Web.UI.Page
         Dictionary<string, int> esperaCounts = new Dictionary<string, int>();
         Dictionary<string, int> analiseCounts = new Dictionary<string, int>();
         Dictionary<string, int> prontoCounts = new Dictionary<string, int>();
+        Dictionary<string, int> processoCounts = new Dictionary<string, int>();
         Dictionary<string, int> serviceMonthCounts = new Dictionary<string, int>();
 
         // Itera pelas linhas do DataSet e preenche os dicionários
@@ -66,12 +67,20 @@ public partial class Paginas_CarLink_Dashboard : System.Web.UI.Page
                 else
                     serviceMonthCounts[mes] = total;
             }
+            else if (status == "EM PROCESSO")
+            {
+                if (processoCounts.ContainsKey(mes))
+                    processoCounts[mes] += total;
+                else
+                    processoCounts[mes] = total;
+            }
         }
 
         // Extrai as contagens para arrays
         int[] esperaData = esperaCounts.Values.ToArray();
         int[] analiseData = analiseCounts.Values.ToArray();
         int[] prontoData = prontoCounts.Values.ToArray();
+        int[] processoData = processoCounts.Values.ToArray();
 
         // Extrai labels (meses) e dados (contagens) do dicionário
         List<string> serviceMonthLabels = new List<string>();
@@ -88,9 +97,9 @@ public partial class Paginas_CarLink_Dashboard : System.Web.UI.Page
         int[] serviceMonthDataJson = serviceMonthData.ToArray();
 
         // Exemplo de dados dinâmicos
-        var labels = new[] { "EM ESPERA", "EM ANÁLISE", "PRONTO" };
-        var data = new[] { esperaData.Sum(), analiseData.Sum(), prontoData.Sum() }; // Sum dos dados para o gráfico principal
-        var barColors = new[] { "#06184D", "#243B80", "#9CAEE6" };
+        var labels = new[] { "EM ESPERA", "EM ANÁLISE", "PRONTO", "EM PROCESSO" };
+        var data = new[] { esperaData.Sum(), analiseData.Sum(), prontoData.Sum(), processoData.Sum() }; // Sum dos dados para o gráfico principal
+        var barColors = new[] { "#06184D", "#243B80", "#9CAEE6", "#E0E8FF" };
 
         // Converta os dados para JSON
         var labelsJson = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(labels);
@@ -104,83 +113,57 @@ public partial class Paginas_CarLink_Dashboard : System.Web.UI.Page
 
         // Gera o script para o Chart.js
         var script = String.Format(@"
-<script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {{
-        type: 'bar',
-        data: {{
-            labels: {0},
-            datasets: [{{
-                label: 'Status de Serviços',
-                data: {1},
-                backgroundColor: {2},
-                borderColor: 'black',
-                borderWidth: 1
-            }}]
-        }},
-        options: {{
-            scales: {{
-                y: {{
-                    beginAtZero: true
-                }}
-            }}
-        }}
-    }});
-</script>", labelsJson, dataJson, colorsJson);
-
-        var script2 = String.Format(@"
-<script>
-        var ctx = document.getElementById('myChartDoughnut').getContext('2d');
-        var myChartDoughnut = new Chart(ctx, {{
-            type: 'doughnut',
-            data: {{
-                labels: {0},
-                datasets: [{{
-                    backgroundColor: {2},
-                    data: {1}
-                }}]
-            }},
-            options: {{
-                title: {{
-                    display: true,
-                    text: 'World Wide Wine Production 2018'
-                }}
-            }}
-        }});
-</script>", labelsJson, dataJson, colorsJson);
-
-        // Use serviceMonthLabels e serviceMonthData em vez de labelsJson e dataJson
-        var script3 = String.Format(@"
-<script>
-    var ctx = document.getElementById('myChartBar').getContext('2d');
-    var myChartBar = new Chart(ctx, {{
-        type: 'bar',
-        data: {{
-            labels: {0},
-            datasets: [{{
-                label: 'Serviços Concluídos', 
-                data: {1}, 
-                backgroundColor: {2},
-                borderColor: 'black',
-                borderWidth: 1
-            }}]
-        }},
-        options: {{
-                scales: {{
-                    y: {{
-                        beginAtZero: true
+        <script>
+            var ctx = document.getElementById('myChartDoughnut').getContext('2d');
+            var myChartDoughnut = new Chart(ctx, {{
+                type: 'doughnut',
+                data: {{
+                    labels: {0},
+                    datasets: [{{
+                        backgroundColor: {2},
+                        data: {1}
+                    }}]
+                }},
+                options: {{
+                    title: {{
+                        display: true,
+                        text: 'World Wide Wine Production 2018'
                     }}
                 }}
-            }}
-        }});
-</script>", labels3Json, data3Json, colors3Json);
+            }});
+        </script>", labelsJson, dataJson, colorsJson);
+
+        // Use serviceMonthLabels e serviceMonthData em vez de labelsJson e dataJson
+        var script2 = String.Format(@"
+        <script>
+            var ctx = document.getElementById('myChartBar').getContext('2d');
+            var myChartBar = new Chart(ctx, {{
+                type: 'bar',
+                data: {{
+                    labels: {0},
+                    datasets: [{{
+                        label: 'Serviços Concluídos', 
+                        data: {1}, 
+                        backgroundColor: {2},
+                        borderColor: 'black',
+                        borderWidth: 1
+                    }}]
+                }},
+                options: {{
+                    scales: {{
+                        y: {{
+                            beginAtZero: true
+                        }}
+                    }}
+                }}
+            }});
+        </script>", labels3Json, data3Json, colors3Json);
 
         // Registra o script na página (mesmo que antes)
         ClientScript.RegisterStartupScript(this.GetType(), "chartScript", script, false);
         ClientScript.RegisterStartupScript(this.GetType(), "chartScript2", script2, false);
-        ClientScript.RegisterStartupScript(this.GetType(), "chartScript3", script3, false);
-        ClientScript.RegisterStartupScript(this.GetType(), "chartScript3", script3, false);
-        ClientScript.RegisterStartupScript(this.GetType(), "chartScript3", script3, false);
+        ClientScript.RegisterStartupScript(this.GetType(), "chartScript2", script2, false);
+        ClientScript.RegisterStartupScript(this.GetType(), "chartScript2", script2, false);
     }
 
     protected string UrlNav(string url)
