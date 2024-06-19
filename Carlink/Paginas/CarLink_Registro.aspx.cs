@@ -3,6 +3,8 @@ using CarLink.Persistencia.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -68,7 +70,7 @@ public partial class Paginas_CarLink_Cadastrar : System.Web.UI.Page
             rg.Sobrenome = txtBoxSobrenomeRegistro.Text;
             rg.Empresa = txtBoxEmpresa.Text;
             rg.Email = txtBoxEmailCorp.Text;
-            rg.Senha = txtBoxSenha.Text;
+            rg.Senha = HashSenha(txtBoxSenha.Text);
             rg.Cnpj = txtBoxCNPJ.Text;
             rg.Cpf = txtBoxCPF.Text;
             rg.Tel = txtBoxTelCorp.Text;
@@ -95,6 +97,18 @@ public partial class Paginas_CarLink_Cadastrar : System.Web.UI.Page
             return;
         }
 
+
+    }
+
+    public static string HashSenha(string texto)
+    {
+        HashAlgorithm algoritmo = HashAlgorithm.Create("SHA512");
+        if (algoritmo == null)
+        {
+            throw new ArgumentException("Nome de hash incorreto", "nomeHash");
+        }
+        byte[] hash = algoritmo.ComputeHash(Encoding.UTF8.GetBytes(texto));
+        return Convert.ToBase64String(hash).Replace("+", "").Replace("&", "").Replace("=", "");
 
     }
 
