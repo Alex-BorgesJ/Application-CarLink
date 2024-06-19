@@ -1,21 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MySql.Data.MySqlClient;
-using System.Configuration;
-using CarLink.Classes.Gestao;
 using CarLink.Persistencia.Gestão;
-using CarLink.Persistencia.Automotivo;
-using CarLink.Persistencia.Local;
 using System.Data;
-using CarLink.Classes.Automotivo;
-using CarLink.Classes.Equipe;
-using CarLink.Persistencia.Equipe;
-using CarLink.Classes.Local;
+using CarLink.Classes.Gestao;
 
-public partial class Paginas_CarLink_EditaVeiculo : System.Web.UI.Page
+public partial class Paginas_CarLink_EditaOS : System.Web.UI.Page
 {
-
     protected void Page_Load(object sender, EventArgs e)
     {
         Carrega();
@@ -23,7 +17,7 @@ public partial class Paginas_CarLink_EditaVeiculo : System.Web.UI.Page
 
     private void Carrega()
     {
-        VeiculoBD bd = new VeiculoBD();
+        OrdemsvBD bd = new OrdemsvBD();
         DataSet ds = bd.SelectAll();
         GridView.DataSource = ds.Tables[0].DefaultView;
         GridView.DataBind();
@@ -36,11 +30,11 @@ public partial class Paginas_CarLink_EditaVeiculo : System.Web.UI.Page
             case "Alterar":
                 codigo = Convert.ToInt32(e.CommandArgument);
                 Session["ID"] = codigo;
-                Response.Redirect("CarLink_AlterarVeiculo.aspx");
+                Response.Redirect("CarLink_AlterarOS.aspx");
                 break;
             case "Deletar":
                 codigo = Convert.ToInt32(e.CommandArgument);
-                VeiculoBD bd = new VeiculoBD();
+                OrdemsvBD bd = new OrdemsvBD();
                 bd.Delete(codigo);
                 Carrega();
                 break;
@@ -48,5 +42,4 @@ public partial class Paginas_CarLink_EditaVeiculo : System.Web.UI.Page
                 break;
         }
     }
-
 }

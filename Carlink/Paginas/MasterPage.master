@@ -164,12 +164,23 @@
 
            
                 <!-- Nav Item - Catálogo -->
-                <li class="nav-item">
-                    <a class="nav-link" href="Carlink_Registros.aspx">
-                        <i class='fas fa-file-alt'></i>
-                        <span>Registros</span>
-                    </a>
-                </li>
+                <ul>
+                    <li class="nav-item mb-0">
+                        <a class="nav-link collapsed"                   
+                            href="#" data-toggle="collapse" data-target="#collapseRegistros"
+                            aria-expanded="true" aria-controls="collapseRegistros">
+                            <i class='fas fa-file-alt'></i>
+                            <span>Registros</span>
+                        </a>
+                        <div id="collapseRegistros" class="collapse" aria-labelledby="headingRegistros" data-parent="#accordionSidebar">
+                            <div class="bg-white collapse-inner rounded">
+                                <a class="collapse-item" href="<%= UrlNav("CarLink_EditaCliente.aspx") %>"><i class='bx bxs-user'></i> Cliente</a>
+                                <a class="collapse-item" href="<%= UrlNav("CarLink_EditaVeiculo.aspx") %>"><i class='bx bxs-car' ></i> Veiculo</a>
+                                <a class="collapse-item" href="<%= UrlNav("CarLink_EditaOS.aspx") %>"><i class='fas fa-edit'></i> Ordem de Serviço</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">

@@ -34,7 +34,7 @@
                 </div>
             </a>
 
-            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="Carlink_Registros.aspx">
+            <a class="col d-flex justify-content-center my-1 p-0 text-decoration-none" href="Carlink_EditaCliente.aspx">
                 <div class="card btn-home bg_img">
                     <div class="card-body d-flex justify-content-center align-items-center">
                         <h1 class="card-title text-white">Registros</h1>

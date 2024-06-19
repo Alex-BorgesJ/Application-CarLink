@@ -166,7 +166,9 @@ namespace CarLink.Persistencia.Gestão
             while (objDataReader.Read())
             {
                 obj = new Ordemsv();
-                obj.Observacao = Convert.ToString(objDataReader["ODS_OBSERVACAO"]);
+                obj.Observacao = Convert.ToString(objDataReader["ODS_DESCRICAO"]);
+                obj.Status = Convert.ToString(objDataReader["ODS_STATUS"]);
+                obj.Codigo = Convert.ToInt32(objDataReader["ODS_ID"]);
             }
             objDataReader.Close();
             objConexao.Close();
