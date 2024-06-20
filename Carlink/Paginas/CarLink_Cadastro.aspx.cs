@@ -10,12 +10,20 @@ using CarLink.Classes.Local;
 using CarLink.Persistencia.Local;
 using CarLink.Classes.Automotivo;
 using CarLink.Persistencia.Automotivo;
+using CarLink.Classes.Auth;
 
 public partial class Paginas_CarLink_Cadastro : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        if (Session["REG"] == null)
+        {
+            Response.Redirect("CarLink_Login.aspx");
+            return; // Adiciona um return após o redirecionamento para garantir que a execução pare aqui
+        }
+
+        Registro reg = (Registro)Session["REG"];
+        // Use 'reg' conforme necessário.
     }
     // Essas informações são mandadas para o objeto de criação para passar pelo tratamento de dados. 
     private void LimparCampos_Clientes()

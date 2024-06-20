@@ -12,12 +12,22 @@ using CarLink.Classes.Automotivo;
 using CarLink.Classes.Equipe;
 using CarLink.Persistencia.Equipe;
 using CarLink.Classes.Local;
+using CarLink.Classes.Auth;
 
 public partial class Paginas_CarLink_EditaVeiculo : System.Web.UI.Page
 {
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["REG"] == null)
+        {
+            Response.Redirect("CarLink_Login.aspx");
+            return; // Adiciona um return após o redirecionamento para garantir que a execução pare aqui
+        }
+
+        Registro reg = (Registro)Session["REG"];
+        // Use 'reg' conforme necessário.
+
         Carrega();
     }
 

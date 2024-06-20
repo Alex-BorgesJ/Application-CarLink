@@ -310,7 +310,7 @@
                 <div class="modal-body">Selecione "Sair" para encerrar sua sessão</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="<%= UrlNav("CarLink_Login.aspx") %>">Sair</a>
+                    <a class="btn btn-primary" href="<%= UrlNav("CarLink_Login.aspx") %>" OnClick="btnLogout_Click">Sair</a>
                 </div>
             </div>
         </div>
