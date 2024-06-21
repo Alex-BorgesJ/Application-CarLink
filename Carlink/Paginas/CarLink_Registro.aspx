@@ -117,8 +117,8 @@
 
 
                                 <div class="text-center col-12 mt-4">
-                                    <asp:Button ID="btnSalvarCarros" runat="server" Text="Registrar" CssClass="btn btn-primary" OnClick="btnSalvarCarros_Click" />
-                                    <asp:Button ID="btnCancelarCarros" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelarCarros_Click"/>
+                                    <asp:Button ID="btnSalvarCarros" runat="server" Text="Registrar" CssClass="btn btn-primary" OnClick="btnSalvarRegistro_Click" />
+                                    <asp:Button ID="btnCancelarCarros" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelarRegistro_Click"/>
                                 </div>
 
                                <div class="col-12 my-2 text-center">

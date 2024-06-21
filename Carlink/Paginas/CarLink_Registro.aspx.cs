@@ -73,7 +73,7 @@ public partial class Paginas_CarLink_Cadastrar : System.Web.UI.Page
         lblError.Text = "";
     }
 
-    protected void btnSalvarCarros_Click(object sender, EventArgs e)
+    protected void btnSalvarRegistro_Click(object sender, EventArgs e)
     {
         try {
             LimpaErro();
@@ -195,7 +195,7 @@ public partial class Paginas_CarLink_Cadastrar : System.Web.UI.Page
 
     }
 
-    protected void btnCancelarCarros_Click(object sender, EventArgs e)
+    protected void btnCancelarRegistro_Click(object sender, EventArgs e)
     {
         LimparCampos_Registro();
     }
