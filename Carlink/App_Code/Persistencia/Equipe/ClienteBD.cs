@@ -26,6 +26,7 @@ namespace CarLink.Persistencia.Equipe
                 objCommand.Parameters.Add(Mapped.Parameter("?email", cliente.Email));
                 objCommand.Parameters.Add(Mapped.Parameter("?telefone", cliente.Telefone));
                 objCommand.Parameters.Add(Mapped.Parameter("?cpf", cliente.Cpf));
+
                 objCommand.ExecuteNonQuery();
                 objConexao.Close();
                 objCommand.Dispose();

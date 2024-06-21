@@ -65,6 +65,7 @@ public partial class Paginas_CarLink_Cadastro : System.Web.UI.Page
                 veiculo.Placa = txtBoxPlaca.Text;
                 veiculo.Chassi = txtBoxChassi.Text;
                 veiculo.Quilometragem = txtBoxKm.Text;
+                
             }
             catch (Exception ex) // Captura qualquer exceção
             {
@@ -104,6 +105,7 @@ protected void btnSalvarClientes_Click(object sender, EventArgs e)
             cliente.Email = txtBoxEmailCliente.Text;
             cliente.Cpf = txtBoxCPF.Text;
             cliente.Telefone = txtBoxTelefoneCliente.Text;
+            
 
         }
         catch (ArgumentException ex)

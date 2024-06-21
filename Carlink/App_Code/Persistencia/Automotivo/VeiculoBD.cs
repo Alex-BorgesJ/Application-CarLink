@@ -30,6 +30,7 @@ namespace CarLink.Persistencia.Automotivo
                 objCommand.Parameters.Add(Mapped.Parameter("?placa", veiculo.Placa)); 
                 objCommand.Parameters.Add(Mapped.Parameter("?chassi", veiculo.Chassi)); 
                 objCommand.Parameters.Add(Mapped.Parameter("?quilometragem", veiculo.Quilometragem));
+                
                 objCommand.ExecuteNonQuery(); // Executa o comando SQL
                 objConexao.Close(); // Fecha a conexão com o banco de dados
                 objCommand.Dispose(); // Libera os recursos do comando SQL
@@ -133,6 +134,8 @@ namespace CarLink.Persistencia.Automotivo
 
             return retorno;
         }
+
+        
         //delete
         /// Exclui um veículo do banco de dados pelo seu ID.
         /// <param >O ID do veículo a ser excluído.</param>

@@ -33,25 +33,66 @@ public partial class Paginas_CarLink_AlterarCliente : System.Web.UI.Page
         }
 
     }
+    
+    protected void LimpaErro()
+    {
+        lblCpfError.Text = "";
+        lblEmailError.Text = "";
+        lblNomeError.Text = "";
+        lblTelError.Text = "";
+        lblError.Text = "";
+    }
+
     protected void btnSalvar_Click(object sender, EventArgs e)
     {
-        ClienteBD bd = new ClienteBD();
-        Cliente cliente = bd.SelectID(Convert.ToInt32(Session["ID"]));
-        cliente.Codigo = Convert.ToInt32(lblId.Text);
-        cliente.Nome = txtNome.Text;
-        cliente.Email = txtEmail.Text;
-        cliente.Telefone = txtTelefone.Text;
-        cliente.Cpf = txtCpf.Text;
-
-        int retorno = bd.Update(cliente);
-        if (retorno == 0)
+        LimpaErro();
+        int cont = 0;
+        if (string.IsNullOrEmpty(txtNome.Text) | txtNome.Text.Length < 3)
         {
-            lblMensagem.Text = "Cliente alterado com sucesso";
-            txtNome.Focus();
+            lblNomeError.Text = "Nome não pode estar vazio ou ter menos que 3 digitos <br>";
+            cont++;
+        }
+
+        if (string.IsNullOrEmpty(txtEmail.Text) | txtEmail.Text.Length < 5)
+        {
+            lblEmailError.Text = "Email não pode estar vazio ou ter menos que 5 digitos <br>";
+            cont++;
+        }
+
+        if (string.IsNullOrEmpty(txtTelefone.Text) | txtTelefone.Text.Length < 8)
+        {
+            lblTelError.Text = "Telefone não pode estar vazio ou ter menos que 8 digitos <br>";
+            cont++;
+        }
+
+        if (string.IsNullOrEmpty(txtCpf.Text) | txtCpf.Text.Length < 11)
+        {
+            lblCpfError.Text = "CPF não pode estar vazio ou ter menos que 11 digitos <br>";
+        }
+
+        if (cont == 0) {
+            ClienteBD bd = new ClienteBD();
+            Cliente cliente = bd.SelectID(Convert.ToInt32(Session["ID"]));
+            cliente.Codigo = Convert.ToInt32(lblId.Text);
+            cliente.Nome = txtNome.Text;
+            cliente.Email = txtEmail.Text;
+            cliente.Telefone = txtTelefone.Text;
+            cliente.Cpf = txtCpf.Text;
+
+            int retorno = bd.Update(cliente);
+            if (retorno == 0)
+            {
+                lblMensagem.Text = "Cliente alterado com sucesso";
+                txtNome.Focus();
+            }
+            else
+            {
+                lblError.Text = "Erro ao salvar.";
+            }
         }
         else
         {
-            lblMensagem.Text = "Erro ao salvar.";
+            lblError.Text = "Erro ao salvar.";
         }
     }
 }

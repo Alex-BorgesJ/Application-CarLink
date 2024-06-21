@@ -51,10 +51,34 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         txtBoxObservacao.Text = "";
         txtBoxDataEmissao.Text = " ";
         lblmsgPlaca.Text = "";
+        
+
+        //Erros
+        lblProcuraErro.Text = "";
+        lblDescriErro.Text = "";
+        lblDataErro.Text = "";
 
         lblMensagem.Text = "";
+        lblError.Text = "";
     }
+
+    protected void LimpaErro()
+    {
+        lblProcuraErro.Text = "";
+        lblDescriErro.Text = "";
+        lblDataErro.Text = "";
+
+        lblError.Text = "";
+
+    }
+
     Ordemsv osv = new Ordemsv();
+
+    protected void btnRedirectOS_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CarLink_EditaOS.aspx");
+    }
+
 
     protected void btnSalvarOS_Click(object sender, EventArgs e)
     {
@@ -65,45 +89,50 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             lblMensagem.Visible = true;
             try
             {
+                LimpaErro();
+                
+
                 DateTime dataFormatada = DateTime.Parse(txtBoxDataEmissao.Text);
                 osv.Data = dataFormatada;
                 osv.Status = "EM ESPERA";
                 osv.Observacao = txtBoxObservacao.Text;
                 osv.Codigo = Convert.ToInt32(dropDownModelo.SelectedItem.Value);
 
+                
 
-                //Insere valores no banco   
-                OrdemsvBD bdOsv = new OrdemsvBD();
-                int retornoOsv = bdOsv.Insert(osv);
-                // Verifica o retorno da inserção
-                if (retornoOsv == 0)
-                {
-                    LimparCampos_Osv(); // Limpa os campos do formulário
-                    lblMensagem.Text = "Cadastro realizado com sucesso";
-
-                    imgCar.ImageUrl = "../img/genericCarModal-removebg-preview.png";
-                    string veiculoTexto = dropDownModelo.SelectedItem.Text;
-                    string[] partes = veiculoTexto.Split(new string[] { " - " }, StringSplitOptions.RemoveEmptyEntries);
-                    if (partes.Length == 2)
+                
+                    //Insere valores no banco   
+                    OrdemsvBD bdOsv = new OrdemsvBD();
+                    int retornoOsv = bdOsv.Insert(osv);
+                    // Verifica o retorno da inserção
+                    if (retornoOsv == 0)
                     {
-                        string marcaModelo = partes[0]; // Obtém a parte da marca e modelo
-                        string nomeCliente = partes[1]; // Obtém a parte do nome do cliente
-                        lblMarcaModelo.Text = marcaModelo;
-                        lblNomeDono.Text = nomeCliente;
-                    }
-                    lblDataModal.Text = osv.Data.ToString("dd/MM/yyyy");
-                    lblObservacaoModal.Text = "Observação: " + osv.Observacao.ToString();
-                                AcionaModal.Value = "True";
-                }
-                else
-                {
-                    lblMensagem.Text = "Erro ao cadastrar o veículo" + retornoOsv;
-                }
+                        LimparCampos_Osv(); // Limpa os campos do formulário
+                        lblMensagem.Text = "Cadastro realizado com sucesso";
 
+                        imgCar.ImageUrl = "../img/genericCarModal-removebg-preview.png";
+                        string veiculoTexto = dropDownModelo.SelectedItem.Text;
+                        string[] partes = veiculoTexto.Split(new string[] { " - " }, StringSplitOptions.RemoveEmptyEntries);
+                        if (partes.Length == 2)
+                        {
+                            string marcaModelo = partes[0]; // Obtém a parte da marca e modelo
+                            string nomeCliente = partes[1]; // Obtém a parte do nome do cliente
+                            lblMarcaModelo.Text = marcaModelo;
+                            lblNomeDono.Text = nomeCliente;
+                        }
+                        lblDataModal.Text = osv.Data.ToString("dd/MM/yyyy");
+                        lblObservacaoModal.Text = "Observação: " + osv.Observacao.ToString();
+                        AcionaModal.Value = "True";
+                    }
+                    else
+                    {
+                        lblError.Text = "Erro ao cadastrar o veículo" + retornoOsv;
+                    }
+                
             }
             catch (Exception ex)
             {
-                lblMensagem.Text = "ERRO! Verifique os campos digitados" + ex.Message;
+                lblError.Text = "ERRO! Verifique os campos digitados" + ex.Message;
                 return;
             }
         }
@@ -200,7 +229,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             }
             else
             {
-                lblMensagem.Text = "Erro ao buscar os detalhes do veículo.";
+                lblError.Text = "Erro ao buscar os detalhes do veículo.";
             }
 
         }

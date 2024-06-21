@@ -86,29 +86,27 @@
          </div>
 
  
-         <script src="vendor/jquery/jquery.min.js"></script>
-         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
  
-         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 
-         <script src="js/sb-admin-2.min.js"></script>
-         <script src="js_login/login.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="js_login/login.js"></script>
 
-         <script>
-             const togglePassword = document.querySelector('#togglePassword');
-             const passwordInput = document.querySelector('#passwordInput');
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const passwordInput = document.querySelector('#passwordInput');
 
-             togglePassword.addEventListener('click', function () {
-
-                 const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                 passwordInput.setAttribute('type', type);
-
-                 this.classList.toggle('bi-eye');
-                 this.classList.toggle('bi-eye-slash');
-             });
-         </script>
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.classList.toggle('bi-eye');
+        this.classList.toggle('bi-eye-slash');
+    });
+</script>
    
 </body>
 </html>

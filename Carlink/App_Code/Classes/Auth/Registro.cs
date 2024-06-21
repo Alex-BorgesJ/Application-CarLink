@@ -13,7 +13,9 @@ namespace CarLink.Classes.Auth
                       empresa,
                       cpf,
                       cnpj,
-                      tel;
+                      tel,
+                      atividade;
+        private int plano;
 
         public string Nome {
             get { return nome; }
@@ -117,6 +119,11 @@ namespace CarLink.Classes.Auth
             }
 
         }
+
+        public string Atividade { get { return atividade; } set {atividade = value;} }
+
+        public int Plano { get { return plano; }set { plano = value; } }
+
         public Registro() { 
         
         }

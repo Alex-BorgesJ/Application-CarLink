@@ -31,23 +31,59 @@ public partial class Paginas_CarLink_AlterarOS : System.Web.UI.Page
         }
 
     }
+
+    protected void LimpaErro()
+    {
+        lblStatusError.Text = "";
+        lblDescriError.Text = "";
+        lblError.Text = "";
+    }
+
     protected void btnSalvar_Click(object sender, EventArgs e)
     {
-        OrdemsvBD bd = new OrdemsvBD();
-        Ordemsv ordem = bd.Select(Convert.ToInt32(Session["ID"]));
-        ordem.Codigo = Convert.ToInt32(lblId.Text);
-        ordem.Observacao = txtDescricao.Text;
-        ordem.Status = txtStatus.Text;
+        LimpaErro();
+        int cont = 0;
 
-        int retorno = bd.Update(ordem);
-        if (retorno == 0)
+        if (string.IsNullOrEmpty(txtDescricao.Text) || txtDescricao.Text.Length < 5)
         {
-            lblMensagem.Text = "Ordem de Serviço alterada com sucesso";
-            lblId.Focus();
+            lblDescriError.Text = "Descrição não pode estar vazia ou ter menos que 5 digitos <br>";
+            cont++;
+        }
+
+        if (string.IsNullOrEmpty(txtStatus.Text) || txtStatus.Text.Length < 5)
+        {
+            lblStatusError.Text = "Status não pode estar vazio ou ter menos que 5 digitos <br>";
+            cont++;
+        }
+
+        if (txtStatus.Text != "PRONTO" & txtStatus.Text != "EM ESPERA" & txtStatus.Text != "EM ANALISE" & txtStatus.Text != "EM PROCESSO")
+        {
+            lblStatusError.Text = "Tipos aceitos: PRONTO, EM ESPERA, EM ANALISE E EM PROCESSO";
+            cont++;
+        }
+
+        if (cont == 0) {
+            OrdemsvBD bd = new OrdemsvBD();
+            Ordemsv ordem = bd.Select(Convert.ToInt32(Session["ID"]));
+            ordem.Codigo = Convert.ToInt32(lblId.Text);
+            ordem.Observacao = txtDescricao.Text;
+            ordem.Status = txtStatus.Text;
+
+            int retorno = bd.Update(ordem);
+            if (retorno == 0)
+            {
+                lblMensagem.Text = "Ordem de Serviço alterada com sucesso";
+                lblId.Focus();
+            }
+            else
+            {
+                lblMensagem.Text = "";
+                lblError.Text = "Erro ao salvar.";
+            }
         }
         else
         {
-            lblMensagem.Text = "Erro ao salvar.";
+            lblError.Text = "Erro ao salvar.";
         }
     }
 }

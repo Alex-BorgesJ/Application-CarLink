@@ -16,7 +16,7 @@ namespace CarLink.Classes.Automotivo
         private string modelo;
         private string placa;
         private string chassi;
-        private string quilometragem;
+        private string quilometragem, atividade;
 
         public int Codigo { get; set; }
 
@@ -102,6 +102,7 @@ namespace CarLink.Classes.Automotivo
             }
         }
 
+        public string Atividade { get { return atividade; } set { atividade = value; } }
         public Veiculo()
         {
             //

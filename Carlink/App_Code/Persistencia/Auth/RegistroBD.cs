@@ -17,7 +17,7 @@ namespace CarLink.Persistencia.Auth
             {
                 IDbConnection objConexao;
                 IDbCommand objCommand;
-                string sql = "INSERT INTO USU_USUARIO(USU_NOME, USU_SOBRENOME, USU_CPF, USU_CNPJ,USU_EMPRESA, USU_EMAIL, USU_TEL, USU_SENHA) VALUES(?Nome, ?Sobrenome, ?Cpf, ?Cnpj,?Empresa, ?Email, ?Tel, ?Senha)";
+                string sql = "INSERT INTO USU_USUARIO(USU_NOME, USU_SOBRENOME, USU_CPF, USU_CNPJ,USU_EMPRESA, USU_EMAIL, USU_TEL, USU_SENHA, USU_ATIVIDADE, PLN_ID) VALUES(?Nome, ?Sobrenome, ?Cpf, ?Cnpj,?Empresa, ?Email, ?Tel, ?Senha, ?atv, ?pln)";
                 objConexao = Mapped.Connection();
                 objCommand = Mapped.Command(sql, objConexao);
                 objCommand.Parameters.Add(Mapped.Parameter("?Nome", usu.Nome));
@@ -28,7 +28,8 @@ namespace CarLink.Persistencia.Auth
                 objCommand.Parameters.Add(Mapped.Parameter("?Email", usu.Email));
                 objCommand.Parameters.Add(Mapped.Parameter("?Tel", usu.Tel));
                 objCommand.Parameters.Add(Mapped.Parameter("?Senha", usu.Senha));
-
+                objCommand.Parameters.Add(Mapped.Parameter("?atv", usu.Atividade));
+                objCommand.Parameters.Add(Mapped.Parameter("?pln", usu.Plano));
                 objCommand.ExecuteNonQuery();
                 objConexao.Close();
                 objCommand.Dispose();
@@ -70,7 +71,7 @@ namespace CarLink.Persistencia.Auth
             IDbCommand objCommand;
             IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            string query = "SELECT USU_USUARIO.USU_EMAIL, USU_USUARIO.USU_SENHA FROM USU_USUARIO WHERE USU_EMAIL LIKE ?usuEmail";
+            string query = "SELECT USU_USUARIO.USU_EMAIL, USU_USUARIO.USU_SENHA FROM USU_USUARIO WHERE USU_EMAIL LIKE ?usuEmail AND USU_ATIVIDADE = 'ATIVO'";
             objCommand = Mapped.Command(query, objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?usuEmail", "%" + email + "%"));
             objDataAdapter = Mapped.Adapter(objCommand);

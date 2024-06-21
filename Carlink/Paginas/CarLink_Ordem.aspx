@@ -43,12 +43,13 @@
                     <div class="col-5 my-2 color-black">
                         <asp:Label ID="lblVeiculo" runat="server" AssociatedControlID="txtBoxVeiculo" CssClass="form-label">Pesquisar Veiculo</asp:Label>
                         <div class="input-group-append ">
-                            <asp:TextBox ID="txtBoxVeiculo" runat="server" CssClass="form-control" placeholder="Marca e/ou Modelo" AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox ID="txtBoxVeiculo" runat="server" CssClass="form-control" placeholder="Marca e/ou Modelo" AutoPostBack="True"></asp:TextBox>                         
                             <div class="input-group-append">
                                 <button id="btnProcurarVeic" class="btn" type="button" onclick="document.getElementById('<%= btnProcurarVeicHidden.ClientID %>').click();">
                                     <i class="fas fa-search"></i>
                                 </button>
                                 <asp:Button ID="btnProcurarVeicHidden" runat="server" OnClick="btnProcurarVeic_Click" Style="display: none" />
+                                <asp:Label ID="lblProcuraErro"  runat="server" CssClass="form-label text-danger "></asp:Label>
                             </div>
                         </div>
                     </div>
@@ -119,6 +120,7 @@
                             <h4>Descrição do defeito </h4>
                         </asp:Label>
                         <asp:TextBox ID="txtBoxObservacao" runat="server" CssClass="form-control" placeholder="Descreva o defeito que carro apresenta..." TextMode="MultiLine" Rows="3" Columns="40"></asp:TextBox>
+                        <asp:Label ID="lblDescriErro"  runat="server" CssClass="form-label text-danger "></asp:Label>
                     </div>
 
                 </div>
@@ -128,6 +130,7 @@
                     <div class=" my-2 text-center color-black">
                         <asp:Label ID="lblDataEmissao" runat="server" AssociatedControlID="txtBoxDataEmissao" CssClass="form-label">Data de Emissão</asp:Label>
                         <asp:TextBox ID="txtBoxDataEmissao" runat="server" CssClass="form-control " placeholder="dd/mm/yyyy" AutoPostBack="false"></asp:TextBox>
+                        <asp:Label ID="lblDataErro"  runat="server" CssClass="form-label text-danger "></asp:Label>
                     </div>
 
                 </div>
@@ -141,6 +144,7 @@
 
                 <div class="col-12 my-2 text-center">
                     <asp:Label ID="lblMensagem" runat="server" CssClass="form-label text-success "></asp:Label>
+                    <asp:Label ID="lblError"  runat="server" CssClass="form-label text-danger "></asp:Label>
                 </div>
 
             </div>
@@ -180,7 +184,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-secondary" Text="Editar" />
+                            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-secondary" Text="Editar" OnClick="btnRedirectOS_Click"/>
                             <asp:Button ID="btnFechar" runat="server" CssClass="btn btn-primary" Text="Fechar" data-dismiss="modal" OnClick="btnFecharModal_Click"/>
                         </div>
                     </div>

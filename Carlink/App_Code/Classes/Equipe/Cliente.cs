@@ -7,7 +7,8 @@ namespace CarLink.Classes.Equipe
     /// </summary>
     public class Cliente : Pessoa
     {
-        private string cpf;
+        private string cpf,
+                       atividade;
         public string Cpf
         {
             get { return cpf; }
@@ -20,6 +21,9 @@ namespace CarLink.Classes.Equipe
                 cpf = value;
             }
         }
+
+        public string Atividade { get { return atividade; } set { atividade = value; } }
+
         public Cliente()
         {
             //

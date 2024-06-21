@@ -11,7 +11,7 @@ namespace CarLink.Classes.Gestao
     /// </summary>
     public class Ordemsv
     {
-        private String observacao, status;
+        private String observacao, status, atividade;
         private int codigo;
         private DateTime data;
         public String Observacao
@@ -35,6 +35,9 @@ namespace CarLink.Classes.Gestao
         public DateTime Data { get; set; }
 
         public String Status { get { return status; } set { status = value; } }
+
+        public string Atividade { get { return atividade; } set { atividade = value; } }
+
         public Ordemsv()
         {
             //
