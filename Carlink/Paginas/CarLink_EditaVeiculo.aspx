@@ -15,12 +15,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="container-fluid">
-        <h1 class="h3 my-4 mb-2 titulo">Veiculos registrados</h1>
+    <div class="container-fluid mb-5 ">
+        <h1 class=" my-4 mb-2 titulo">Veiculos registrados</h1>
         <form id="form1" runat="server">
 
-            <div class="card-body shadow-lg">
-                <div class="table-responsive">
+            <div class="card-body shadow-lg rounded">
+                <div class="table-responsive ">
                     <asp:gridview id="GridView" runat="server" autogeneratecolumns="False" onrowcommand="GridView_RowCommand" class="table table-bordered">
             <Columns>
                 <asp:BoundField HeaderText="Identificador" HeaderStyle-CssClass="titulo" ItemStyle-CssClass="infos" DataField="VEI_ID" />

@@ -134,16 +134,7 @@
                                 <asp:Label ID="lblColor" runat="server" AssociatedControlID="txtBoxColor" CssClass="form-label">Cor do Veículo</asp:Label>
                                 <asp:TextBox ID="txtBoxColor" runat="server" CssClass="form-control " placeholder="Digite a cor..."></asp:TextBox>
                             </div>
-                            <div class="col-4 my-2">
-                                <asp:Label ID="lblCliente" runat="server" AssociatedControlID="dropDownCliente" CssClass="form-label">Dono do Veículo</asp:Label>
-                                <asp:DropDownList ID="dropDownCliente" runat="server" CssClass="form-control" AppendDataBoundItems="true">
-                                    <asp:ListItem Text="Option 1"></asp:ListItem>
-                                    <asp:ListItem Text="Option 2"></asp:ListItem>
-                                    <asp:ListItem Text="Option 3"></asp:ListItem>
-                                    <asp:ListItem ID="checkClienteCadastro" runat="server" Text="Não possui dono cadastrado" CssClass="form-check m-2" />
-
-                                </asp:DropDownList>
-                            </div>
+                            
 
 
 
@@ -154,40 +145,6 @@
 
 
 
-                            <!--  -->
-
-
-
-                            <div class="col-4">
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Modal Title</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <!-- Conteúdo do modal -->
-                                                <input type="text" id="myInput" class="form-control" placeholder="Digite algo...">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                                <button type="button" class="btn btn-primary">Entendido</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Botão para abrir o modal -->
-                                <button type="button" class="btn btn-primary" onclick="openModal()">Abrir Modal</button>
-
-
-                            </div>
-
-
-                            <!--  -->
 
                             <div class=" col-12 text-center text-danger my-2" role="alert">
                                 <asp:Label ID="lblMensagem_Veiculo" Text="" runat="server"></asp:Label>
