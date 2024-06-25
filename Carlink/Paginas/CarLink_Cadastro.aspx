@@ -230,16 +230,6 @@
                                 <asp:Label ID="lblNumero" runat="server" AssociatedControlID="txtBoxNumero" CssClass="form-label">Número</asp:Label>
                                 <asp:TextBox ID="txtBoxNumero" runat="server" CssClass="form-control" placeholder="Ex: 123"></asp:TextBox>
                             </div>
-                            <div class="col-4 my-2">
-                                <asp:Label ID="lblCarrosAssoci" runat="server" AssociatedControlID="dropDownCarros" CssClass="form-label">Veículo Associado</asp:Label>
-                                <asp:DropDownList ID="dropDownCarros" runat="server" CssClass="form-control" AppendDataBoundItems="true">
-                                    <asp:ListItem Text="Option 1"></asp:ListItem>
-                                    <asp:ListItem Text="Option 2"></asp:ListItem>
-                                    <asp:ListItem Text="Option 3"></asp:ListItem>
-                                    <asp:ListItem ID="checkCarrosAssoc" runat="server" Text="Não possui carro cadastrado" CssClass="form-check m-2" />
-
-                                </asp:DropDownList>
-                            </div>
 
                             <div class="text-center col-12 mt-4">
                                 <asp:Button ID="btnSalvarClientes" runat="server" Text="Salvar" CssClass="btn btn-primary btn-lg" OnClick="btnSalvarClientes_Click" />
@@ -281,7 +271,7 @@
 
 
                             <div class="col-4 my-2">
-                                <asp:Label ID="Label4" runat="server" AssociatedControlID="dropDownCarros" CssClass="form-label">Função</asp:Label>
+                                <asp:Label ID="lblFuncaoMecanico" runat="server" AssociatedControlID="DropDownList1" CssClass="form-label">Função</asp:Label>                               
                                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" AppendDataBoundItems="true">
                                     <asp:ListItem Text="Selecione sua função..."></asp:ListItem>
                                     <asp:ListItem Text="Mecânico"></asp:ListItem>

@@ -69,14 +69,14 @@
         }
 
         .sidebar ul {
-            list-style-type: none; /* Remover marcadores de lista */
+            list-style-type: none; 
         }
 
             .sidebar ul li a {
-                display: block; /* Garantir que os links ocupem toda a largura */
-                padding: 10px; /* Adicionar preenchimento aos links */
-                text-decoration: none; /* Remover sublinhado padrão dos links */
-                color: white; /* Definir cor do texto dos links */
+                display: block; 
+                padding: 10px; 
+                text-decoration: none; 
+                color: white; 
             }
     </style>
 
@@ -124,7 +124,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="CarLink_Cadastro.aspx">
-                        <i class='far fa-address-card'></i>
+                        <i class='fas fa-user-edit'></i>
                         <span>Cadastros</span>
                     </a>
                 </li>
@@ -140,7 +140,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="CarLink_Ordem.aspx">
-                        <i class='fas fa-edit'></i>
+                        <i class='fas fa-clipboard-list'></i>
                         <span>Ordem de Serviço</span>
                     </a>
                 </li>
@@ -169,7 +169,7 @@
                         <a class="nav-link collapsed"                   
                             href="#" data-toggle="collapse" data-target="#collapseRegistros"
                             aria-expanded="true" aria-controls="collapseRegistros">
-                            <i class='fas fa-file-alt'></i>
+                            <i class='far fa-address-card'></i>
                             <span>Registros</span>
                         </a>
                         <div id="collapseRegistros" class="collapse" aria-labelledby="headingRegistros" data-parent="#accordionSidebar">
@@ -189,7 +189,7 @@
                 <!-- Nav Item - Catálogo -->
                 <li class="nav-item">
                     <a class="nav-link" href="Carlink_Consultas.aspx">
-                        <i class='fas fa-folder-open'></i>
+                        <i class='fas fa-search'></i>
                         <span>Consultas</span>
                     </a>
                 </li>
@@ -202,7 +202,7 @@
                 <!-- Nav Item - Catálogo -->
                 <li class="nav-item">
                     <a class="nav-link" href="Carlink_Administrar.aspx">
-                        <i class='bx bxs-edit-alt'></i>
+                        <i class='fas fa-cogs'></i>
                         <span>Administrar</span>
                     </a>
                 </li>

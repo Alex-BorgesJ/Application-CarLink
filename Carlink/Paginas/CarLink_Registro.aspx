@@ -76,16 +76,15 @@
         }
 
         @media (max-width: 991.20px) {
-        .formulario {
-            border-radius: 20px; /* Arredonda todas as bordas para telas menores */
+            .formulario {
+                border-radius: 20px; /* Arredonda todas as bordas para telas menores */
+            }
         }
-        }
-
     </style>
 
 </head>
 
-    <body class="form-body img">
+<body class="form-body img">
     <form id="form2" runat="server">
         <div class="estrutura imagem-container">
             <div class="row justify-content-center">
@@ -96,95 +95,96 @@
                     <h5 class="cor text-center pb-3">Registre-se agora para experimentar nossos serviços</h5>
                     <div class="row">
                         <div class="col-6 my-2">
-                                <asp:Label ID="lblNomeRegistro" runat="server" AssociatedControlID="txtBoxNomeRegistro" CssClass="form-label" Style="color: #06184D; font-weight: 500">Nome</asp:Label>
-                                <asp:TextBox ID="txtBoxNomeRegistro" runat="server" CssClass="form-control" placeholder="John"></asp:TextBox>
-                                <asp:Label ID="lblNomeError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
+                            <asp:Label ID="lblNomeRegistro" runat="server" AssociatedControlID="txtBoxNomeRegistro" CssClass="form-label" Style="color: #06184D; font-weight: 500">Nome</asp:Label>
+                            <asp:TextBox ID="txtBoxNomeRegistro" runat="server" CssClass="form-control" placeholder="John"></asp:TextBox>
+                            <asp:Label ID="lblNomeError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
 
 
-                            <div class="col-6 my-2">
-                                <asp:Label ID="lblSobrenomeRegistro" runat="server" AssociatedControlID="txtBoxSobrenomeRegistro" CssClass="form-label" Style="color: #06184D; font-weight: 500">Sobrenome</asp:Label>
-                                <asp:TextBox ID="txtBoxSobrenomeRegistro" runat="server" CssClass="form-control" placeholder="Doe"></asp:TextBox>
-                                <asp:Label ID="lblSobrenomeError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
+                        <div class="col-6 my-2">
+                            <asp:Label ID="lblSobrenomeRegistro" runat="server" AssociatedControlID="txtBoxSobrenomeRegistro" CssClass="form-label" Style="color: #06184D; font-weight: 500">Sobrenome</asp:Label>
+                            <asp:TextBox ID="txtBoxSobrenomeRegistro" runat="server" CssClass="form-control" placeholder="Doe"></asp:TextBox>
+                            <asp:Label ID="lblSobrenomeError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
 
 
-                            <div class="col-6 my-2">
-                                <asp:Label ID="lblEmpresa" runat="server" AssociatedControlID="txtBoxEmpresa" CssClass="form-label" Style="color: #06184D; font-weight: 500">Empresa</asp:Label>
-                                <asp:TextBox ID="txtBoxEmpresa" runat="server" CssClass="form-control" placeholder="Carlink"></asp:TextBox>
-                                <asp:Label ID="lblEmpresaError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
+                        <div class="col-6 my-2">
+                            <asp:Label ID="lblEmpresa" runat="server" AssociatedControlID="txtBoxEmpresa" CssClass="form-label" Style="color: #06184D; font-weight: 500">Empresa</asp:Label>
+                            <asp:TextBox ID="txtBoxEmpresa" runat="server" CssClass="form-control" placeholder="Carlink"></asp:TextBox>
+                            <asp:Label ID="lblEmpresaError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
 
 
-                            <div class="col-6 my-2">
-                                <asp:Label ID="lblCNPJ" runat="server" AssociatedControlID="txtBoxCNPJ" CssClass="form-label" Style="color: #06184D; font-weight: 500">CNPJ</asp:Label>
-                                <asp:TextBox ID="txtBoxCNPJ" runat="server" CssClass="form-control" placeholder="xxx.xxxx.xxx.xxx-xx"></asp:TextBox>
-                                <asp:Label ID="lblCnpjError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
+                        <div class="col-6 my-2">
+                            <asp:Label ID="lblCNPJ" runat="server" AssociatedControlID="txtBoxCNPJ" CssClass="form-label" Style="color: #06184D; font-weight: 500">CNPJ</asp:Label>
+                            <asp:TextBox ID="txtBoxCNPJ" runat="server" CssClass="form-control" placeholder="xxx.xxxx.xxx.xxx-xx"></asp:TextBox>
+                            <asp:Label ID="lblCnpjError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
 
 
-                            <div class="col-6 my-2">
-                                <asp:Label ID="lblCPF" runat="server" AssociatedControlID="txtBoxCPF" CssClass="form-label" Style="color: #06184D; font-weight: 500">CPF</asp:Label>
-                                <asp:TextBox ID="txtBoxCPF" runat="server" CssClass="form-control" placeholder="xxx.xxxx.xxx.xxx-xx"></asp:TextBox>
-                                <asp:Label ID="lblCpfError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
+                        <div class="col-6 my-2">
+                            <asp:Label ID="lblCPF" runat="server" AssociatedControlID="txtBoxCPF" CssClass="form-label" Style="color: #06184D; font-weight: 500">CPF</asp:Label>
+                            <asp:TextBox ID="txtBoxCPF" runat="server" CssClass="form-control" placeholder="xxx.xxxx.xxx.xxx-xx"></asp:TextBox>
+                            <asp:Label ID="lblCpfError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
 
-                             <div class="col-6 my-2">
-                                <asp:Label ID="lblTelCorp" runat="server" AssociatedControlID="txtBoxTelCorp" CssClass="form-label" Style="color: #06184D; font-weight: 500">Telefone corportativo</asp:Label>
-                                <asp:TextBox ID="txtBoxTelCorp" runat="server" CssClass="form-control" placeholder="(12) 34567-8910 "></asp:TextBox>
-                                <asp:Label ID="lblTelError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
+                        <div class="col-6 my-2">
+                            <asp:Label ID="lblTelCorp" runat="server" AssociatedControlID="txtBoxTelCorp" CssClass="form-label" Style="color: #06184D; font-weight: 500">Telefone corportativo</asp:Label>
+                            <asp:TextBox ID="txtBoxTelCorp" runat="server" CssClass="form-control" placeholder="(12) 34567-8910 "></asp:TextBox>
+                            <asp:Label ID="lblTelError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
 
-                            <div class="col-12 my-2">
-                                <asp:Label ID="lblEmailCorp" runat="server" AssociatedControlID="txtBoxEmailCorp" CssClass="form-label" Style="color: #06184D; font-weight: 500">Email Corporativo</asp:Label>
-                                <asp:TextBox ID="txtBoxEmailCorp" runat="server" CssClass="form-control" type="email" placeholder="email@gmail.com"></asp:TextBox>
-                                <asp:Label ID="lblEmailError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
-
-
-                           
-
-                            <div class="col-6 my-2">
-                                <asp:Label ID="lblSenha" runat="server" AssociatedControlID="txtBoxSenha" CssClass="form-label" Style="color: #06184D; font-weight: 500">Senha</asp:Label>
-                                <asp:TextBox ID="txtBoxSenha" runat="server" CssClass="form-control" type="password" placeholder="********"></asp:TextBox>
-                                <asp:Label ID="lblSenhaError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
+                        <div class="col-12 my-2">
+                            <asp:Label ID="lblEmailCorp" runat="server" AssociatedControlID="txtBoxEmailCorp" CssClass="form-label" Style="color: #06184D; font-weight: 500">Email Corporativo</asp:Label>
+                            <asp:TextBox ID="txtBoxEmailCorp" runat="server" CssClass="form-control" type="email" placeholder="email@gmail.com"></asp:TextBox>
+                            <asp:Label ID="lblEmailError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
 
 
-                            <div class="col-6 my-2">
-                                <asp:Label ID="lblConfSenha" runat="server" AssociatedControlID="txtBoxConfSenha" CssClass="form-label" Style="color: #06184D; font-weight: 500">Confirmar Senha</asp:Label>
-                                <asp:TextBox ID="txtBoxConfSenha" runat="server" CssClass="form-control" type="password" placeholder="********"></asp:TextBox>
-                                <asp:Label ID="lblConfError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
 
 
-                            <div class="text-center col-12 mt-4">
-                                <asp:Button ID="btnSalvarCarros" runat="server" Text="Registrar" CssClass="btn btn-primary btn-lg" OnClick="btnSalvarRegistro_Click" />
-                                <asp:Button ID="btnCancelarCarros" runat="server" Text="Cancelar" CssClass="btn btn-secondary btn-lg" OnClick="btnCancelarRegistro_Click" />
-                            </div>
+                        <div class="col-6 my-2">
+                            <asp:Label ID="lblSenha" runat="server" AssociatedControlID="txtBoxSenha" CssClass="form-label" Style="color: #06184D; font-weight: 500">Senha</asp:Label>
+                            <asp:TextBox ID="txtBoxSenha" runat="server" CssClass="form-control" type="password" placeholder="********"></asp:TextBox>
+                            <asp:Label ID="lblSenhaError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
 
-                            <div class="col-12 my-2 text-center">
-                                <asp:Label ID="lblSucess" runat="server" CssClass="form-label text-success  "></asp:Label>
-                                <asp:Label ID="lblError" runat="server" CssClass="form-label text-danger "></asp:Label>
-                            </div>
+
+                        <div class="col-6 my-2">
+                            <asp:Label ID="lblConfSenha" runat="server" AssociatedControlID="txtBoxConfSenha" CssClass="form-label" Style="color: #06184D; font-weight: 500">Confirmar Senha</asp:Label>
+                            <asp:TextBox ID="txtBoxConfSenha" runat="server" CssClass="form-control" type="password" placeholder="********"></asp:TextBox>
+                            <asp:Label ID="lblConfError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
+
+
+                        <div class="text-center col-12 mt-4">
+                            <asp:Button ID="btnSalvarCarros" runat="server" Text="Registrar" CssClass="btn btn-primary btn-lg" OnClick="btnSalvarRegistro_Click" />
+                            <asp:Button ID="btnCancelarCarros" runat="server" Text="Cancelar" CssClass="btn btn-secondary btn-lg" OnClick="btnCancelarRegistro_Click" />
+                        </div>
+
+                        <div class="col-12 my-2 text-center">
+                            <asp:Label ID="lblSucess" runat="server" CssClass="form-label text-success  "></asp:Label>
+                            <asp:Label ID="lblError" runat="server" CssClass="form-label text-danger "></asp:Label>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 d-none d-lg-block lateral mx-auto">
+                <div class="col-lg-6 col-12 d-none d-lg-block lateral mx-auto">
                     <figure class="imagem-container">
                         <img src="../img_landpage/img_CarLink-removebg-preview-C.png" class="imagem-animada" alt="">
                     </figure>
                 </div>
+
             </div>
         </div>
-         <script type="text/javascript">
-        $(document).ready(function () {
-            $('#<%= txtBoxTelCorp.ClientID %>').mask('(00) 0 0000-0000');
-                 $('#<%= txtBoxCNPJ.ClientID %>').mask('00.000.000/0000-00');
-                 $('#<%= txtBoxCPF.ClientID %>').mask('000.000.000-00');
-             });
-         </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#<%= txtBoxTelCorp.ClientID %>').mask('(00) 0 0000-0000');
+            $('#<%= txtBoxCNPJ.ClientID %>').mask('00.000.000/0000-00');
+            $('#<%= txtBoxCPF.ClientID %>').mask('000.000.000-00');
+        });
+        </script>
     </form>
-    </body>
+</body>
 
 
 </html>
