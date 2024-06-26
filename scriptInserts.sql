@@ -1,6 +1,6 @@
 -- Create DataBaseCarlink
 CREATE DATABASE DBCarlink;
-USE DBCarlink ;
+USE DBCarlink;
 
 -- Table CLI_CLIENTE
 CREATE TABLE CLI_CLIENTE (
@@ -8,7 +8,8 @@ CREATE TABLE CLI_CLIENTE (
   CLI_NOME VARCHAR(80) NOT NULL,
   CLI_EMAIL VARCHAR(45) NOT NULL UNIQUE,
   CLI_TELEFONE VARCHAR(45) NOT NULL,
-  CLI_CPF VARCHAR(11) NOT NULL
+  CLI_CPF VARCHAR(11) NOT NULL,
+  CLI_STATUS ENUM('ATIVO','INATIVO')
   );
 
 -- Table MEC_MECANICO
@@ -36,6 +37,7 @@ CREATE TABLE VEI_VEICULO (
   VEI_PLACA VARCHAR(45) NOT NULL,
   VEI_CHASSI VARCHAR(45) NOT NULL,
   VEI_QUILOMETRAGEM VARCHAR(20) NOT NULL,
+  VEI_STATUS ENUM('ATIVO','INATIVO'),
   CLI_ID INT,
   COR_ID INT,
     FOREIGN KEY (CLI_ID)
@@ -92,27 +94,27 @@ CREATE TABLE USU_USUARIO(
 
 -- INSERT's
 -- Insert para Clientes
-INSERT INTO CLI_CLIENTE (CLI_NOME, CLI_EMAIL, CLI_TELEFONE, CLI_CPF) VALUES
-('João Silva', 'joao.silva@example.com', '1234567890', '12345678901'),
-('Maria Oliveira', 'maria.oliveira@example.com', '2345678901', '23456789012'),
-('Carlos Pereira', 'carlos.pereira@example.com', '3456789012', '34567890123'),
-('Ana Souza', 'ana.souza@example.com', '4567890123', '45678901234'),
-('Lucas Santos', 'lucas.santos@example.com', '5678901234', '56789012345'),
-('Fernanda Costa', 'fernanda.costa@example.com', '6789012345', '67890123456'),
-('Rafael Alves', 'rafael.alves@example.com', '7890123456', '78901234567'),
-('Juliana Lima', 'juliana.lima@example.com', '8901234567', '89012345678'),
-('Bruno Rocha', 'bruno.rocha@example.com', '9012345678', '90123456789'),
-('Gabriela Ribeiro', 'gabriela.ribeiro@example.com', '0123456789', '01234567890'),
-('Pedro Gonçalves', 'pedro.goncalves@example.com', '1234567891', '12345678911'),
-('Claudia Ferreira', 'claudia.ferreira@example.com', '2345678910', '23456789102'),
-('Marcos Martins', 'marcos.martins@example.com', '3456789102', '34567891023'),
-('Beatriz Almeida', 'beatriz.almeida@example.com', '4567891023', '45678910234'),
-('Felipe Pinto', 'felipe.pinto@example.com', '5678910234', '56789102345'),
-('Isabela Cardoso', 'isabela.cardoso@example.com', '6789102345', '67891023456'),
-('Rodrigo Batista', 'rodrigo.batista@example.com', '7891023456', '78910234567'),
-('Camila Azevedo', 'camila.azevedo@example.com', '8910234567', '89102345678'),
-('Thiago Freitas', 'thiago.freitas@example.com', '9102345678', '91023456789'),
-('Larissa Moreira', 'larissa.moreira@example.com', '1023456789', '10234567890');
+INSERT INTO CLI_CLIENTE (CLI_NOME, CLI_EMAIL, CLI_TELEFONE, CLI_CPF, CLI_STATUS) VALUES
+('João Silva', 'joao.silva@example.com', '1234567890', '12345678901', 'ATIVO'),
+('Maria Oliveira', 'maria.oliveira@example.com', '2345678901', '23456789012', 'ATIVO'),
+('Carlos Pereira', 'carlos.pereira@example.com', '3456789012', '34567890123', 'ATIVO'),
+('Ana Souza', 'ana.souza@example.com', '4567890123', '45678901234', 'ATIVO'),
+('Lucas Santos', 'lucas.santos@example.com', '5678901234', '56789012345', 'ATIVO'),
+('Fernanda Costa', 'fernanda.costa@example.com', '6789012345', '67890123456', 'ATIVO'),
+('Rafael Alves', 'rafael.alves@example.com', '7890123456', '78901234567', 'ATIVO'),
+('Juliana Lima', 'juliana.lima@example.com', '8901234567', '89012345678', 'ATIVO'),
+('Bruno Rocha', 'bruno.rocha@example.com', '9012345678', '90123456789', 'ATIVO'),
+('Gabriela Ribeiro', 'gabriela.ribeiro@example.com', '0123456789', '01234567890', 'ATIVO'),
+('Pedro Gonçalves', 'pedro.goncalves@example.com', '1234567891', '12345678911', 'ATIVO'),
+('Claudia Ferreira', 'claudia.ferreira@example.com', '2345678910', '23456789102', 'ATIVO'),
+('Marcos Martins', 'marcos.martins@example.com', '3456789102', '34567891023', 'ATIVO'),
+('Beatriz Almeida', 'beatriz.almeida@example.com', '4567891023', '45678910234', 'ATIVO'),
+('Felipe Pinto', 'felipe.pinto@example.com', '5678910234', '56789102345', 'ATIVO'),
+('Isabela Cardoso', 'isabela.cardoso@example.com', '6789102345', '67891023456', 'ATIVO'),
+('Rodrigo Batista', 'rodrigo.batista@example.com', '7891023456', '78910234567', 'ATIVO'),
+('Camila Azevedo', 'camila.azevedo@example.com', '8910234567', '89102345678', 'ATIVO'),
+('Thiago Freitas', 'thiago.freitas@example.com', '9102345678', '91023456789', 'ATIVO'),
+('Larissa Moreira', 'larissa.moreira@example.com', '1023456789', '10234567890', 'ATIVO');
 
 
 -- Insert para Mecanico
@@ -163,32 +165,32 @@ INSERT INTO COR_CORES (COR_NOME) VALUES
 ('Preto Fosco');
 
 -- Insert para Veículo
-INSERT INTO VEI_VEICULO (VEI_ANO, VEI_MODELO, VEI_MARCA, VEI_PLACA, VEI_CHASSI, VEI_QUILOMETRAGEM, CLI_ID, COR_ID) VALUES
-(2020, 'Civic', 'Honda', 'ABC1234', 'CHS1234567', 15000, 1, 1),
-(2019, 'Corolla', 'Toyota', 'DEF5678', 'CHS2345678', 20000, 2, 2),
-(2018, 'Fiesta', 'Ford', 'GHI9012', 'CHS3456789', 25000, 3, 3),
-(2020, 'Cruze', 'Chevrolet', 'JKL3456', 'CHS4567890', 10000, 4, 4),
-(2021, 'Onix', 'Chevrolet', 'MNO7890', 'CHS5678901', 5000, 5, 5),
-(2017, 'HB20', 'Hyundai', 'PQR2345', 'CHS6789012', 30000, 6, 6),
-(2016, 'Kwid', 'Renault', 'STU6789', 'CHS7890123', 40000, 7, 7),
-(2015, 'Polo', 'Volkswagen', 'VWX1234', 'CHS8901234', 35000, 8, 8),
-(2019, 'Argo', 'Fiat', 'YZA5678', 'CHS9012345', 22000, 9, 9),
-(2020, 'Compass', 'Jeep', 'BCD9012', 'CHS0123456', 11000, 10, 10),
-(2021, 'T-Cross', 'Volkswagen', 'EFG3456', 'CHS1234567', 7000, 11, 11),
-(2018, 'Kicks', 'Nissan', 'HIJ7890', 'CHS2345678', 26000, 12, 12),
-(2017, 'Renegade', 'Jeep', 'KLM2345', 'CHS3456789', 38000, 13, 13),
-(2016, 'Duster', 'Renault', 'NOP6789', 'CHS4567890', 42000, 14, 14),
-(2015, 'EcoSport', 'Ford', 'QRS1234', 'CHS5678901', 46000, 15, 15),
-(2019, 'Virtus', 'Volkswagen', 'TUV5678', 'CHS6789012', 21000, 16, 16),
-(2018, 'Cronos', 'Fiat', 'WXY9012', 'CHS7890123', 24000, 17, 17),
-(2020, 'Spin', 'Chevrolet', 'ZAB3456', 'CHS8901234', 13000, 18, 18),
-(2021, 'S10', 'Chevrolet', 'CDE7890', 'CHS9012345', 8000, 19, 19),
-(2017, 'Tucson', 'Hyundai', 'FGH2345', 'CHS0123456', 34000, 20, 20);
+INSERT INTO VEI_VEICULO (VEI_ANO, VEI_MODELO, VEI_MARCA, VEI_PLACA, VEI_CHASSI, VEI_QUILOMETRAGEM, CLI_ID, COR_ID, VEI_STATUS) VALUES
+(2020, 'Civic', 'Honda', 'ABC1234', 'CHS1234567', 15000, 1, 1, 'ATIVO'),
+(2019, 'Corolla', 'Toyota', 'DEF5678', 'CHS2345678', 20000, 2, 2, 'ATIVO'),
+(2018, 'Fiesta', 'Ford', 'GHI9012', 'CHS3456789', 25000, 3, 3, 'ATIVO'),
+(2020, 'Cruze', 'Chevrolet', 'JKL3456', 'CHS4567890', 10000, 4, 4, 'ATIVO'),
+(2021, 'Onix', 'Chevrolet', 'MNO7890', 'CHS5678901', 5000, 5, 5, 'ATIVO'),
+(2017, 'HB20', 'Hyundai', 'PQR2345', 'CHS6789012', 30000, 6, 6, 'ATIVO'),
+(2016, 'Kwid', 'Renault', 'STU6789', 'CHS7890123', 40000, 7, 7, 'ATIVO'),
+(2015, 'Polo', 'Volkswagen', 'VWX1234', 'CHS8901234', 35000, 8, 8, 'ATIVO'),
+(2019, 'Argo', 'Fiat', 'YZA5678', 'CHS9012345', 22000, 9, 9, 'ATIVO'),
+(2020, 'Compass', 'Jeep', 'BCD9012', 'CHS0123456', 11000, 10, 10, 'ATIVO'),
+(2021, 'T-Cross', 'Volkswagen', 'EFG3456', 'CHS1234567', 7000, 11, 11, 'ATIVO'),
+(2018, 'Kicks', 'Nissan', 'HIJ7890', 'CHS2345678', 26000, 12, 12, 'ATIVO'),
+(2017, 'Renegade', 'Jeep', 'KLM2345', 'CHS3456789', 38000, 13, 13, 'ATIVO'),
+(2016, 'Duster', 'Renault', 'NOP6789', 'CHS4567890', 42000, 14, 14, 'ATIVO'),
+(2015, 'EcoSport', 'Ford', 'QRS1234', 'CHS5678901', 46000, 15, 15, 'ATIVO'),
+(2019, 'Virtus', 'Volkswagen', 'TUV5678', 'CHS6789012', 21000, 16, 16, 'ATIVO'),
+(2018, 'Cronos', 'Fiat', 'WXY9012', 'CHS7890123', 24000, 17, 17, 'ATIVO'),
+(2020, 'Spin', 'Chevrolet', 'ZAB3456', 'CHS8901234', 13000, 18, 18, 'ATIVO'),
+(2021, 'S10', 'Chevrolet', 'CDE7890', 'CHS9012345', 8000, 19, 19, 'ATIVO'),
+(2017, 'Tucson', 'Hyundai', 'FGH2345', 'CHS0123456', 34000, 20, 20, 'ATIVO');
 
 -- Insert para Ordem de Serviço
 INSERT INTO ODS_ORDEM_SERVICO (ODS_DESCRICAO, ODS_STATUS, ODS_DATAEMISSAO, VEI_ID) 
 VALUES 
-    ('Troca de óleo 1', 'EM ESPERA', '2024-05-29', 1),
+	('Troca de óleo 1', 'EM ESPERA', '2024-05-29', 1),
     ('Reparo no motor 1', 'EM ANALISE', '2024-05-28', 2),
     ('Troca de pneus 1', 'PRONTO', '2024-05-27', 3),
     ('Reparo na transmissão 1', 'EM PROCESSO', '2024-05-26', 4),
@@ -207,7 +209,36 @@ VALUES
     ('Reparo na suspensão 2', 'EM PROCESSO', '2024-05-22', 8),
     ('Troca de filtros 2', 'EM ESPERA', '2024-05-21', 9),
     ('Troca de óleo 3', 'EM ESPERA', '2024-05-29', 1),
-    ('Reparo no motor 3', 'EM ANALISE', '2024-05-28', 2);
+    ('Reparo no motor 3', 'EM ANALISE', '2024-05-28', 2),
+    ('Troca de óleo 1', 'PRONTO', '2024-01-10', 1),
+	('Revisão geral 1', 'PRONTO', '2024-02-15', 1),
+    ('Troca de pneus 1', 'PRONTO', '2024-02-05', 2),
+	('Limpeza interna 1', 'PRONTO', '2024-03-20', 2),
+    ('Reparo na suspensão 1', 'PRONTO', '2024-04-07', 3),
+	('Pintura 1', 'PRONTO', '2024-04-25', 3),
+    ('Troca de óleo 2', 'PRONTO', '2024-05-12', 4),
+	('Troca de filtros 1', 'PRONTO', '2024-05-27', 4),
+    ('Reparo no motor 1', 'PRONTO', '2024-06-18', 5),
+	('Alinhamento e balanceamento 1', 'PRONTO', '2024-07-31', 5),
+    ('Troca de pneus 2', 'PRONTO', '2024-08-14', 6),
+	('Limpeza interna 2', 'PRONTO', '2024-09-29', 6),
+    ('Troca de óleo 3', 'PRONTO', '2024-09-04', 7),
+	('Revisão geral 2', 'PRONTO', '2024-10-19', 7),
+    ('Troca de filtros 2', 'PRONTO', '2024-11-08', 8),
+	('Alinhamento e balanceamento 2', 'PRONTO', '2024-12-23', 8),
+    ('Troca de óleo 1', 'PRONTO', '2024-06-29', 1),
+    ('Reparo no motor 1', 'PRONTO', '2024-05-28', 2),
+    ('Troca de pneus 1', 'PRONTO', '2024-04-27', 3),
+    ('Reparo na transmissão 1', 'PRONTO', '2024-03-26', 4),
+    ('Alinhamento e balanceamento 1', 'PRONTO', '2024-01-25', 5),
+    ('Limpeza interna 1', 'PRONTO', '2024-01-24', 6),
+    ('Pintura 1', 'PRONTO', '2024-03-22', 7),
+    ('Reparo na suspensão 1', 'PRONTO', '2024-02-22', 8),
+    ('Troca de filtros 1', 'PRONTO', '2024-04-21', 9),
+    ('Troca de óleo 2', 'PRONTO', '2024-04-29', 1),
+    ('Reparo no motor 2', 'PRONTO', '2024-02-28', 2),
+    ('Troca de pneus 2', 'PRONTO', '2024-03-27', 3),
+    ('Troca de pneus 1', 'PRONTO', '2024-01-27', 3);
 
 
 -- Insert para Endereços
