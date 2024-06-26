@@ -3,74 +3,73 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 
     <style>
-    #formDesempenho {
-        padding: 20px;
-    }
-
-    .col-4, .col-8 {
-        padding: 15px;
-    }
-
-    @media (min-width: 992px) {
-        .col-4 {
-            flex: 0 0 33.3333%;
-            max-width: 33.3333%;
+        #formDesempenho {
+            padding: 20px;
         }
 
-        .col-8 {
-            flex: 0 0 66.6667%;
-            max-width: 66.6667%;
-        }
-    }
-
-    @media (max-width: 991px) {
         .col-4, .col-8 {
-            flex: 0 0 100%;
-            max-width: 100%;
+            padding: 15px;
         }
-    }
 
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        @media (min-width: 992px) {
+            .col-4 {
+                flex: 0 0 33.3333%;
+                max-width: 33.3333%;
+            }
 
-    .card {
-        background: #fff;
-        border-radius: 4px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+            .col-8 {
+                flex: 0 0 66.6667%;
+                max-width: 66.6667%;
+            }
+        }
 
-    .card-header {
-        padding: 10px 20px;
-        background: #f8f9fc;
-        border-bottom: 1px solid #e3e6f0;
-    }
+        @media (max-width: 991px) {
+            .col-4, .col-8 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
 
-    .card-body {
-        width: 100%;
-        text-align: center;
-    }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    .chart-bar {
-        position: relative;
-        height: 400px; /* Ajuste conforme necessário */
-        width: 100%;
-    }
+        .card {
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-    canvas {
-        width: 100% !important;
-        height: 100% !important;
-    }
-</style>
+        .card-header {
+            padding: 10px 20px;
+            background: #f8f9fc;
+            border-bottom: 1px solid #e3e6f0;
+        }
 
+        .card-body {
+            width: 100%;
+            text-align: center;
+        }
+
+        .chart-bar {
+            position: relative;
+            height: 400px; /* Ajuste conforme necessário */
+            width: 100%;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <form id="formDesempenho" runat="server" class="mt-2" >
+    <form id="formDesempenho" runat="server" class="mt-2">
         <div class="row">
             <div class="col-4 ">
                 <div class="card shadow">
@@ -146,7 +145,11 @@
     </script>
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 </asp:Content>

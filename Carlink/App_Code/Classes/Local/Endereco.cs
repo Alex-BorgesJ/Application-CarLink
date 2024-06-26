@@ -87,7 +87,12 @@ namespace CarLink.Classes.Local
         public int Cep
         {
             get { return cep; }
-            set { cep = value; }
+            set 
+            {
+                if (value < 0 || value > 99999999)
+                    throw new ArgumentException("CEP inválido");
+                    cep = value; 
+            }
         }
 
 

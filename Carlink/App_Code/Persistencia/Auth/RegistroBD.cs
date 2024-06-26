@@ -71,7 +71,7 @@ namespace CarLink.Persistencia.Auth
             IDbCommand objCommand;
             IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            string query = "SELECT USU_USUARIO.USU_EMAIL, USU_USUARIO.USU_SENHA FROM USU_USUARIO WHERE USU_EMAIL LIKE ?usuEmail AND USU_ATIVIDADE = 'ATIVO'";
+            string query = "SELECT USU_USUARIO.USU_EMAIL, USU_USUARIO.USU_SENHA, USU_USUARIO.USU_NOME FROM USU_USUARIO WHERE USU_EMAIL LIKE ?usuEmail AND USU_ATIVIDADE = 'ATIVO'";
             objCommand = Mapped.Command(query, objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?usuEmail", "%" + email + "%"));
             objDataAdapter = Mapped.Adapter(objCommand);

@@ -69,7 +69,7 @@ namespace CarLink.Persistencia.Gestão
             IDbCommand objCommand;
             IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            string query = "SELECT VEI_VEICULO.*, CLI_CLIENTE.CLI_NOME FROM VEI_VEICULO LEFT JOIN CLI_CLIENTE ON VEI_VEICULO.CLI_ID = CLI_CLIENTE.CLI_ID WHERE VEI_MARCA LIKE ?veicMarca OR VEI_MODELO LIKE ?veicModel ORDER BY VEI_MARCA, VEI_MODELO";
+            string query = "SELECT VEI_VEICULO.*, CLI_CLIENTE.CLI_NOME FROM VEI_VEICULO LEFT JOIN CLI_CLIENTE ON VEI_VEICULO.CLI_ID = CLI_CLIENTE.CLI_ID WHERE VEI_STATUS='ATIVO' AND VEI_MARCA LIKE ?veicMarca OR VEI_MODELO LIKE ?veicModel ORDER BY VEI_MARCA, VEI_MODELO";
 
             objCommand = Mapped.Command(query, objConexao);
 

@@ -118,7 +118,7 @@ public partial class Paginas_CarLink_Dashboard : System.Web.UI.Page
         // Exemplo de dados dinâmicos para gráfico de barras por mês
         var labels3Json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(serviceMonthLabelsJson);
         var data3Json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(serviceMonthDataJson);
-        var colors3Json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(new[] { "#06184D", "#566DB3", "#9CAEE6", "#243B80", "#E0E8FF" });
+        var colors3Json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(new[] { "#06184D" });
 
         // Gera o script para o Chart.js
         var script = String.Format(@"

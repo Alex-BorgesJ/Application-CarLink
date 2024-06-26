@@ -14,14 +14,16 @@ namespace CarLink.Persistencia.Automotivo
         /// Insere um novo veículo no banco de dados.
         /// <param> O objeto Veiculo a ser inserido. </param>
         /// <returns> O ID do veículo inserido, ou 1 em caso de erro no MySQL, 2 em caso de outro erro. </returns>
-        public int Insert(Veiculo veiculo)
+        public int Insert(Veiculo veiculo, string cor)
         {
             int retorno = 0; // Inicializa a variável de retorno com 0, indicando sucesso inicialmente.
+            int idCor = 0;
+            idCor = FindCor(cor);
             try
             {
                 IDbConnection objConexao;
                 IDbCommand objCommand;
-                string sql = "INSERT INTO VEI_VEICULO(VEI_ANO, VEI_MODELO, VEI_MARCA, VEI_PLACA, VEI_CHASSI, VEI_QUILOMETRAGEM) VALUES(?ano, ?modelo, ?marca, ?placa, ?chassi, ?quilometragem)";
+                string sql = "INSERT INTO VEI_VEICULO(VEI_ANO, VEI_MODELO, VEI_MARCA, VEI_PLACA, VEI_CHASSI, VEI_QUILOMETRAGEM, VEI_STATUS, COR_ID) VALUES(?ano, ?modelo, ?marca, ?placa, ?chassi, ?quilometragem, ?status, ?cor)";
                 objConexao = Mapped.Connection(); // Cria uma conexão com o banco de dados usando a classe Mapped
                 objCommand = Mapped.Command(sql, objConexao); // Cria um comando SQL usando a classe Mapped
                 objCommand.Parameters.Add(Mapped.Parameter("?ano", veiculo.Ano)); // Adiciona um parâmetro para o ano
@@ -30,7 +32,9 @@ namespace CarLink.Persistencia.Automotivo
                 objCommand.Parameters.Add(Mapped.Parameter("?placa", veiculo.Placa)); 
                 objCommand.Parameters.Add(Mapped.Parameter("?chassi", veiculo.Chassi)); 
                 objCommand.Parameters.Add(Mapped.Parameter("?quilometragem", veiculo.Quilometragem));
-                
+                objCommand.Parameters.Add(Mapped.Parameter("?status", "ATIVO"));
+                objCommand.Parameters.Add(Mapped.Parameter("?cor", idCor));
+
                 objCommand.ExecuteNonQuery(); // Executa o comando SQL
                 objConexao.Close(); // Fecha a conexão com o banco de dados
                 objCommand.Dispose(); // Libera os recursos do comando SQL
@@ -57,7 +61,7 @@ namespace CarLink.Persistencia.Automotivo
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection(); // Cria uma conexão com o banco de dados usando a classe Mapped
-            objCommand = Mapped.Command("SELECT * FROM VEI_VEICULO", objConexao); // Cria um comando SQL usando a classe Mapped
+            objCommand = Mapped.Command("SELECT * FROM VEI_VEICULO V WHERE V.VEI_STATUS='ATIVO'", objConexao); // Cria um comando SQL usando a classe Mapped
             objDataAdapter = Mapped.Adapter(objCommand); // Cria um DataAdapter para preencher o DataSet
             objDataAdapter.Fill(ds); // Preenche o DataSet com os dados
             objConexao.Close(); // Fecha a conexão com o banco de dados
@@ -95,6 +99,29 @@ namespace CarLink.Persistencia.Automotivo
             objConexao.Dispose(); // Libera os recursos da conexão
             objDataReader.Dispose(); // Libera os recursos do DataReader
             return obj; // Retorna o objeto Veiculo ou null se não encontrado
+        }
+
+        public int FindCor(string cor)
+        {
+            int Id = -1;
+            IDbConnection objConexao;
+            IDbCommand objCommand;
+            IDataReader objDataReader;
+            objConexao = Mapped.Connection(); // Cria uma conexão com o banco de dados usando a classe Mapped
+            objCommand = Mapped.Command("SELECT C.COR_ID FROM COR_CORES C WHERE C.COR_NOME LIKE ?cor", objConexao); // Cria um comando SQL usando a classe Mapped
+            objCommand.Parameters.Add(Mapped.Parameter("?cor", "%" + cor + "%")); // Adiciona um parâmetro para o ID do veículo
+            objDataReader = objCommand.ExecuteReader(); // Executa o comando SQL e retorna um DataReader
+            while (objDataReader.Read()) // Loop para ler os dados do DataReader
+            {
+                Id = Convert.ToInt32(objDataReader["COR_ID"]);
+                
+            }
+            objDataReader.Close(); // Fecha o DataReader
+            objConexao.Close(); // Fecha a conexão com o banco de dados
+            objCommand.Dispose(); // Libera os recursos do comando SQL
+            objConexao.Dispose(); // Libera os recursos da conexão
+            objDataReader.Dispose(); // Libera os recursos do DataReader
+            return Id; // Retorna o objeto Veiculo ou null se não encontrado
         }
 
         //update
@@ -144,7 +171,7 @@ namespace CarLink.Persistencia.Automotivo
         {
             IDbConnection objConexao;
             IDbCommand objCommand;
-            string sql = "DELETE FROM VEI_VEICULO WHERE VEI_ID=?codigo";
+            string sql = "UPDATE VEI_VEICULO SET vei_status = 'INATIVO' WHERE vei_ID = ?codigo";
             objConexao = Mapped.Connection(); // Cria uma conexão com o banco de dados usando a classe Mapped
             objCommand = Mapped.Command(sql, objConexao); // Cria um comando SQL usando a classe Mapped
             objCommand.Parameters.Add(Mapped.Parameter("?codigo", id)); // Adiciona um parâmetro para o ID do veículo

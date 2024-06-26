@@ -91,9 +91,9 @@
                         <a class="nav-link  rounded-5" id="pills-clientes-tab" data-toggle="pill" href="#pills-clientes" role="tab" aria-controls="pills-clientes" aria-selected="false" onclick="persistActiveTab('pills-clientes-tab')">Clientes</a>
                     </li>
 
-                    <li class="nav-item" role="presentation">
+                    <%--<li class="nav-item" role="presentation">
                         <a class="nav-link  rounded-5" id="pills-mecanicos-tab" data-toggle="pill" href="#pills-mecanicos" role="tab" aria-controls="pills-mecanicos" aria-selected="false" onclick="persistActiveTab('pills-mecanicos-tab')">Mecânicos</a>
-                    </li>
+                    </li>--%>
                 </ul>
 
 

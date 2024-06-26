@@ -157,7 +157,7 @@ public partial class Paginas_CarLink_Cadastrar : System.Web.UI.Page
                 rg.Cnpj = txtBoxCNPJ.Text;
                 rg.Cpf = txtBoxCPF.Text;
                 rg.Tel = txtBoxTelCorp.Text;
-                rg.Atividade = "ATIVO";
+                rg.Atividade = "ATIVO";//---
                 rg.Plano = 1;
 
 

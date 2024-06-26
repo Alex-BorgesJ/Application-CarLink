@@ -19,13 +19,14 @@ namespace CarLink.Persistencia.Equipe
             {
                 IDbConnection objConexao;//recebe a conexão com o mapped
                 IDbCommand objCommand;//recebe o comando 
-                string sql = "INSERT INTO CLI_CLIENTE(CLI_NOME, CLI_EMAIL, CLI_TELEFONE, CLI_CPF) VALUES(?nome, ?email, ?telefone, ?cpf)";
+                string sql = "INSERT INTO CLI_CLIENTE(CLI_NOME, CLI_EMAIL, CLI_TELEFONE, CLI_CPF, CLI_STATUS) VALUES(?nome, ?email, ?telefone, ?cpf, ?status)";
                 objConexao = Mapped.Connection();// manda a conexeção para o mapped
                 objCommand = Mapped.Command(sql, objConexao);// manda o comando 
                 objCommand.Parameters.Add(Mapped.Parameter("?nome", cliente.Nome));
                 objCommand.Parameters.Add(Mapped.Parameter("?email", cliente.Email));
                 objCommand.Parameters.Add(Mapped.Parameter("?telefone", cliente.Telefone));
                 objCommand.Parameters.Add(Mapped.Parameter("?cpf", cliente.Cpf));
+                objCommand.Parameters.Add(Mapped.Parameter("?status", "ATIVO"));
 
                 objCommand.ExecuteNonQuery();
                 objConexao.Close();
@@ -51,7 +52,7 @@ namespace CarLink.Persistencia.Equipe
             System.Data.IDbCommand objCommand;
             System.Data.IDataAdapter objDataAdapter;
             objConexao = Mapped.Connection();
-            objCommand = Mapped.Command("SELECT * FROM CLI_CLIENTE", objConexao);
+            objCommand = Mapped.Command("SELECT C.CLI_ID, C.CLI_EMAIL, C.CLI_TELEFONE, C.CLI_NOME, C.CLI_CPF, CONCAT( SUBSTRING(C.CLI_CPF, 1, 3), '.', '***', SUBSTRING(C.CLI_CPF, 10, 3)) AS CPF_FORMATADO FROM CLI_CLIENTE C WHERE C.CLI_STATUS = 'ATIVO'", objConexao);
             objDataAdapter = Mapped.Adapter(objCommand);
             objDataAdapter.Fill(ds);
             objConexao.Close();
@@ -150,7 +151,7 @@ namespace CarLink.Persistencia.Equipe
         {
             IDbConnection objConexao;
             IDbCommand objCommand;
-            string sql = "DELETE FROM CLI_CLIENTE WHERE CLI_ID=?codigo";
+            string sql = "UPDATE CLI_CLIENTE SET cli_status = 'INATIVO' WHERE CLI_ID = ?codigo";
             objConexao = Mapped.Connection();
             objCommand = Mapped.Command(sql, objConexao);
             objCommand.Parameters.Add(Mapped.Parameter("?codigo", id));

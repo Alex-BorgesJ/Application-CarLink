@@ -23,6 +23,8 @@ public partial class Paginas_CarLink_EditaCliente : System.Web.UI.Page
         Registro reg = (Registro)Session["REG"];
         // Use 'reg' conforme necessário.
         Carrega();
+        if(!IsPostBack)
+            AcionaModal.Value = "False";
     }
 
     private void Carrega()
@@ -40,12 +42,13 @@ public partial class Paginas_CarLink_EditaCliente : System.Web.UI.Page
             case "Alterar":
                 codigo = Convert.ToInt32(e.CommandArgument);
                 Session["ID"] = codigo;
+                AcionaModal.Value = "False";
                 Response.Redirect("CarLink_AlterarCliente.aspx");
                 break;
             case "Deletar":
                 codigo = Convert.ToInt32(e.CommandArgument);
-                ClienteBD bd = new ClienteBD();
-                bd.Delete(codigo);
+                AcionaModal.Value = "True"; 
+                Session["ID"] = codigo;
                 Carrega();
                 break;
             default:
@@ -53,5 +56,11 @@ public partial class Paginas_CarLink_EditaCliente : System.Web.UI.Page
         }
     }
 
-
+    protected void OnClick_Yes(object sender, EventArgs e)
+    {
+        ClienteBD bd = new ClienteBD();
+        int codigo = Convert.ToInt32(Session["ID"]);
+        bd.Delete(codigo);
+        Response.Redirect(Request.RawUrl);
+    }
 }

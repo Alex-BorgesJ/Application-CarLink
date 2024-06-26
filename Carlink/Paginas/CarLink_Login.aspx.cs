@@ -54,15 +54,17 @@ public partial class Paginas_CarLink_Login : System.Web.UI.Page
             }
 
             string hashArmazenado = ds.Tables[0].Rows[0]["USU_SENHA"].ToString();
-
             string hashValida = HashSenha(txtBoxSenha.Text);
+            string userName = ds.Tables[0].Rows[0]["USU_NOME"].ToString();
 
             if (hashArmazenado == hashValida)
             {
                 Registro reg = new Registro
                 {
                     Email = txtBoxEmailCorp.Text,
-                    Senha = hashArmazenado
+                    Senha = hashArmazenado,
+                    Nome = userName
+
                 };
                 Session["REG"] = reg;
 

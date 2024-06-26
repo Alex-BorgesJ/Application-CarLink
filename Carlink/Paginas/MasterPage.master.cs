@@ -17,7 +17,11 @@ public partial class Pages_MasterPage : System.Web.UI.MasterPage
         }
 
         Registro reg = (Registro)Session["REG"];
-        // Use 'reg' conforme necessário.
+
+        if (!IsPostBack)
+        {
+            lblOficinaMecanica.Text = reg.Nome;
+        }
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)

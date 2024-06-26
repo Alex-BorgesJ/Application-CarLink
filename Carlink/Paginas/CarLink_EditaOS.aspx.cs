@@ -41,14 +41,9 @@ public partial class Paginas_CarLink_EditaOS : System.Web.UI.Page
                 Session["ID"] = codigo;
                 Response.Redirect("CarLink_AlterarOS.aspx");
                 break;
-            case "Deletar":
-                codigo = Convert.ToInt32(e.CommandArgument);
-                OrdemsvBD bd = new OrdemsvBD();
-                bd.Delete(codigo);
-                Carrega();
-                break;
             default:
                 break;
         }
     }
+
 }

@@ -29,6 +29,9 @@ public partial class Paginas_CarLink_EditaVeiculo : System.Web.UI.Page
         // Use 'reg' conforme necessário.
 
         Carrega();
+
+        if (!IsPostBack)
+            AcionaModal.Value = "False";
     }
 
     private void Carrega()
@@ -46,17 +49,27 @@ public partial class Paginas_CarLink_EditaVeiculo : System.Web.UI.Page
             case "Alterar":
                 codigo = Convert.ToInt32(e.CommandArgument);
                 Session["ID"] = codigo;
+                AcionaModal.Value = "False";
                 Response.Redirect("CarLink_AlterarVeiculo.aspx");
                 break;
             case "Deletar":
                 codigo = Convert.ToInt32(e.CommandArgument);
-                VeiculoBD bd = new VeiculoBD();
-                bd.Delete(codigo);
+                Session["ID"] = codigo;
+                AcionaModal.Value = "True";
                 Carrega();
                 break;
             default:
                 break;
         }
+    }
+
+    protected void onClick_Yes(object sender, EventArgs e)
+    {
+        int codigo = Convert.ToInt32(Session["ID"]);
+        VeiculoBD bd = new VeiculoBD();
+        bd.Delete(codigo);
+        AcionaModal.Value = "False";
+        Response.Redirect(Request.RawUrl);
     }
 
 }

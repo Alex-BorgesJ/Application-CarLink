@@ -34,9 +34,9 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
             lblPlaca.Visible = false;
         }
     }
-    protected void btnFecharModal_Click(object sender, EventArgs e)
+    protected void btnFecharModal_Click(object sender, EventArgs e)//---
     {
-        AcionaModal.Value = "False";
+        AcionaModal.Value = "False";//---
     }
 
     private void LimparCampos_Osv()
@@ -120,9 +120,9 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
                             lblMarcaModelo.Text = marcaModelo;
                             lblNomeDono.Text = nomeCliente;
                         }
-                        lblDataModal.Text = osv.Data.ToString("dd/MM/yyyy");
-                        lblObservacaoModal.Text = "Observação: " + osv.Observacao.ToString();
-                        AcionaModal.Value = "True";
+                        lblDataModal.Text = osv.Data.ToString("dd/MM/yyyy");//---
+                        lblObservacaoModal.Text = "Observação: " + osv.Observacao.ToString();//---
+                        AcionaModal.Value = "True";//---
                     }
                     else
                     {
@@ -142,7 +142,7 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
     protected void btnProcurarVeic_Click(object sender, EventArgs e)
     {
         string marcaFiltro = txtBoxVeiculo.Text.Trim();
-        AcionaModal.Value = "False";
+        AcionaModal.Value = "False";//---
 
         if (String.IsNullOrEmpty(marcaFiltro))
         {
@@ -194,13 +194,13 @@ public partial class Paginas_CarLink_Ordem : System.Web.UI.Page
         lblAno.Visible = false;
         lblKm.Visible = false;
         lblPlaca.Visible = false;
-        AcionaModal.Value = "False";
+        AcionaModal.Value = "False";//---
     }
 
     protected void dropDownModelo_SelectedIndexChanged(object sender, EventArgs e)
     {
         string veiculoId = dropDownModelo.SelectedValue;
-        AcionaModal.Value = "False";
+        AcionaModal.Value = "False";//---
 
         if (!string.IsNullOrEmpty(veiculoId) && veiculoId != "0")
         {
