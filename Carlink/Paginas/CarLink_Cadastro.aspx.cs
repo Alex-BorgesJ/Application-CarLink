@@ -55,7 +55,7 @@ public partial class Paginas_CarLink_Cadastro : System.Web.UI.Page
     // botão salvar carros
     protected void btnSalvarCarros_Click(object sender, EventArgs e)
     {
-        Veiculo veiculo = new Veiculo();
+        Veiculo veiculo = new Veiculo(); //Objeto de validação
 
         try // Bloco try para capturar erros
         {

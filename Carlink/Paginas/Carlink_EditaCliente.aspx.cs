@@ -14,7 +14,7 @@ public partial class Paginas_CarLink_EditaCliente : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["REG"] == null)
+        if (Session["REG"] == null)//confere a credencial do usuario para ver se esta logado ou não
         {
             Response.Redirect("CarLink_Login.aspx");
             return; // Adiciona um return após o redirecionamento para garantir que a execução pare aqui
