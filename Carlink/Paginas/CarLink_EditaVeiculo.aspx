@@ -14,8 +14,6 @@
         }
     </style>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container-fluid mb-5">
@@ -53,7 +51,7 @@
             <div class="card-body shadow-lg rounded">
                 <div class="table-responsive ">
                     <asp:GridView ID="GridView" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView_RowCommand" class="table table-bordered">
-                        <Columns>
+                        <columns>
                             <asp:BoundField HeaderText="Identificador" HeaderStyle-CssClass="titulo" ItemStyle-CssClass="infos" DataField="VEI_ID" />
                             <asp:BoundField HeaderText="Ano" HeaderStyle-CssClass="titulo" ItemStyle-CssClass="infos" DataField="VEI_ANO" />
                             <asp:BoundField HeaderText="Marca" HeaderStyle-CssClass="titulo" ItemStyle-CssClass="infos" DataField="VEI_MARCA" />
@@ -63,21 +61,21 @@
                             <asp:BoundField HeaderText="Quilometragem" HeaderStyle-CssClass="titulo" ItemStyle-CssClass="infos" DataField="VEI_QUILOMETRAGEM" />
 
                             <asp:TemplateField>
-                                <ItemTemplate>
+                                <itemtemplate>
                                     <div class="d-flex justify-content-start">
                                         <asp:LinkButton ID="lbAlterar" runat="server" CommandName="Alterar"
                                             CommandArgument='<%# Bind("VEI_ID")%>' CssClass="btn btn-success mx-2 d-inline-block w-auto">
-                                                <i class='bx bx-pencil'></i>Alterar
+                                            <i class='bx bx-pencil'></i>Alterar
                                         </asp:LinkButton>
 
                                         <asp:LinkButton ID="lbDeletar" runat="server" CommandName="Deletar"
                                             CommandArgument='<%# Bind("VEI_ID")%>' CssClass="btn btn-danger mx-2 d-inline-block w-auto">
-                                                <i class='bx bxs-trash'></i>Excluir
+                                            <i class='bx bxs-trash'></i>Excluir
                                         </asp:LinkButton>
                                     </div>
-                                </ItemTemplate>
+                                </itemtemplate>
                             </asp:TemplateField>
-                        </Columns>
+                        </columns>
                     </asp:GridView>
                 </div>
             </div>
@@ -94,10 +92,9 @@
         </form>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </asp:Content>
